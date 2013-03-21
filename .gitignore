@@ -40,5 +40,7 @@ ENV
 # Ignore database files.
 *.db
 
+# Temp files
+*.swp
 # Rope
 .ropeproject

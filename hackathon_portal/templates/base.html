@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    {% block head %}
+    {# <link rel="stylesheet" href={{ get_static_url("css/reset.css") }} type="text/css"/> #}
+    {# <link rel="stylesheet" href={{ get_static_url("css/default.css") }} type="text/css"/> #}
+    <link rel="stylesheet" href={{ get_static_url("bootstrap/css/bootstrap.css") }}>
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="header">{% block header %} <h1>Yelp Hackathon</h1> {% endblock %}</div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+             Hackathon 10 Project - Hackathon Portal by chao, imalison, jchuah, jkotker, ssridhar
+        {% endblock %}
+    </div>
+</body>
+
+</html>
+

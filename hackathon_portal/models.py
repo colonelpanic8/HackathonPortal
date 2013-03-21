@@ -18,9 +18,9 @@ class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
-    yelp_handle = db.Column(db.String(250))
+    yelp_handle = db.Column(db.String(250), unique=True)
 
-    awards = db.relationship('Award', backref='persons')
+    # awards = db.relationship('Award', backref='persons')
 
 
 class Hackathon(db.Model):
@@ -28,11 +28,25 @@ class Hackathon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 
+class Award(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True)
+
+
 ProjectToPerson = db.Table(
-    'association',
+    'project_to_person',
     db.Model.metadata,
-    db.Column('project_id', db.Integer, db.ForeignKey("Project.id")),
-    db.Column('person_id', db.Integer, db.ForeignKey("Person.id"))
+    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
+    db.Column('person_id', db.Integer, db.ForeignKey("person.id"))
+)
+
+
+AwardToProject = db.Table(
+    'award_to_project',
+    db.Model.metadata,
+    db.Column('award_id', db.Integer, db.ForeignKey('award.id')),
+    db.Column('project_id', db.Integer, db.ForeignKey('project.id'))
 )
 
 
@@ -45,21 +59,4 @@ class Project(db.Model):
     link = db.Column(db.String(250))
 
     persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
-    awards = db.relationship('Award', backref='projects')
-
-
-class Award(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), unique=True)
-
-    persons = db.relationship('Person', backref='awards')
-    projects = db.relationship('Project', backref='awards')
-
-
-class AwardToProject(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
-    hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
-    award_id = db.Column(db.Integer, db.ForeignKey(Award.id))
-    project_id = db.Column(db.Integer, db.ForeignKey(Project.id))
+    awards = db.relationship('Award', secondary=AwardToProject, backref='projects')
