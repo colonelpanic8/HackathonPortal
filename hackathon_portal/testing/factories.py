@@ -37,6 +37,7 @@ def description():
 def link():
     return "https://github.com/IvanMalison/HackathonPortal"
 
+
 class BaseFactory(object):
 
     def __init__(self, model):

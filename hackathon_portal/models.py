@@ -7,26 +7,36 @@ db = SQLAlchemy(app)
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())
 
 
-class Person(db.Model):
+class BaseModel(db.Model):
+
+    def __init__(self, **kwargs):
+        for key, value in kwargs.iteritems():
+            setattr(self, key, value)
+
+
+class Person(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
     yelp_handle = db.Column(db.String(250))
 
-    projects = db.relationship('Project', backref='persons')
     awards = db.relationship('Award', backref='persons')
 
-    def __init__(self, name="", yelp_id=""):
-        self.name = name
-        self.yelp_id = yelp_id
 
-
-class Hackathon(db.Model):
+class Hackathon(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
 
 
-class Project(db.Model):
+ProjectToPerson = SQLAlchemy.Table(
+    'association',
+    BaseModel.metadata,
+    db.Column('project_id', db.Integer, db.ForeignKey("Project.id")),
+    db.Column('person_id', db.Integer, db.ForeignKey("Person.id"))
+)
+
+
+class Project(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True)
@@ -34,28 +44,11 @@ class Project(db.Model):
     description = db.Column(db.String(5000))
     link = db.Column(db.String(250))
 
-    persons = db.relationship('Person', backref='projects')
+    persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
     awards = db.relationship('Award', backref='projects')
 
-    def __init__(self, name="", hackathon=0, description="", link=""):
-        self.name = name
-        self.hackathon = hackathon
-        self.description = description
-        self.link = link
 
-
-class ProjectToPerson(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey(Project.id))
-    person_id = db.Column(db.Integer, db.ForeignKey(Person.id))
-
-    def __init__(self, project_id, person_id):
-        self.project_id = project_id
-        self.person_id = person_id
-
-
-class Award(db.model):
+class Award(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
@@ -63,18 +56,10 @@ class Award(db.model):
     persons = db.relationship('Person', backref='awards')
     projects = db.relationship('Project', backref='awards')
 
-    def __init__(self, name):
-        self.name = name
 
-
-class AwardToProject(db.model):
+class AwardToProject(BaseModel):
 
     id = db.Column(db.Integer, primary_key=True)
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
     award_id = db.Column(db.Integer, db.ForeignKey(Award.id))
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id))
-
-    def __init__(self, hackathon_id, award_id, project_id):
-        self.hackathon_id = hackathon_id
-        self.award_id = award_id
-        self.project_id = project_id
