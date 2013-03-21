@@ -1,0 +1,3 @@
+[submodule "hackathon_portal/static/bootstrap"]
+	path = hackathon_portal/static/bootstrap
+	url = git@github.com:twitter/bootstrap.git
