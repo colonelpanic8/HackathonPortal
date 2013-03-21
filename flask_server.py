@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import os
 
-import app
-import routes
+from hackathon_portal import app
+from hackathon_portal import routes
+
 
 from util import parse_host_and_port
 
