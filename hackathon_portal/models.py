@@ -13,7 +13,7 @@ class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
-    yelp_id = db.Column(db.String(250))
+    yelp_handle = db.Column(db.String(250))
 
     def __init__(self, name="", yelp_id=""):
         self.name = name
@@ -28,7 +28,7 @@ class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True)
-    hackathon = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
+    hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
     description = db.Column(db.String(5000))
     link = db.Column(db.String(250))
 
