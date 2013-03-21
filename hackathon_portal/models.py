@@ -7,14 +7,14 @@ db = SQLAlchemy(app)
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())
 
 
-class BaseModel(db.Model):
+def model_init(self, **kwargs):
+    super(db.Model, self).__init__()
+    for key, value in kwargs.iteritems():
+        setattr(self, key, value)
+db.Model.__init__ = model_init
 
-    def __init__(self, **kwargs):
-        for key, value in kwargs.iteritems():
-            setattr(self, key, value)
 
-
-class Person(BaseModel):
+class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
@@ -23,20 +23,20 @@ class Person(BaseModel):
     awards = db.relationship('Award', backref='persons')
 
 
-class Hackathon(BaseModel):
+class Hackathon(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
 
 ProjectToPerson = SQLAlchemy.Table(
     'association',
-    BaseModel.metadata,
+    db.Model.metadata,
     db.Column('project_id', db.Integer, db.ForeignKey("Project.id")),
     db.Column('person_id', db.Integer, db.ForeignKey("Person.id"))
 )
 
 
-class Project(BaseModel):
+class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True)
@@ -48,7 +48,7 @@ class Project(BaseModel):
     awards = db.relationship('Award', backref='projects')
 
 
-class Award(BaseModel):
+class Award(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
@@ -57,7 +57,7 @@ class Award(BaseModel):
     projects = db.relationship('Project', backref='awards')
 
 
-class AwardToProject(BaseModel):
+class AwardToProject(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
