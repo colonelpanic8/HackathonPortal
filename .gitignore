@@ -34,5 +34,8 @@ nosetests.xml
 .project
 .pydevproject
 
-# 
+# For virtualenv
 ENV
+
+# Ignore database files.
+*.db
