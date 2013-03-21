@@ -24,6 +24,7 @@ class Hackathon(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
+
 class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -48,3 +49,25 @@ class ProjectToPerson(db.Model):
     def __init__(self, project_id, person_id):
         self.project_id = project_id
         self.person_id = person_id
+
+
+class Award(db.model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True)
+
+    def __init__(self, name):
+        self.name = name
+
+
+class AwardToProject(db.model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
+    award_id = db.Column(db.Integer, db.ForeignKey(Award.id))
+    project_id = db.Column(db.Integer, db.ForeignKey(project.id))
+
+    def __init__(self, hackathon_id, award_id, project_id):
+        self.hackathon_id = hackathon_id
+        self.award_id = award_id
+        self.project_id = project_id
