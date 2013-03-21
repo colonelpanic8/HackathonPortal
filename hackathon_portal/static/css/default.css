@@ -1,0 +1,44 @@
+a {
+	color: #576454;
+	text-decoration: underline;
+}
+
+body {
+	font-size: 12pt;
+	line-height: 2em;
+	font-family: Trebuchet MS, sans-serif;
+	background: #f1f0f0;
+	color: #393835;
+	text-shadow: 0 1px 0 #ffffff;
+    	text-align: center;
+}
+
+#content {
+	margin: auto;
+	overflow: hidden;
+	text-align: center;
+	width: 960px;
+	background: #ffffff;
+}
+
+#footer
+{
+    	text-align:center;
+    	font-size:0.95em;
+	padding: 28px;
+}
+
+#header {
+	padding: 28px;
+	height: 126px;
+	width: 1124px;
+	margin: 0 0 24px 0;
+}
+
+.project-box {
+	margin: 20px;
+	float: left;
+	width: 300px;
+	height: 200px;
+	border: red solid 1px;
+}

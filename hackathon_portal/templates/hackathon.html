@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Hackathon {{ hackathon_id }}{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div content-header>
+        <h2>Hackathon {{ hackathon_id }}</h2>
+	<p>3/16/2013</p>
+        <p>30 projects</p>
+    </div>
+    <ul>
+        {% for project in project_list %}
+            <li class="project-box" style="background-image: {{ project['cover_img'] }}">
+                <h3>{{ project['title']  }}</h3>
+                <p>{{ project['description'] }}</p>
+                {{ (', ').join(project['members']) }}
+            </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
