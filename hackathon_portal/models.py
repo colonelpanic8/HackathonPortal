@@ -28,7 +28,7 @@ class Hackathon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 
-ProjectToPerson = SQLAlchemy.Table(
+ProjectToPerson = db.Table(
     'association',
     db.Model.metadata,
     db.Column('project_id', db.Integer, db.ForeignKey("Project.id")),
