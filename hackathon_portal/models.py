@@ -13,6 +13,9 @@ class Person(db.Model):
     name = db.Column(db.String(250))
     yelp_handle = db.Column(db.String(250))
 
+    projects = db.relationship('Project', backref='persons')
+    awards = db.relationship('Award', backref='persons')
+
     def __init__(self, name="", yelp_id=""):
         self.name = name
         self.yelp_id = yelp_id
@@ -30,6 +33,9 @@ class Project(db.Model):
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
     description = db.Column(db.String(5000))
     link = db.Column(db.String(250))
+
+    persons = db.relationship('Person', backref='projects')
+    awards = db.relationship('Award', backref='projects')
 
     def __init__(self, name="", hackathon=0, description="", link=""):
         self.name = name
@@ -53,6 +59,9 @@ class Award(db.model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
+
+    persons = db.relationship('Person', backref='awards')
+    projects = db.relationship('Project', backref='awards')
 
     def __init__(self, name):
         self.name = name
