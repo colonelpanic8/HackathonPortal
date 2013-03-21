@@ -1,0 +1,226 @@
+[[TOC]]
+
+= Yelp Hack-A-Thon =
+1)  When is it?
+
+  11/18/2010-11/19/2010
+
+  We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations and awards.
+
+  We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+
+2) Who's invited to hack at the hack-a-thon?
+
+  Everyone in product, systems and developers (interns included).
+
+3) What can I work on?
+
+  Whatever you want!
+
+  Scratch your developer itches. If you need some suggestions:
+
+ * Visualization or other views - we have a lot great data that can be mined
+ * Product features that you'd love to see on the site
+ * Widgets
+ * Cool examples of our public API
+ * Tools to make your or your fellow developer lives easier
+ * Mehfil feed -- err, perhaps this one is already done
+
+4) If I build a cool product feature, will we launch it?
+
+  Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+
+5) Can I start hacking before the hack-a-thon?
+
+  Sure can -- but do it on your own time.
+
+6) Can I hack by myself?
+
+  We're a team here at Yelp, not a bunch of lone gunmen. Lets try for teams of 2-3. If you need help finding a partner, let me know. You can also use the wiki to post your ideas and solicit help.
+
+7) Awards?
+
+  TBD
+
+== Ideas ==
+ * (Ian) some sort of acknowledgement for users who contribute good, useful info to the queue
+   * kind of a followup to this thread http://www.yelp.com/topic/boston-yelps-lack-of-appreciation-for-fixing-bad-information
+   * "I just think there has to be some way to tap into all of this volunteer effort to make Yelp not only a good review repository, but also an excellent database for locating businesses. People will run around and check in to places to become a "duke," so it stands to reason they would pitch in to correct duplicates, closed businesses, and bad addresses if they were given some sort of +1."
+   * I think we already ARE an excellent database for locating businesses, of course, but it would be cool to be able to appreciate the esp helpful contributors and/or a notification system that said "the change you submitted has been accepted/rejected"
+ * Live Local Music (artem, dave, jlatt, jrheard, tamir, bryce) - Make finding great local music as awesome as finding a great local restaurant
+   * Infrastructure:
+     * Bands are treated like local businesses (you can review them, they have relevant categories, a home city, etc.)
+     * Music events have metadata about which bands are playing
+     * You should be able to review a music event; the reviews also apply to the musician(s) you heard play, and the venue
+   * Scrape jambase, last.fm, sonicliving, Yoshi's webpage, etc. for concert info
+   * Integrate music events into search (if you search for live music, it should show you upcoming concerts near you, even if the bands' home city is elsewhere)
+   * On a venue's biz details page (e.g. http://www.yelp.com/biz/the-independent-san-francisco), display a list of upcoming shows and sell tickets through ticket vendors' affiliate programs. Hella monetizable. (jrheard)
+   * Alerts when your favorite bands play near you
+   * Music samples on a band's biz details page (like on MySpace).
+   * Buy CDs or tracks on iTunes
+   * Group ticket buying: a venue and a band can agree to hold a concert IF enough people buy tickets, and the more people who buy tickets, the less everyone has to pay.
+     * I don't think anyone does this yet, and there ought to be serious $$$ to be made here. :)
+   * iPhone app integration
+     * find concerts happening tonight near you
+     * free tracks for checking in at a certain business
+     * download tracks directly to iTunes
+     * bands can create custom badges for fans who come to a lot of their concerts (mattj can give pointers)
+
+
+ * Featuring new businesses! (bchess, kmitton, jretz, pwais)
+   * The idea is to make users aware of new businesses. This page http://www.yelp.com/sm/san-francisco-ca-added is just for SEO and isn't really useful to end users.
+   * Upon writing a review for some business that was entered into the DB within the last year, end-users are asked via checkbox if it is a new business (vs an existing one that we just now know about)
+     * (jrheard) for what it's worth, i built the business opening date system, which has been quietly collecting business opening dates on /writeareview/newbiz for about two months now. see the business_opening_date table, or the BusinessOpeningDate model. you already have this information. take it. :)
+   * Enough of these checkboxes and from trusted users will mean that the business is flagged as "new"
+   * New businesses are automatically featured on search, business, and category pages by giving them a free temporary ad campaign.
+   * After the trial ends, when traffic to their biz details page drops, it's a good excuse for sales to make a cold call.
+
+ * KegMate backend - KegMate needs a backend! This would allow a unified user/beers/stats db from which we could pull cool graphs (maybe lines of code committed vs beer consumption?), info, automatically check people into levchins. We could also wire up Jeff Micklos's hot bookmarklet once there's a backend so that everyone could easily check the status of the beers from their browser. Talk to me (johnb) or someone else in the kegmate team if you're interested.
+
+ * Yelpspotting: A [http://www.tastespotting.com/ tastespotting] like interface to yelp photos which uses some metric of [http://www.flickr.com/explore/interesting/ interestingness] to show (recent?) cool photos.  Ideally would allow filtering to neighborhoods or types of businesses.  Possible interestingness metrics: outside links, followed outside links, user votes, number of photos posted by photo poster, mention in talk thread, etc. (pretz)
+
+
+ * Bringing Yelpers and Businesses closer: Each of these three (separate) ideas are great revenue opportunities (Bling?). The first two are pretty easy, and I'm looking for people who want to work on this, so if you see something you like, ping me (ryand).
+   * Track Your Competition (easy).
+     * Local businesses need competitive intelligence to stay ahead of their local competition, and will often be willing to pay for it. For a small fee, we could deliver them an email update on their competitor's review trends, offers and ads shown. Knowing that their competitors are advertising on Yelp may even encourage them to advertise on Yelp for themselves.
+       * UI: A page to add businesses (their competition) that they'd like to follow.
+       * Infra: Batch to check for the latest offers & ads for those businesses + compare reviews from week to week, to generate an email to be sent to the business owner.
+   * Follow a Biz (a bit less easy).
+     * Yelpers, do you love a local biz? Why not follow it, and get weekly or monthly invites to events, or deals from that business. 
+     * This is CRM 101 for local businesses. Business owners, give your loyal customers great deals and invite them back to your business. 
+       * UI: Create a follow-link on a businesses page, and a 'Businesses I'm following' section (to remove businesses).
+       * UI: Biz.yelp, see who is following you and create offers targeted specifically for them.
+       * Infra: Batch to grab the latest offers for businesses and generate an email to customers following those businesses.
+   * Yelp Invites (pretty challenging)
+     * Yelpers, invite friends to dinner & drinks on Yelp while... 
+     * A) Increasing sign-ups virally by tapping into Yelper's social network and 
+     * B) (for Bling!) Enable businesses to offer deals for groups of Yelpers. "Free appetizer for Yelpers of 10 or more!", anyone?
+       * Note: Some of this work has already been done in a previous hackathon.
+       * UI: Probably the most complex - tweak the event UI to handle consumer created events where you can invite your non-yelp friends and choose between venues.
+       * UI: Create a message board to enable communication before the event (we could later tie mobile in to do this during the event too).
+       * UI: biz.yelp, create a page to customize offers for large groups to entice them to visit your business.
+       * Infra: Batch event updates, follow up on events to increase customer engagement.
+
+ * List to Badge: We should take the user-generated content bar even higher with badges. An easy way to do this is to leverage existing Yelp List content, because most badges follow the check-into-these-specific-places-or-categories paradigm. I think we should restrict badge creation to Elites or even CMs; they could have an easy way of making a badge for their community from the List of the Week. I think going to production with this would help to differentiate us in the checkins space. (alexd, mattj)
+
+ * Bookmark Tagging: Get rid of the two default bookmark "tags" and allow people to add tags any way they want to make lists of businesses. (benb)
+
+ * [wiki:yelp-puzzles] - Have a puzzle page similar to facebook puzzles (http://www.facebook.com/careers/puzzles.php) for recruiting purposes... maybe make it a bit Zen. (duncan)
+   * If prettiness is needed, I can help... (hannah)
+
+ * Tamale Lady Finder - Some way to track food carts. Maybe this involves hardware, or maybe it is simply a way for food carts can update their location from the mobile apps. Additionally / alternately this could look for location updates from the business's twitter feed since many food carts already use that to update people of their location. SIdenote: Twitter integration on biz pages would be generally cool/useful also. (johnb's idea, though I think I'll be doing something else)
+
+ * Better Badges - I (Jeff) have this grand idea about really awesome mobile badges, if you are interested, let us talk.
+
+ * Giant, pretty visualizations for TVs around the office (benb)
+   * #internalapps visualizations: emails, biz changes queue, salesforce (sumeet)
+
+ * touch.yelp.com for iPhones, iPads, Androids, whatever (benb)
+   * Oo Oo Mister Kotter me too me too! (greg)
+   * (jon) - I've got an idea for this as well of refactoring all existing site functionality to show up nicely in mobile webkit. Â Need a backender!
+
+ * Trip planner - find places to visit along a route on a map (benb)
+   * (derwiki) I think Jason built this for the first hackathon...
+
+ * Yelp Recommends - Netflix-style recommendations such as "Our best guess for you" and "Restaurants you'll love" based on people's past ratings. (adamb)
+   * Along these lines:  how about a 20-questions style interface like bizzy.com?  I (timr) have got a few ideas for similarity scoring that could be implemented quickly.
+   * A much more basic version of this was done for the first hackathon by mattj and hannah (and someone else I don't remember :P)
+
+ * Check-in API (rhett, mattj)
+   * Expose some check-in data in our API and build some sample external-to-yelp-apps that could use it.
+
+ * EMR management layer (derwiki, ...)
+   * it's a PITA to worry about persistent sessions and stuff -- it would be neat to have a layer that takes care of all of this for us, and have low priority jobs just queue up.
+   * $$$ saved -> direct value to company -> ... -> profit? -> BLING
+   * not a product idea, so doesn't need product approval to productionize
+
+ * Yelpify YelpQA (people.yelpcorp.com:3030) (derwiki)
+   * IRC announcements, better search, restyling the page to suit our fancy...
+     
+ * What we've been calling "a node database", to keep track of information about the hardware we manage, with snapshotting of machine state, querying ("all machines that have more than 32gig of ram and have something listening on port 8000"), maintenance logs (what we use systems+changes for now) (abakun)
+
+ * more git visualizations, for display on a HUD.  Of course there's code swarm (http://vis.cs.ucdavis.edu/~ogawa/codeswarm/) which I think bigo ran against our repo at one time in the past, but I'm thinking something more live/real-time and maybe has some probes into individual people's clone's. More detail at HackathonGitVisualizations (abakun)
+
+* benb's idea: a new Shootie with a nice UI and comments that works with [https://github.com/rsms/scrup scrup] (sumeet & Mark)
+
+* Review Board enhancements. I bet there's stuff we can do to make this tool better. We use it so much that it's worth a look. (sumeet)
+   * Markdown in comments
+
+* edmund's lunch train IRC bot idea: register a train for <place> at <time> and `!jump` on. notify people when it's time to leave. (sumeet)
+
+* HackAThon web application that we can use next time instead of editing a wiki page. This sucks. I want people to know I think their ideas are good. I want commenting and non-anonymous voting. And categories. (sumeet)
+  * (derwiki) have you thought of translating to YelpQA as a question/answer thread?
+
+* pastebin is ugly. We could either make a new one related to Shootie or simply style the one we're using now. (sumeet)
+
+* Expose some pthreads primitives with timed-out acquires (in particular, the mutex and the condition variable) safely via a Python C module. Make Python concurrency primitives that won't be portable but also won't suck. Also, maybe make a safe way to stop threads --- I don't know anything about Python internals but I'm excited to play around with these and whatever ideas you may have. (shivaram)
+
+* An idea of jbrown's: use UDP multicast to transfer large files to many hosts simultaneously (this has the potential to speed up search index distribution by a factor of 5). (shivaram)
+
+* Yelp company theme song and music video. (avinson, alex o. and patrick d.)
+
+* Check In Suggestions -- offer the user a list of things to do in day/night based on other users' previous checkin trails (alan)
+
+* Voting Time Waster -- we show you two things, you vote for your favorite, refresh! Works for photos, reviews...you name it! (alan)
+
+* Service Provider RFP (Request For Proposal) -- E.G. if you're searching for a mover you can create a note that is sent to all movers in your city that have asked to be contacted when users are looking for the service they offer. We could charge the service providers on a per lead basis but keep the user's identity anonymous until they choose to disclose it to the business owner. Win for both consumers and business owners. (Neil, Eskil, Bryan, Chao) '''Done in hackathong III'''
+
+* (wing) Gary Danko has 2288 reviews. What are the 2248 that don't get shown on the biz details page telling us? I haven't thought about it much yet but it could be an interesting brainstorm:
+ * filter reviews by user attributes like gender and age and location and date, ones that include photos (and more controversial ones, like name country of origin, or inferred ones based on profile/review text like "I'm a vegetarian"), maybe using something like this: http://www.simile-widgets.org/exhibit/examples/cereals/cereal-characters.html
+ * find mentions of other businesses: "better than X", "not as good as Y", "prefer Z"
+ * common phrases around things people care about like ambiance, service, etc.
+
+* (wing) best of yelp (like best of craigslist)
+ * http://www.yelp.com/biz_photos/lj_PZ56a3GI4snjxN1qOmQ?select=09D2eSzjHo9MEnrKi50f1g
+
+* (nikhil c/o alan)
+ * "Holla at me"
+ * Basically we let Yelp users enter what local service their looking for, as well as some structured criteria about the specifics of their need (minimum business rating, specific service etc.). Then the user clicks a button that says "Holla at me."
+ * We make these requests (or "leads") available to business owners who meet the criteria specified by the user and who have signed up for "Holla at me"
+ * When a new request comes in, a random business owner who meets all of the user's criteria is called by an Automated Yelp system. It reads them the details of the request (via text to speech software) and lets them press 1 to contact the person and 2 to not contact the person.
+ * When business owners sign up for "Holla at me" they agree to pay $7 per user that they choose to contact. When they press "1", the phone system calls the user who submitted the request, and if the business owner is successfully put in touch with the user, the business owner's credit card is charged $7.
+ * When the phone call ends, the user is called back by the automated phone system, and it asks him if he would like to hear from someone else. "1" if yes, "2" if no. If yes, the process repeats itself and the next business to contact that user gets charged $7. 
+ * I've heard great things about Twilio's API for handling automated phone systems like this. I think this would be awesome for users, local businesses and Yelp, Inc.
+ * If annnnnnnnyone is remotely interested, I'd love to chat with them more about it. There are a bunch of ways this could be configured ranging from the super simple to the super complex.
+
+* Tron (rhettg)
+  * Build a web front-end on top of the tron web services interface (show status of running jobs, cools graphs etc. Basically continuing mtytel's work)
+  * Possibly better support for running services
+
+* Mirror Mirror on the Wall
+  * Smart mirror in the bathroom that rates your appearance for the day
+
+== Teams ==
+
+ * MRPig - Querying system for JSON data built on top of MRJob. (juliank, bheil, smg, (possibly shivaram))
+   * Similar to http://pig.apache.org but working over the nested structured data that we have.
+   * Think of commands of `FILTER IN WHERE foo.bar = 'baz'` followed by `HISTOGRAM quux` which would output the counts for each value of quux where the filter matched.
+ * '''138'''
+   * a top secret team with top secret members
+
+* Check In Journeys (achao and alan)
+ * Use previous checkin journeys from other users to generate an itinerary on the fly 
+
+ * Tamale Lady Finder - Some way to track food carts. Maybe this involves hardware, or maybe it is simply a way for food carts can update their location from the mobile apps. Additionally / alternately this could look for location updates from the business's twitter feed since many food carts already use that to update people of their location. SIdenote: Twitter integration on biz pages would be generally cool/useful also. (johnb's idea, though I think I'll be doing something else)
+  * jfennell and benjamin are working on this. If someone from mobile and/or frontend wants to help us with a UI, that would be awesome.
+
+ * Weekly Yelp Redux (derwiki, benb, duncan, tianyu)
+   * Create a personalized weekly for each recipient, with features like:
+      * Your next review awaits
+      * Timeline: X of your friends checked in at Fly Bar last week, this restaurant near you just got a new 5 star review
+      * Popular spots in your area (based on check-ins)
+
+* OpenLocal API (mtai, jduncan, ryand [part-time])
+  * Expose ways for business owners to update business info WITHOUT going through biz owner site
+  * Expose Yelp's basic business listing data through Javascript dropins
+
+* UPIP (jbrown, shivaram)
+  * Do stuff
+  * With C
+  * And Python
+
+
+
+== Previous Hackathon Ideas, Projects and Teams ==
+ * HackathonTheBeginning - Our first hackathon in Yelp history.
+ * HackathonTheReturn - The second hackathon in Yelp history.
