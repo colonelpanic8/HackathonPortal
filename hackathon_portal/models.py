@@ -1,6 +1,4 @@
 from flask.ext.sqlalchemy import SQLAlchemy
-from sqlalchemy.types import TypeDecorator, VARCHAR
-from sqlalchemy.orm.exc import NoResultFound
 
 from . import app
 
@@ -65,7 +63,7 @@ class AwardToProject(db.model):
     id = db.Column(db.Integer, primary_key=True)
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
     award_id = db.Column(db.Integer, db.ForeignKey(Award.id))
-    project_id = db.Column(db.Integer, db.ForeignKey(project.id))
+    project_id = db.Column(db.Integer, db.ForeignKey(Project.id))
 
     def __init__(self, hackathon_id, award_id, project_id):
         self.hackathon_id = hackathon_id
