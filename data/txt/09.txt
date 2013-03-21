@@ -1,0 +1,126 @@
+= Hackathon 9.0 =
+[[TOC]]
+
+== FAQ ==
+1)  When is it?
+
+  11/1/2012-11/2/2012
+
+  We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations. Watch out for emails from engrec for more specific schedule info.
+
+  We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+
+  There's also a mixer Monday 10/29 6-7pm on the 10th floor to help you find partners to hack with. Pizza will be provided.
+
+2) Who's invited to hack at the hack-a-thon?
+
+  Everyone in product, systems and developers (interns included).
+
+3) What can I work on?
+
+  Whatever you want! Scratch your developer itches. Write cool stuff. Build a wooden box if the mood strikes you. If you need some suggestions:
+
+ * Visualization or other views - we have a lot great data that can be mined
+ * Widgets
+ * Cool examples of our public API
+ * Tools to make your or your fellow developer lives easier
+ * Mehfil feed -- err, perhaps this one is already done
+
+4) If I build a cool product feature, will we launch it?
+
+  Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+
+5) Can I start hacking before the hack-a-thon?
+
+  Sure can -- but do it on your own time.
+
+6) Can I hack by myself?
+
+  We're a team here at Yelp, not a bunch of lone gunmen. Let's try for teams of 2-3. If you need help finding a partner, check out the mixer details in the answer to 1). You can also use this page to post your ideas and solicit help. If all else fails, just show up on Thursday morning and ask to join a team that seems cool.
+
+7) Awards?
+
+  We have five awards categories. Winners will be voted on by you and your fellow engineers. The votes will be tallied and votes will be distributed sometime later.
+
+ * Useful
+ * Funny
+ * Cool
+ * Hardcore
+ * Unhack
+
+8) Hack-a-thon, Hackathon, HackAThon, Hack@thon. Which one is canonical?
+
+  Our jargon has the consistency of 18th century English.
+
+9) Problems, Issues, or Ideas?
+
+  Come talk to Jason (jfennell), KB (ashleykb) or Pita (pcheng), since we are making this happen.
+
+== Hackathon Dataset ''__UPDATED__'' ==
+We have a hackathon dataset available for you to make your data-related projects with.
+
+This has recent data from prod for a lot of useful tables including reviews, checkins, quicktips, users, businesses, friendships and menus!!
+
+Its all stored in S3. You can download a few chunks of it onto your local machine to develop with, and then point your map reduce job to the full dataset while running it on the EMR to quickly and easily process all of it.
+
+You can read about it [http://people.yelpcorp.com/~aditya/hackathon.html here].
+
+Contact aditya@yelp.com with questions.
+
+== Previous Hackathons ==
+Can't think of a good idea? Steal an unimplemented one from one of [wiki:HackAThon these old Hackathon pages]
+
+== Ideas ==
+Put your project ideas here. If you're interested in a project, feel free to add yourself to the list for that project.
+
+ * '''Unhack base_cmd! ''' (skrisman) I think long term what we should be able to do is mock out a servlet just like any other class. Considering the number of methods on our servlets this currently is impossible. What i'd like to do is either 1. pull some responsibilities from base_cmd into new classes or 2. break servlet inheritance chain (think ValidationMixin #23297)
+ * '''Photo-based "stuff around me" browsing feature''' (bknight) - High quality hand-selected food photos only (a la Airbnb), slideshow/swipe interface, no biz info or rating visible - just the photo, until the user interacts.  Mashup with menus data?  Think of this as the Foodspotting app but by Yelp.
+ * '''Neighborhood pages''' (bknight) - Similar to category landing.  Photo mosaic, best-of category mashup.  ''Related:'' City neighborhood overview, useful for travelers deciding where to go in town for the good stuff.
+ * '''Make location bar smarter''' (bknight) - add to the data it can understand, like lat/long or simply "Castro" or "Mission"
+ * '''New ajax loader''' (bknight) - Maybe pure CSS?
+ * '''Serve biz photos at 2X for retina displays on www''' (bknight) - There's a cool technique for serving super high resolution photos to Retina displays described in this ALA artcile: http://www.alistapart.com/articles/mo-pixels-mo-problems/ that uses a solution called [https://github.com/scottjehl/picturefill Picturefill]
+ * '''Implement source maps for debugging compiled !JavaScript''' (bknight)- http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
+ * '''Convert Localizables scripts from Bash to Python.''' (kmitton) --- Just go and do #31250.  Drop-in replacements with (heavily-mocked, sumeet-style) unittests.  Does not involve losing an iPhone, but that can be arranged if that's a selling point.
+ * '''iOS Elite Event Party Pass Scanner''' (elerner, sli, jchuah) - Community is currently working on an awesome system for Elite Event party passes. It would be great to build a native iOS scanner on top of this to allow for faster offline scanning/syncing, name lookup, and possibly other cool things. Been meaning to dive into Objective-C? This might be well scoped as a first iOS project. Maybe we will ''attend'' some awesome Elite Parties too, for testing purposes of course!
+ * '''ASCII art collection website''' (cshoop) --- I need more ascii art for ship its! Some really lazy googling leads me to believe there aren't any great sites for crowd sourced ascii art (my favorite so far but still pretty static http://www.heartnsoul.com/ascii_art/ascii_animals_indx.htm). Django + some tag/voting apps + learning to draw ascii art = yay!
+ * '''Easy holiday shopping with GCs''' (cshoop) --- Enter a list of yelp peeps you care about, get back a list of gift certificates from places they seem to like. Great for that birthday you forgot about or all those pesky Christmas gifts you put off shopping for...
+ * '''YELP HARD''' (tkadich) - In this Yelp themed short feature based off the greatest Christmas movie of all time (Die Hard), John Mclain visits his wife, a Yelp employee, during a hackathon, but the event soon comes under fire from terrorists seeking to steal The Yelps... Seeking actors/production crew/vfx editors.
+ * '''Better conflict detection/handling in`merge-branches` with `cagematch`''' (troscoe) --- Add some fun and/or useful ways to deal with merge conflicts in pushes. See also [https://trac.yelpcorp.com/ticket/36223 #36223].
+ * '''Find Friends on Yelp and Find your new favorite Biz''' (jandrews) --- I have a black box, that given some special data, can find the ''communities'' within the data.  This allows prediction of how a user would respond to a friend 
+ * '''Real Coffee on Yelp''' (ivanlei) - A demographic of sorts for places that sell ''real coffee'' or ''third wave coffee'' versus places that sell ''mocha-frappa-rasberry-blah-blahs''.
+ * '''Nagios Alert Parsing App''' (kmosher, ) I have proposed this idea probably every hackathon, but it's even more relevant now that I'm stuck doing systems on-call. I want a little android app that watches your SMS messages from Nagios and plays different tones depending on their meaning. (Amazingly, could not find an existing app for this). The app could also present the alerts in a better format than a long stream of text messages. A great project for anyone who wants to write My First App. Sexy? No. Useful? Hell yes!
+ * '''Collect exit values and tracebacks from catbox''' (bmetin) [https://github.com/baris/catbox Catbox] is a python module to run python functions/scripts in "sandbox" and trace system calls (using ptrace). I'm working on using this module to identify real unit tests and regression tests in yelp-main, but I'd like catbox to help more getting trace data from its children.
+ * '''Gitweb interface in Go''' (bmetin) This is just an idea that I might not have time to work on (see previous item). gitweb.yelpcorp.com is too slow and I'd just like to experiment with [http://golang.org Go].
+ * [[Image(http://yelp-shootie.appspot.com/klange/1468006, 120px)]] '''Tales of Darwinia''' (hbai, pberens, ptiet, klange) Nintendo DS homebrew game featuring Darwin and trashcans.
+ * '''Eevee things.'''  A roguelike in Rust.  A web framework in Rust.  A complete replacement git UI in Rust.  A ''non''-JS charting library (possibly in Rust).  Stub of a Trac replacement slash Python web ecosystem improvement base, not in Rust.  Get us off Cheetah and on Mako.  Use or port Pyramid's URI routing for yelp-main.
+ * '''omw - on my way:''' (vpadmana, ssridhar) Find businesses along (or closeby) a particular route.
+ * '''CMS for legal docs''' (hannah) Every year we make a massive update to our TOS and Privacy Policy on the site. This involves a lot of email back-and-forth, waiting on translators, fixing erroneous legalese, waiting for the translators again, copy-pasting ten languages' worth of legalese into our codebase... it's pretty disgusting. Why not make a CMS so everyone can input the legal updates without going through a developer and our codebase? For the purposes of the TOS and Privacy Policy, some more conditions will need to be in place, outside the traditional CMS setup.
+ * '''iotop in full color''' (spatel) I've been spoiled by the fancy colors in [http://htop.sourceforge.net/ htop] and [http://dag.wieers.com/home-made/dstat/ dstat]. However, [http://guichaz.free.fr/iotop/ iotop] has none which makes it extremely boring to look at when those spindles and platters are revving at full speed.
+ * '''Bootstrap !BrowserStack SSH tunnel setup for devs''' (bknight) !BrowserStack just launched a command line tool for setting up an SSH tunnel for internal testing.  There's some pain here though in manually adding every internal host we have, since you have to pass the command line tool the following configs format: {{{host1,port1,ssl_flag,host2,port2,ssl_flag...}}}.  We could create a bootstrap that sets up a tunnel automatically pre-configured based on a dev's handle.
+ * '''Make Development Go Faster''' (juliank) I am interested in things along these lines. Make the developer VM better (vagrant maybe), more mocks, more unit tests less integration tests.
+ * '''Trending Searches & Businesses''' (wstyke, dhasenka) A homepage widget showing trending restaurant searches/businesses to help users find interesting food faster.  Obvious things to include: Breakfast, Lunch, Dinner, Bars, and more from [http://www.yelp.com/topsearches top_searches] page, plus categories that are popular during the current hour of the day or day of the week.  Ping wstyke if you're interested or want to learn more!  It would be awesome to get support from a designer.
+* Yelp Shake-It (xpian) Your next meal is a shake (of your phone) away. This is an effortless decider for your next meal. It will randomly pick 1 (or more) of good restaurant in your area that is open. If you are in the Mission, it will spit back results like Ike's Place sandwiches, Soul Groove etc. You can also discover new restaurants this way, or use this to find local favorites when you are travelling. In my mind, the app should bias towards restaurants with high ratings and a large number of reviews, and bias against restaurants that you have already eaten at.
+* '''Visual Office''' (szhang, ) A 2D visualization (resembling classical 2D tile-based games) of yelp office environment including employee seating plans and entertainment resources (see who's playing foosball) in different layers (floors) rendered using CSS 3 animations and transformations. Possible extensions might involve adding status to individuals (candies on desk, afk, etc.), a queuing system for various resources (foos table, ping pong table, etc) and meeting room status (see whos using a particular meeting room). Should be using Google App OAuth.
+* '''fb-only friend alerts''' (jeremy) I'd like a feature that would allow me to turn on checkin alerts from FB friends only (could be a one time setting, so I can selectively turn off some of my FB friends too). I have too many Yelp friends so I had to turn off checkin alerts, but as a result I miss out on friends checkins. Should be an easy feature, but one that would prob otherwise never see the light of day...
+* '''who are our users?''' (wing) Open-ended investigation into figuring out the user personas that we care about. Probably some data analysis and nice graphs. Eventually it would be amazing to say something like "When we launch X, we expect elite users to do Y and casual users to do Z." Could also be used to chart health of communities: "X% of users transitioned from being casual to being somewhat engaged last month."
+* '''some fun d3 visualization''' (wing) Fitbit or Yelp-related. Example: Fitbit data over 6 months, X axis is time of day: http://people.yelpcorp.com/~wing/images/24hrs_of_wing.png
+* '''deal recommendation/targetting''' (agillmor) We've started to collect a lot of data about deal purchases, can we find patterns in those purchases s.t. we can recommend good deals for people to purchase? I think so.
+
+
+'''Other cool ideas'''
+
+ * '''(jordan@yelp.com)''' Yelp Weddings - a Yelp.com sub-site. 
+    * Yelp users are getting married! (of wedding age and we have a more female than male demo).
+    * We have all of these wedding specific categories but they're just mixed in with the rest of the categories currently and difficult to navigate.
+    * Sub-site could allow users to document their entire wedding through photos and reviews and brides will give us a ton of great content.
+    * User profiles would show wedding planner/florist/DJ/photographer/etc. used with reviews and photos (and hide users non-wedding reviews for easy navigation).
+    * Users will get a lot of value from viewing user profiles and seeing photos and reviews of all vendors used in one place for the specific wedding.
+    * Users can also search the categories as they would on yelp.com
+    * Advertisers would pay top dollar here - lots of money to be made from wedding vendors (currently being spent on sites like theknot.com)
+    * I really think we can do this with minimal work (custom categories and a few pieces of added functionality to user profile).
+    * This company, Wedding Wire, just got $25 Million and is trying to become Yelp for weddings. WE should be Yelp for weddings considering it's all about local vendors!  Looks a lot like Yelp...
+
+'''Ideas from the facilities team''' (if interested contact jlieu@yelp.com)
+
+ * One of my main ideas is to have an iPad at our new HQ reception area to allow a visitor to self log in as a visitor and it generate a security label automatically and to be able to sign our NDA with a pen unit and it be electronically saved in our system.
+ * 2nd idea is to have a way for an employee to pay with a credit card (square payment system) to pay for a food or coffee item through a menu on an iPad.  Facilities would need to control what is on the menu and change it 

@@ -1,0 +1,216 @@
+= Hackathon 10! =
+[[TOC]]
+
+== FAQ ==
+1)  When is it?
+
+  3/21/2013 - 3/22/2013
+
+  We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations. Watch out for emails from engrec for more specific schedule info.
+
+  We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+
+  There's also a mixer Monday 3/18 6-7pm on the 10th floor to help you find partners to hack with. Pizza will be provided.
+
+2) Who's invited to hack at the hack-a-thon?
+
+  Everyone in product, systems and developers (interns included).
+
+3) What can I work on?
+
+  Whatever you want! Scratch your developer itches. Write cool stuff. Build a wooden box if the mood strikes you. If you need some suggestions:
+
+ * Visualization or other views - we have a lot great data that can be mined
+ * Widgets
+ * Cool examples of our public API
+ * Tools to make your or your fellow developer lives easier
+ * Mehfil feed -- err, perhaps this one is already done
+
+4) If I build a cool product feature, will we launch it?
+
+  Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+
+5) Can I start hacking before the hack-a-thon?
+
+  Sure can -- but do it on your own time.
+
+6) Can I hack by myself?
+
+  We're a team here at Yelp, not a bunch of lone gunmen. Let's try for teams of 2-3. If you need help finding a partner, check out the mixer details in the answer to 1). You can also use this page to post your ideas and solicit help. If all else fails, just show up on Thursday morning and ask to join a team that seems cool.
+
+7) Awards?
+
+  We have five awards categories. Winners will be voted on by you and your fellow engineers. The votes will be tallied and votes will be distributed sometime later.
+
+ * Useful
+ * Funny
+ * Cool
+ * Hardcore
+ * Unhack
+
+8) Hack-a-thon, Hackathon, HackAThon, Hack@thon. Which one is canonical?
+
+  Our jargon has the consistency of 18th century English.
+
+9) Problems, Issues, or Ideas?
+
+  Come talk to Jason (jfennell), KB (ashleykb) or Pita (pcheng), since we are making this happen.
+
+== Hackathon Dataset ''__UPDATED__'' ==
+We have a hackathon dataset available for you to make your data-related projects with.
+
+This has recent data from prod for a lot of useful tables including reviews, checkins, quicktips, users, businesses, friendships and menus!!
+
+Its all stored in S3. You can download a few chunks of it onto your local machine to develop with, and then point your map reduce job to the full dataset while running it on the EMR to quickly and easily process all of it.
+
+You can read about it [http://people.yelpcorp.com/~aditya/hackathon.html here].
+
+Contact aditya@yelp.com with questions.
+
+== Previous Hackathons ==
+Can't think of a good idea? Steal an unimplemented one from one of [wiki:HackAThon these old Hackathon pages]
+
+== Ideas ==
+Put your project ideas here. If you're interested in a project, feel free to add yourself to the list for that project.
+
+ * '''(yifan@yelp.com)'''  '''DrawSomething'''
+   * This will be a mobile app project. But it also requires backend changes.
+   * The basic idea is really simple: People can draw a shape(any shape, circle, star, etc) on the map and we only search for businesses that are inside that shape.
+   * A picture is worth a thousand words  [http://bit.ly/YxeEdY]
+
+ * '''(nthompso@yelp.com)''' '''Yelp Reader'''
+   * Google Reader is shutting down July 1st.
+   * This is literally the worst thing ever. I love google reader. I've tried other RSS readers and I don't like any of them.
+   * We should make our own RSS reader and call it Yelp Reader. It should be red. We should put in our own social stuff that was like Google reader's old social stuff.
+
+ * '''(klange@yelp.com)''' '''Port とあるOS (my hobby OS) to ARM /  Raspberry Pi'''
+   * http://github.com/klange/osdev
+
+ * '''(mgrounds@yelp.com)''' '''Real-time A/B Experiment Visualization'''
+   * We have made some great strides recently in terms of collecting and visualizing [http://y/ad_metrics metrics] for our A/B experiments. However, these stats are collected together at daily intervals, and require a lot of offline processing. There are times at which we would like to move more quickly as a company, like [http://backstage.soundcloud.com/2012/12/architecture-behind-our-new-search-and-explore-experience/ these guys]. I want to build a visualizer for real-time scribe data so that we can start evaluating some experiments within the hour rather than the day. Ads already has some [http://y/ads_tvs real time graphs] that we could use as a starting point. Javascript and [http://d3js.org/ D3] are likely to be involved in this project, with a little Python for backend stuff.
+
+ * '''(luther@yelp.com)''' '''Don't Be Evil -- Using Google Organic to Build a Fairer Google / Extending [http://FocusOnTheUser.org]'s Open Source Browser Extension to Encompass Local'''
+   * '''Problem:''' Today, the regulators providing the essential scrutiny to protect Mountain View from bulldozing the 3rd party content ecosystem (i.e. Yelp) simply don't get it. They're not technologists, and they get lost in the often cerebral conversations about why Google's behavior in Local is anti-competitive and anti-consumer. They are confused. I (Luther) saw it first-hand in Washington, DC (where Google got FTC to fold) and see it today in Brussels and with state attorneys general staff.
+   * '''Solution:''' Give regulators (and consumers / media) a "simulator" or plug-in which imagines a pro-competitive Google. They need something they can "touch" and experience. Explaining it simply isn't working -- they need the capability of imagining a pro-competitive world and see for themselves why filling OneBoxes from organic is better for consumers and the marketplace. '''This hackathon project will involve the creation of either a simulator or iteration of an existing browser extension which re-imagines Google’s Local OneBoxes using more relevant content culled directly from organic.''' This new browser extension/simulator will be used to demonstrate to consumers, regulators and the media how Google’s current preferencing of its own properties hurts consumers and the 3rd party content ecosystem.
+   * '''The Good News:''' Much of the [http://focusontheuser.org/ heavy lifting has already been done] -- engineers from Twitter and Facebook teamed up over a weekend to build an open-source plugin that reimagined a Google which didn't preference Google Plus social results. Their project had a profound effect on [http://www.theverge.com/2012/1/23/2727194/focus-on-the-user-google-plus-search-results shaping consumer, regulator, and media sentiment away from Google]. This would be building upon the world of [http://focusontheuser.org/ focusontheuser.org] and incorporating the Local category. I've [https://www.evernote.com/shard/s22/sh/40a66f17-8304-40b1-b561-dc8894816a32/a74c9bbfae66450693f5e62af62b3ef8 even] [https://www.evernote.com/shard/s22/sh/829c480c-bce1-4f53-b8b3-c37a0ebb3d23/c06a3af1034999fddafda3b5a972db4d built] [https://www.evernote.com/shard/s22/sh/39bcbad9-e49c-49ac-87e3-a3107efc667b/e9b65593dbc021f11d16ff1096ac17e6 mocks] (<- 3 separate links there) of what a pro-competitive world would [http://i.picasion.com/pic66/f5e550725a522176567bcbd5ee45c142.gif look like] (Jeremy & Laurence approved). The fruits of this hackathon project, if successful, will be a critical piece of ammunition in protecting Yelp against Google's encroachment.
+   * Why We Should Care
+     * Fact: More than 65% of Yelp's web traffic comes from Google
+     * Fact: Since 2007, Google has become increasingly aggressive in physically displacing Yelp (and other members of 3rd party local content ecosystem) in organic results as it promotes its own inferior products.
+     * Fact: Google's promoted content is not even run through its own algorithm, but clumsily injected into SERP when a local query is detected, resulting in a de facto demotion of sites like Yelp.
+     * Fact: According to Google, one third of all searches include a local intent. Such queries, which represent plurality of all search (WTF!), trigger an anti-competitive OneBox.
+     * Fact: In 2013, Google spent $20 million dollars in Federal lobbying alone, and it's working. Consider, the FTC's most recent "settlement" gave Google a license to be even more aggressive in displacing nascent competitors like Yelp. Legally speaking, the only thing stopping Mountain View from becoming more aggressive is the ongoing scrutiny from Texas's Attorney General and the European Commission, who are slated to release their own weak settlements within months.
+
+ * '''(bknight@yelp.com)'''
+   * Create a custom font icon for Yelp.  We can finally optimize our UI for Retina!
+   * Build a live style guide using [http://warpspire.com/kss/ KSS] and put as much stuff in it as possible in 2 days.
+   * Consumer pod lighting – Get creative with ambient lighting in the consumer pods.  Take inspiration from PR.
+   * Build a basic prototype of a static content website.  Redesign our blogs.
+   * "Look Inside this Business": Google Street View has data for building interiors and yes it's totally available through their public API: http://people/~bknight/streetview.html.  In addition, allow Android 4.2 users to upload 360 photos of businesses using Photo Sphere Camera.
+   * We simply don't have enough ways to connect users: fan, follow, or friend.  We need another F word.  Join Team "F Word".
+
+ * '''(troscoe@yelp.com)''' '''Visualize pushes as trains'''
+   * Trains have one car per branch, travel from git to stages to prod, go back to dump bad cars and pick up new cars.
+   * If a train reaches production and is rolled back, a huge fiery explosion.
+   * [[Image(http://yelp-shootie.appspot.com/klange/2594012, 1200px)]]
+
+ * '''(mhock@yelp.com)'''
+   * Offline Yelp: Make an Android app that allows you to search and access Yelp offline for a specific city, e.g. London.  This would be helpful for travelers with mobile phones who have no wireless access (but do have GPS).  Minimum viable product would include a local instance of Lucene that accesses a cached database of reviews and images and allows you to find businesses by proximity.  Bonus points to tie in metro locations (e.g. London Underground) to give the nearest Metro station for each business and proximity to that station (e.g. "500 feet southwest of Holborn (Central Line)").  There is already a London Underground app that works offline to help you find your nearest station and route from that station to the desired station.  Would love to use this as an excuse to visit London!
+   * Use semantic analysis of review text to decompose a review score into multiple components: food, service, value, etc.
+
+ * '''(yvijayak@yelp.com)'''
+   * MrData: Make a cool and easy to use distributed data mining platform. But wait there's Apache Mahout for that?! But right now using Mahout is a pain, right from setting it up on my butt to converting your vectors for running and interpreting the results. We essentially build a pythonic layer on top of Mahout to make it as easy as running a MrJob! There are a ton of things we can use it build upon. This would increase the analytical power of Ads, Search and everything that involves large scale data mining.Depending upon the number of people working on this we could do a lot from piping your inputs and outputs to visualization of cluster results using d3 or something else!! Pour in your ideas! https://cwiki.apache.org/MAHOUT/powered-by-mahout.html
+
+ * '''(kmosher@yelp.com)''' (Un-sexy but simple useful shit)
+   * '''On-call alert tones based on nagios status''': The same thing I suggest every hackathon, but never do. I wanna make a little android SMS app that will play different tones based on the contents of text messages.
+   * '''ssh-key webapp''': Currently developers can manage their ssh keys by emailing keys to systems. Let's get with 2013 and create a web page and secure workflow for dealing with dev's authorized keys.
+
+ * '''(krall@yelp.com)''' Audio dart tracker. This is gonna be awesome.
+
+Set up microphones around the floor at known microphones, and listen for darts flying through the air. Using the time difference of arrival of the sound to each microphone, calculate the path of the dart through the air. Visualize it by tracing the paths in a 3d space.
+
+There are lots of pretty isolated components, so coding can happen in parallel. I have all the hardware needed, and will try and have it ready by Hackathon.
+
+[[Image(http://yelp-shootie.appspot.com/krall/2573025)]]
+
+ * '''(amfonts@yelp.com)''' - I have a few ideas:
+   * '''Biz owner scheduler''' - build a super-simple appointment system for Yelp biz owners (e.g. hair salons, massage therapists) to accept appointments. This could eventually be built in to the Yelp Deals checkout flow, so you can be assured of getting an appointment as you get the Deal.
+   * '''Better Deals landing page''' - Go to yelp.com/deals and enjoy the nostalgia of email Deals, which we shut down 15 months ago. Now what if we made that page a great landing page with "Top 10 Deals (by sales) nearby", "Deals at top biz's (by rating) nearby", and "Hot New Deals (by date/rating) nearby"?
+
+ * '''(manish@yelp.com) Who To Follow?'''
+   * The main idea of Who To Follow is to provide recommendations to user to follow other yelpers based on their interests. For example, if a user likes to frequently visit Japanese restaurants, then Who To Follow should recommend this user to follow yelpers who have posted great reviews on Japanese restaurant in the city.
+   * This would typically involve feature extraction from Reviews and Check-Ins, and match it with other yelper's features to provide useful recommendation.
+
+ * '''(greg@yelp.com) [#YelpDrive Yelp Drive]'''
+   * Yelp is great, especially on the go. But we could be even better on the go. If you have seen the BMW integration it's cool, but we don't all drive a new 335i. Why not make a Yelp experience appropriate for a car. Larger buttons, more targeted nearby searches (Restaurants, Gas Stations, Parking,). These search should be offset by the device's calculated velocity and acceleration (could be server side, could be client side). For those of you interested in hardware hacking, we could even develop a prototype car dock (via http://developer.android.com/tools/adk/index.html and the 3d models fitted for phones in the maker bot) to simulate the connection and morphing of the Yelp app.
+
+ * '''(greg@yelp.com) [#YelpSquash Yelp Squash]'''
+   * A few weeks ago, Square released an open source bug tracker/aggregator known as [http://squash.io squash]. It's pretty cool. It has a lot of features that grapherr has but aimed at being more historical. Right now we rely a lot on eyeballing errors and claiming them. Squash sort of aims to facilitate coordination among team members for claiming an issue and signalling when an issue started and what the response will be (open a ticket, ignore, etc).
+   * Works not only for Web, but also clients too (JS, Android and iOS)
+   * Most of the work is just in deployment and writing custom tailers for scribereader and deployment markers into the release scripts (i.e. when we tag and push a build we have to notify squash that HEY WE HAVE A NEW TAG).
+   * It's written in Ruby so you will get to be snooty just by attempting to read the code.
+   * Interested:  '''(rlipman@yelp.com)'''
+
+ * '''(greg@yelp.com) [#YelpHackathong Yelp Hackathong]'''
+   * We have been exposing the great parts of the Yelp site and bringing them to Mobile. We have had a revenue platform on [http://www.yelp.com Yelp.com] forever that we haven't brought over yet! I know ... I know I can't believe it either! This is to propose adding the [http://www.yelp.com/store Yelp Store] to the mobile apps. 
+   * '''Yelp Hot Pants''' and '''T-Shirts''' ordered directly from your phone
+   * We can even insert ads for the store now, in place of display ads when low on inventory.
+   * Reuse the credit card data we have been building.
+   * This is going to revolutionize the Yelp community
+   * Let's make people Yelp!
+
+ * '''(jlee@yelp.com) Loyalty Program'''
+   * There are some small stores that try to make sure customers come back by offering a "Buy 10 of X, get 1 free" or something of the sort. These are loyalty programs. These are typically given out as stamp or punch cards that fit in a typical wallet. If you frequent many of these stores, you can end up with too many of these in your wallet and even worse, forget you have one and end up with multiple loyalty program cards.
+   * This project would be to add a feature for Yelp users to keep track of their loyalty stamps and give biz owners a way to run loyalty programs without the physical cards.
+
+ * '''eevee'''
+   * '''Real routing''': Let's bolt Flask's routing (which is really werkzeug's routing) onto yelp-main.  We can ditch the mod_python-esque legacy routing, ditch `execute`, and get rid of URI classes.
+   * '''Solve deployment''': I want to build a WSGI runner that Just Works, in a way friendly to both PHP immigrants and people like me who want to run a one-file Flask app without mucking around with configuration files and upstart.
+   * '''Do something with this Raspberry Pi''': I got a free Raspberry Pi from Pycon, and I brought it to the office.  We could do...  you know, something...  with it.
+
+ * '''(jolleon@yelp.com) Push rollback prediction'''
+   * Let's look at all the logs we can gather related to push processes (irc logs, git, reviewboard), see what signals we can extract for each branch pushed (size of change, files touched, ship its given, developer...), feed this to some ML system and try to predict how likely a branch is to cause a rollback.
+
+ * '''(jolleon@yelp.com) Gamify pushes! '''
+   * Create a simple (or not-so-simple) multiplayer RPG game where you gain XP and levels by getting a branch certed, doing your reviews quickly or other useful actions!
+
+ * '''(elerner@yelp.com) Yelp Window Shopping'''
+   * I'm thinking about forking the iPad Photos search into something for window shopping awesome food. Show a grid of photos (probably ones we can directly tie to menu data) and allow you to scroll in any direction. Don't limit things to one cell per business, just show lots of awesome food photos that you can tap on to see the associated biz. The idea is to make it easy and visually engaging to peruse awesome food photos of different dishes from all the restaurants nearby. Potentially also also you to add filers like "Burgers" so you just see photos of burgers from everywhere around that serve burgers.
+
+ * '''(ssridhar@yelp.com)''' '''Hackathon Portal'''
+   * We've  had nine hackathons till now and our group of super-talented engineers  have made hundreds of cool projects. However, all that we have left of  all the hackathon awesomeness is some description on the wiki-pages  (these are pre-hackathon ideas), some code (a few dedicated engineers  have made their hackathon repos available), some project details (the  ones filled in by teams prior to the presentation). This information is  limited and not very organized. I've also noticed that some of us  (including me) have worked on projects that have already been done  before (and possibly re-invented the wheel).
+   * The goal is to  create some kind of a Hackathon Portal which will contain pages for each  Hackathon team with information, photos/screenshots, code (if  applicable) and the awards they won (post-presentation). We should make  it as attractive and effortless as possible for engineers to add content  to this portal (we want everyone to focus on their projects and not  spend too much time documenting things). We could even add some more  cool features like tracking projects across multiple hackathons (should  someone choose to continue working on a project from a previous  hackathon). This portal might help us "close-the-loop" on hackathon projects and  make it easy for Product to look into and evaluate projects that could  potentially be useful for Yelp.
+   * I don't really have any specific  ideas, so I'd love to brainstorm!
+
+ * '''(psundara@yelp.com) Web Based Feed Creation Tool'''
+   * Our Biz Dev team signs up a bunch of deals that syndicate our awesome content (reviews, deals, gc's the works) to a bunch of companies (Apple, Bing, City Search, MapQuest and many more). These deals are usually pretty good as they get our content more user eyeballs and in the case of deals additional revenue. These deals are also good because these companies are usually willing to pay $ for our content
+   * We want to free biz dev to be able to create these feeds by themselves by providing them a web based interface where they can mix and match all the pieces of content they want to provide the partner and then publish the feed with a single click.
+   * This feature will generate $ directly to the bottom line.
+
+ * '''(cshoop@yelp.com, zparmley@yelp.com)''' '''Code Companion (an arduino thingamabob)'''
+   * We're looking to build a small physical device that lights up and displays messages based on things you're doing in dev (last Testify run failed? activate the red LED! all tests good? green light and reminder that it's time to refactor!). Code Companion will also have buttons that allow it to send back signals (perhaps providing a more gratifying way to close out that last Trac ticket). Could also add some checks in git hooks as well (code changes but no test changes, red light! super big commit, try to keep 'em small!).
+
+ * '''(rlipman@yelp.com)''' Internal bash.org
+   * Convert fortune file from a git repo to an internal version of bash.org
+   * Makes it easy to add new quotes
+   * We also can do voting and ranking too
+   * Possibly a separate site for nishbot like we have a separate fortune file for nishbot
+
+ * '''(ydebeule@yelp.com)''' Burrito Bomber the Game
+   * Javascript Raiden style scrolling video game where you Burrito Bomb people 
+
+'''Other cool ideas'''
+
+ * '''(jlieu@yelp.com)''' '''Yelp Secur(ity)'''
+   * My main ideas is to have an iPad at our new HQ reception area to allow a visitor to self log in as a visitor and it generate a security label automatically and to be able to sign our NDA with a pen unit and it be electronically saved in our system. We really need to find a solution for checking in visitors/signing NDA’s/be a visitor contact sheet for our employees to use for us to know who is coming to Yelp/pump out a visitor label that security hands out to all visitors.  The software I’m looking at is called Quantum Secure, but it’s really pricey - http://www.quantumsecure.com/safe-products/physical-identity-access-management/safe-vim-enterprise/. This software actually ties into our current security software Lenel and uses the data base for Yelp employees.  Not sure if you could access software since its proprietary, but were trying to achieve a seamless way to greet our visitors and sign them in, especially for like Yelp events.
+ * '''(gjacobso@yelp.com) '''[https://trac.yelpcorp.com/wiki/Hackathon10/photophile Team Photophile] '''- scouring our images for the best of the best! '''
+   * photos are a growing contribution type at yelp, especially on mobile...and image seem to be part of the future of content contribution on mobile.  who wants to look through 500 pictures for a business?  wouldn't it be interesting if we could classify photos in different areas (people vs food vs environment) and be more selective about how we show them?  wouldn't it be cool if we could automatically demote pictures that are really poorly taken (over saturated or flashy pictures, etc) or promote good ones (high res, in-focus, ???) ?  what does spam classification look like for photos?  Lets take some time and brainstorm and code up *something* to help improve the handling and usage of pictures in the Yelp ecosystem!
+ * '''(steng@yelp.com) What's My Name?'''
+   * There are a lot of people starting at Yelp both in engineering and other organizations. What if we had a sweet game to learn people's names (and maybe also things about them and/or link to their Yelp profiles?)
+   * Optionally consider playing relevant Rihanna or Destiny's Child songs while interacting with game.
+ * '''(wing@yelp.com) Top 10 Best Things to Eat in SF'''
+   * Go deeper into our menu data to see if there's a good way to look at things at the item level rather than the business level.
+   * Could do things like "Top 10 Burgers in SF" or re-create http://www.7x7.com/big-eat-2012-photos#/0
+ * '''(aneeshg@yelp.com)''' '''Something with Raspberry Pi'''
+   * I don't really have something specific here, but everybody who went to PyCon got a raspberry pi, so we've got a few of them around now - let's do something cool with them!
+ * '''(jkotker@yelp.com)''' '''Sarcasm Detector'''
+   * Implement a basic sarcasm detector for reviews. (Ideas: http://www.aaai.org/ocs/index.php/ICWSM/ICWSM10/paper/viewFile/1495/1851)
