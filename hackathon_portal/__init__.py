@@ -5,7 +5,6 @@ from flask import Flask, url_for
 
 application_directory = os.path.abspath(os.path.dirname(__file__))
 server_directory, _ = os.path.split(application_directory)
-print server_directory
 
 app = Flask(__name__)
 app.jinja_env.globals['get_static_url'] = lambda filename: url_for('static', filename=filename)

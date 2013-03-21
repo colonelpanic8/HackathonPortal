@@ -1,13 +1,15 @@
-import os
-
 from flask import render_template, request
 
 from . import app
 
 
-@app.route("/hello_world/")
-def browse_games():
-	return "Hello World."
+@app.route("/")
+def homepages():
+    return render_template("home.html")
+
+@app.route("/project/<project_name>")
+def project_page(project_name):
+    return render_template("project.html", project_name=project_name)
 
 
 
