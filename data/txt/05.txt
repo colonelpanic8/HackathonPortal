@@ -1,0 +1,285 @@
+[[TOC]]
+
+'''Next hackathon! ''': [[Hackathon6]]
+
+= Yelp Hack-A-Thon =
+1)  When is it?
+
+  7/28/2011-7/29/2011
+
+  We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations and awards.
+
+  We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+
+2) Who's invited to hack at the hack-a-thon?
+
+  Everyone in product, systems and developers (interns included).
+
+3) What can I work on?
+
+  Whatever you want!
+
+  Scratch your developer itches. If you need some suggestions:
+
+ * Visualization or other views - we have a lot great data that can be mined
+ * Product features that you'd love to see on the site
+ * Widgets
+ * Cool examples of our public API
+ * Tools to make your or your fellow developer lives easier
+ * Mehfil feed -- err, perhaps this one is already done
+
+4) If I build a cool product feature, will we launch it?
+
+  Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+
+5) Can I start hacking before the hack-a-thon?
+
+  Sure can -- but do it on your own time.
+
+6) Can I hack by myself?
+
+  We're a team here at Yelp, not a bunch of lone gunmen. Lets try for teams of 2-3. If you need help finding a partner, let me know. You can also use the wiki to post your ideas and solicit help.
+
+7) Awards?
+
+ * Useful
+ * Funny
+ * Cool
+ * Hardcore
+
+== Ideas ==
+ * statypus (dmitriy, ...)
+   * statistical analysis for traffic, access, and error patterns throughout the site to figure out anomalous conditions and notify developers
+ * bbds (dmitriy, ...)
+   * buildbot dat shit - CLI tool that pulls down buildbot waterfalls, figures out delays and estimated times per run, and uses bb-run to schedule a build on the bb cluster that will finish it first, with minimum intervention (e.g. you just type "bbds")
+   * there's an API for buildbot which should make this really easy
+     * Idea: maybe have bbds avoid buildbots with recent builds of deploy? That way we avoid stepping on pushmasters
+ * stagexbot
+   * irc bot to keep track of who's on stagex and who's in line to be on stagex next.
+
+ * [https://trac.yelpcorp.com/wiki/EskilPage/HackathonIdeas eskil has a bunch of ideas]
+
+ * lmytfy.com (let me Yelp that for you) - eric
+   * rip off of http://lmgtfy.com/ - simple page to generate shareable short URLs to Yelp search results
+
+ * isdarwineatingtrash.com - eric
+   * Experiment with NFC!  chip goes on darwin's collar, then on in each trash can.  when darwin sticks his head in the trash, isdarwineatingtrash.com says "yes".  could hook up to various alarms, IRC, etc.   Bonus: speaker that plays Jeremy saying "Off!" when Darwin trips the sensor.
+
+ * user check-ins to determine biz hours - eric
+   * see if we can model biz open hours using check-in data.  We've got a lot of external check-in data we can use here, too
+
+ * better badges - jeff
+   * our mobile badges are pretty ugly. Actually, they are like, really ugly. Let's make them better and interactive.
+
+ * `/dev/pi` - jbrown/evan
+   * like `/dev/zero`, but irrationally better
+
+ * !McYelp - bchess
+   * Browsing photos of food on Yelp, click something tasty and have it delivered it to your house.  I have no idea how we'd actually do this on a large scale.
+
+ * !ForEachForked - bchess
+   * Small project, write a version of !ForEach that will fork the work load across multiple processors
+
+ * EC2-powered buildbot - bchess
+   * Mostly because jbrown said it was a dumb idea
+
+ * Gyro support for Monocle - kmosher
+   * Monocle depends on knowing your orientation. Newer phones have gyros in them. Gyro information can improve your orientation estimate. This should be done. iOS is easy and boring cause there's an API in iOS 4 that does this for you. There's work to be done on Android though. My ideal solution would be to improve the orientation code in the Android source with a native code [http://en.wikipedia.org/wiki/Kalman_Filter Kalman Filter]. Matrices! Hardware! Multiple programming languages! 3D visualization! An end result you can hold and play with.
+
+ * Freaky Python object graph visualizer - sjohnson/SteveJob
+   * gc module + graphviz + interactive graph browser. Result: snapshot your program's memory graph and browse it in a swanky GUI to get a bird's-eye look at your memory usage and design patterns. Appropriate for all Python skill levels from noob to wizard. Graph algorithm aficionados welcome!
+
+ * General Purpose Logistic Regression on Map Reduce - xyu, wqardaji
+   * With L1 regularization and stochastic learning method. It will be useful when someone wanna do prediction on super large scale dataset (say millions of training instances) in the future.
+
+ * Port !InstantiatedIndex to Lucene 4 trunk - smg
+   * !InstantiatedIndex is marked as deprecated and most probably will not make it to Lucene 4. Lucy's tests are completely dependent on !InstantiatedIndex. Lucene 4 has a !MemoryCodec which allows the index to be kept in memory. We should modify the !InstantiatedIndex or try to get behavior identical to !InstantiatedIndex using the !MemoryCode
+
+ * Link to nearby businesses that are mentioned in a review
+   * Many reviews contains mentions of near by businesses eg. http://www.yelp.com/biz/bi-rite-creamery-san-francisco#hrid:KrUTIVBHE0tatuax4aQuzQ this review of birite also mentions tartine and delfina. We should add hyperlinks to the yelp pages for these businesses so that web and smartphone users could follow these links instead of searching for these places
+
+ * Beer menus for bars - toby
+   * Like how restaurants can link their current menu to their biz page, I want to be able to see a bar's beer list from their biz page. Ideally this would be updatable by users and biz owners and each bear would link to information about that beers (like Beer Advocate scores & reviews). Mobile integration so I could look up a beer I've heard of but haven't tried yet right after I check in would be really sweet.
+
+ * Pushmaster subscriptions - sberghel
+   * Say you want to know when a push is done, or when a new push starts, or something. Right now you have to spam-refresh the page. It would be cool if we could get e-mailed (texted? IMed? Notified by carrier pigeon?) instead.
+   * I prefer electric shocks. -sjohnson
+
+ * Make grapperr break less - sberghel
+   * When grapperr works it's awesome. But sometimes grapperr does [http://yelp-shootie.appspot.com/sberghel/agx5ZWxwLXNob290aWVyDAsSBFNob3QYweccDA silly] [http://yelp-shootie.appspot.com/sberghel/agx5ZWxwLXNob290aWVyDAsSBFNob3QY1bgcDA things]. It would be awesome if it did those things less (or even not at all).
+
+ * Web Interface for Tron - rhettg
+   * Tron has a http api, perfect for building a status board on at the very least, a graphical management tool would also be possible.
+
+ * Fancy Ranger Tailer - rhettg
+   * Build a service that you can send queries to and get a portion of live ranger data for ad-hoc (or not) analysis. Example Query: "Show me render time for 10% of all hits to biz details  from google bot". Thinking of building it in go.
+
+ * Statusboard
+   * Statusboard needs some love.
+
+ * The Singing Apperror -- sberghel
+   * Play one beat of a song every time apperror throws another error.
+
+ * Pandora-like Business Finder -- madhu
+   * Type in the name of a business and we show you other businesses like that one. For users with accounts we utilize the users' historical data (reviews, check-ins, etc) and perform a collaborative filter against the public and their friend's historical data (weighted accordingly).
+   * Main focus is around discovery and a fun, browse-centered ui experience.
+   * Soft controls like (thumbs up/down) for recommendation help tune the engine.
+
+ * Location reminders for businesses -- amir and laurent
+   * Allow the users to setup a location reminder for businesses (either individually or for all bookmarks)
+   * The user should also be able to set up a filter for location reminders ("remind me whenever I'm next to a bar that has a deal at night")
+
+ * Check-ins visualization -- amir and laurent
+   * Displaying a map widget on the site that shows the user's friends' latest check-ins (and reviews) in their city
+   * Same thing but for my check-ins, reviews, quick tips, sluggish tips, etc.
+
+ * New Deal custom filter e-mail Monitor -- victork
+   * Sign up on Admin to get e-mails for say "all new standing deals created in San Francisco, in the restaurants category".
+   * We already have "Deal Created" reports. This would essentially apply additional custom subscribtion-based filtering on top of it.
+   * Could one day be made into a real feature and move off Admin to the main site.
+
+ * Solicit more AppMarket reviews for Android -- victork
+   * I just saw an app do it in a fairly friendly and nice manner. We could do it once in a blue moon with a deal-like banner thingie. Maybe to start, we could key off the time they had the Yelp app installed, or their elite status or something.
+
+ * Prettify Admin -- victork
+   * Who '''is''' that dude, anywho? And why does he always tease me with coffee?
+   * We could do lots of small yet neat polish things, like cycle through a small library of awesome Yelp art we have - probably severely watermarked - for backgrounds.
+
+ * Code introspector to convert "import *" to proper import lists -- victork
+   * Take a python file. Remove "import *". Run through pyflakes for undeclared stuff. Fix it. Rinse, repeat. Automate.
+   * I have no idea how hard this would actually be! Would probably need a dictionary of what lives where in the codebase of some sort.
+
+ * Monday slide auto-maker -- victork
+   * Hook up to CodeSnitch. Take the list of all push requests your team shipped last week. Scramble frequently repeated words a-la nishbot or love-machine.
+   * Bonus: Throw in a random picture of a kitten from some image pool.
+
+ * Make Testify more appealing to folks who already use `unittest`/`nose` -- dave
+   * make Testify able to do test discovery on `unittest` test classes as well as its own
+   * add the ability for a test to declare itself "skipped" (like in unittest on Python 3)
+   * get rid of the space in `path.to.module TestClass.test_name` on the command line (use `path.to.module.TestClass.test_name` instead), so we can specify multiple paths/test classes
+
+ * More Open Source love -- dave
+   * [https://github.com/davidmarin/doloop doloop] could use unit tests and some strife/performance testing
+   * [https://github.com/davidmarin/s3mysqldump s3mysqldump] could use more complete unit tests
+   * `s3_tmpwatch` in `mrjob` might as well be a separate project (see https://github.com/Yelp/mrjob/issues/170)
+
+ * Review Lowlights + Review Haha-lights --aditya, raghav, rohith
+   * Review Highlights highlighting the worst things about every business instead
+   * Also interested in trying to use Funny votes on reviews, to build a humor/sarcasm detector
+
+ * Tap Tap Check-Ins --raghav
+   * Making the visualization process more interactive, the idea is to make a a lil game similar to Tap Tap Revenge/Guitar Hero, where the user has to match the live check-in (or anything else) stream. (Could be a multilayer game too!)
+   * The interaction could be through sensors, like either pressure (FSR) or light sensors. (A lot of ways to provide feedback to the user about his hits or misses)
+
+ * Tag friends in a review -- sinensky
+   * Add @{friend_name} in your review if for example you went out to eat with one of your yelp friends
+   * Site users get multiple perspectives of the same experience
+
+ * YelpStageBot  -- Yifan
+   * Sample x% of prod traffic and apply that to stagea. This will make stagea environment more real and increase the chance to find bug on stagea when the bug will only appear with large traffic.
+
+ * MemcachedOS -- shivaram
+   * Right now, we use "memcached appliances", dedicated machines that run nothing except Linux and Memcached
+   * Memcached is straight C --- what if we ported it to run inside the kernel of an embedded OS running in real memory mode? (evan and jbrown say it might be possible)
+   * Eliminate overhead from the TLB and userspace-kernelspace boundaries, do exactly one thing and do it well
+
+ * FlakeyTests -- sinensky
+   * Not sure how buildbots work and therefore how hard this would be, but automatically rerun 0% tests in a different sandbox to check for flakiness since most people end up doing this manually anyway
+   * Then if a test is detected as flakey automatically email engineers and/or ticket it
+
+== Teams ==
+ * (INTERN HOUSE - xyu, fhats, sjohnson, toby, bhargav, striglia) - !TagYourFood
+   * You know how facebook use tags to link pics with users, when u click on a tag, you ll go to a user s profile. We can do similar stuff by allowing users tag the food(or whatever item in the picture). If people click on the tag, it will issue a search query, which will increase our search traffic and generate more opportunities for ads.
+
+ * eric/greg, garrick - isdarwineatingtrash.com
+   * Experiment with NFC!  chip goes on darwin's collar, then on in each trash can.  when darwin sticks his head in the trash, isdarwineatingtrash.com says "yes".  could hook up to various alarms, IRC, etc.   Bonus: speaker that plays Jeremy saying "Off!" when Darwin trips the sensor.
+
+ * Team Oneday (kmitton, ccurry, dave): Review Filtering Dashboard
+   * based on an idea by dave
+   * kmitton and ccurry are only here on Thursday; dave is only here on Friday. Tag team!
+   * We want to make a simple dashboard that pops up one filtered and one unfiltered review from the same business, side by side, without out telling you which one is which. After giving you a moment to decide for yourself, it marks the filtered one as FILTERED!!!
+   * Should include the user badge (photo, # of reviews, # of friends) date, and UFC, just like on the biz details page
+   * Should only look at reviews more than, let's say, 28 days old (sometimes it takes the spam system a little time to figure things out).
+   * We might want to exclude old reviews as well (let's say, older than a year).
+
+ * [TeamRocket Team Rocket] (duncan, yoann, bhewitt, krall, mallen) - Internal Apps Dashboard
+   * Internal apps has a bunch of interesting metrics that look at the site from the content side instead of the apperror/systems side. Show these off on a nice dashboard for all to see on 9! Bonus: integrate it with a prox reader that makes the dashboard sentient, displaying metrics relevant to the person looking at it.
+
+ * review-based badges (jrheard, ashaw) (more partners welcome)
+   * basically just a ripoff of http://www.truelocal.com.au/cms/badges - review-based badges. how cool would that be. we could do this way better than they could.
+     * Could maybe leverage the guru system? - bryce
+
+ * Team Let's Troll Linus (jbrown, evan)
+   * /dev/pi and other kernel idiocy
+   * evan wants to do some real JS frontend stuff too
+
+ * Stuff in Bottles (axled, eskil)
+   1. Empty bottle, yarr.
+   1. Put stuff in bottle.
+   1. Profit.
+
+ * Team Lazy Monday (ahammond, kylem, victork)
+   * Monday slide auto-maker
+     * Hook up to git log or pushmaster or CodeSnitch. Take the list of all push requests your team shipped last week. Scramble frequently repeated words a-la nishbot or love-machine.
+     * Bonus: Throw in a random picture of a kitten from some image pool.
+     * Spam slide can just say "Signals" and "sjohnson worked on mrjob"
+
+* Team WTF-am-i-still-awake? (djtiesto, redbull, victork)
+   * New Deal custom filter e-mail Monitor
+     * Sign up on Admin to get e-mails for say "all new standing deals created in San Francisco, in the restaurants category".
+     * We already have "Deal Created" reports. This would essentially apply additional custom subscribtion-based filtering on top of it.
+     * Could one day be made into a real feature and move off Admin to the main site.
+
+ * Team Kegmate2 (johnb, gabe, alexd, madhu (in spirit), mueller, some jeff, jamesd)
+   * KegTime, a video link between kegmates
+   * IR thermometer integration FTW
+   * Hopefully some backend stuff...
+
+ * Team Sensor Fusion (kmosher, smoy, ...)
+   * Gyro support added to Monocle
+     * Build rotation visualizer to show how much better rotation is when gyros are added.
+     * Add new iOS 4 API calls to Monocle on iOS devices
+     * Build a Kalman Filter for Android phones cause there is no API for this yet
+     * Might need to write a rudimentary matrix library for this
+     * Play "You Spin Me Right Round (Like a Record)" in celebration.
+
+ * Team Builder Building Robotolopolis (dmitriy, davidh)
+   * bbds
+   * maybe even grapperr2 :o
+
+ * Yelp Wingman (wukan, jasper, shoenig, ...)
+   * Helping peeps hook up via food interests and find cheaping dating options
+   * Mobile app
+
+ * Team Undecidable (stop)
+   * write a debugging tool that determines if a servlet will finish rendering a page.
+
+ * Business Comparison -- (steng, msamuels)
+   * Think laptop shopping where you compare computer models but for businesses
+   * We'd show a number of comparative properties across several selected businesses, including review highlights, choice photos, various attributes based on number of votes
+
+ * What's for lunch on 10 -- (ashaw, steng, jmueller)
+   * Make a menu/cookbook using ingredients from the kitchen on 10
+
+ * BFF favorites (amiruci, laurent, steng)
+   * New nearby search on mobile: get all the nearby places that your friends have reviewed 4/5 starts, are regulars at...
+   * Show this information on the business page as well
+   * (probably won't do this: surfacing friends' favorite places in search results: some indication in search results on mobile that your friends reviewed this place, or are regulars at it, or bookmarked it.
+
+ * Team Ads Monkey (yifan, bryce, bchess)
+   * Play ads queries from prod on dev & stage so we have realistic impressions and clicks traffic each day on dev for testing
+
+ * Team Unicorn Love Carebear (tianyu, jtwang, ayust, bhargav)
+   * Build internal love machine
+
+ * Team Recreation
+   * Add the ability to subscribe to a daily or weekly email from admin dashboard
+
+*  Team Yelpstant (wukan, sinensky)
+   * How about Yelp's search will be as instant as instant noodle in 10th floor
+
+== Previous Hackathon Ideas, Projects and Teams ==
+ * HackathonTheBeginning - Our first hackathon in Yelp history.
+ * HackathonTheReturn - The second hackathon in Yelp history.
+ * HackathonThree - Figure out the pattern?
+ * [[HackAThonFour]]- The fourth hackathon in Yelp history.

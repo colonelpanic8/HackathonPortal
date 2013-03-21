@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+ 	<title>
+      Hackathon6 – Yelp Bug Tracker
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="search" href="/search" /><link rel="help" href="/wiki/TracGuide" /><link rel="alternate" href="/wiki/Hackathon6?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="tracwysiwyg.base" href="/" /><link rel="start" href="/wiki" /><link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/chrome/fivestarvote/css/fivestarvote.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="/chrome/tracwysiwyg/wysiwyg.css" type="text/css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/common/css/trac.css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/tracwysiwyg/editor.css" /><link rel="shortcut icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link rel="icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link type="application/opensearchdescription+xml" rel="search" href="/search/opensearch" title="Search Yelp Bug Tracker" /><script type="text/javascript">
+      var _tracwysiwyg={"escapeNewlines":false};
+    </script><script type="text/javascript" src="/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/chrome/common/js/babel.js"></script><script type="text/javascript" src="/chrome/common/js/messages/en_US.js"></script><script type="text/javascript" src="/chrome/common/js/trac.js"></script><script type="text/javascript" src="/chrome/common/js/search.js"></script><script type="text/javascript" src="/chrome/fivestarvote/js/fivestarvote.js"></script><script type="text/javascript" src="/chrome/common/js/folding.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg-load.js"></script><script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script><link rel="alternate" type="application/x-wiki" title="Edit this page" href="/wiki/Hackathon6?action=edit" /><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+ 	<link rel="stylesheet" href="/htdocs/site_css.css" />
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://trac.yelpcorp.com"><img src="https://trac.yelpcorp.com/htdocs/yelpsmall.png" alt="I am a kitty" /></a>
+      </div>
+      <form id="search" action="/advsearch" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first">logged in as jkotker</li><li><a href="/logout">Logout</a></li><li><a href="/wiki/TracGuide">Help/Guide</a></li><li><a href="http://deploy-prod.yelpcorp.com:3540/">Deploy Dashboard</a></li><li><a href="/rpc">API</a></li><li class="last"><a href="/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/wiki">Wiki</a></li><li><a href="/report">View Tickets</a></li><li><a href="/newticket">New Ticket</a></li><li><a href="/roadmap">Roadmap</a></li><li><a href="https://trac.yelpcorp.com/query">Ticket Query</a></li><li><a href="/tags">Tags</a></li><li><a href="/admin" title="Administration">Admin</a></li><li><a href="https://trac.yelpcorp.com/report/7">My Tickets</a></li><li><a href="/watchlist">Watchlist</a></li><li class="last"><a href="/advsearch">Advanced Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="/wiki">wiki:</a><a class="pathentry" href="/wiki/Hackathon6" title="View Hackathon6">Hackathon6</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/Hackathon6">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/Hackathon6">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/Hackathon6">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/Hackathon6">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/Hackathon6">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/Hackathon6?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=Hackathon6" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="/wiki/Hackathon6?action=diff&amp;version=78" title="Version 78 by jsnyder">Last modified</a> <a class="timeline" href="/timeline?from=2011-11-10T10%3A54%3A03-08%3A00&amp;precision=second" title="2011-11-10T10:54:03-08:00 in Timeline">17 months</a> ago</span>
+            <span class="trac-print">Last modified on 11/10/11 10:54:03</span>
+          </div>
+          <div id="wikipage"><p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#Tools">Tools</a></li><li><a href="#Ideas">Ideas</a></li><li><a href="#Teams">Teams</a></li><li><a href="#PreviousHackathons">Previous Hackathons</a></li></ol></div><p>
+</p>
+<h1 id="YelpHack-A-Thon">Yelp Hack-A-Thon</h1>
+<p>
+1)  When is it?
+</p>
+<blockquote>
+<p>
+11/10/2011-11/11/2011
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations and awards.
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+</p>
+</blockquote>
+<p>
+2) Who's invited to hack at the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Everyone in product, systems and developers (interns included).
+</p>
+</blockquote>
+<p>
+3) What can I work on?
+</p>
+<blockquote>
+<p>
+Whatever you want!
+</p>
+</blockquote>
+<blockquote>
+<p>
+Scratch your developer itches. If you need some suggestions:
+</p>
+</blockquote>
+<ul><li>Visualization or other views - we have a lot great data that can be mined
+</li><li>Widgets
+</li><li>Cool examples of our public API
+</li><li>Tools to make your or your fellow developer lives easier
+</li><li>Mehfil feed -- err, perhaps this one is already done
+</li></ul><p>
+4) If I build a cool product feature, will we launch it?
+</p>
+<blockquote>
+<p>
+Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+</p>
+</blockquote>
+<p>
+5) Can I start hacking before the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Sure can -- but do it on your own time.
+</p>
+</blockquote>
+<p>
+6) Can I hack by myself?
+</p>
+<blockquote>
+<p>
+We're a team here at Yelp, not a bunch of lone gunmen. Lets try for teams of 2-3. If you need help finding a partner, let me know. You can also use the wiki to post your ideas and solicit help.
+</p>
+</blockquote>
+<p>
+7) Awards?
+</p>
+<ul><li>Useful
+</li><li>Funny
+</li><li>Cool
+</li><li>Hardcore
+</li></ul><p>
+8) Problems, Issues, or Ideas?
+</p>
+<blockquote>
+<p>
+Come talk to Jason (jfennell), KB (ashleykb) or Pita (pcheng), since we making this happen.
+</p>
+</blockquote>
+<h2 id="Tools">Tools</h2>
+<ul><li>Thinking of doing something data-focused? Check out the Yelp internal dataset at <a class="ext-link" href="http://people.yelpcorp.com/~mattj/data/hackathon.html"><span class="icon">​</span>http://people.yelpcorp.com/~mattj/data/hackathon.html</a>
+</li></ul><h2 id="Ideas">Ideas</h2>
+<ul><li><strong>Yelp Urban Dictionary</strong>: (jfennell) A place to define all the terms you would love to know about, an a few you would rather not.
+</li><li><strong>Kickass Metrics</strong>: (amf) Clearly we can improve on the monochrome, non-anti-aliased, single-dimension charts that currently pass for business intelligence around here...
+</li><li><strong>Yelp Celebrities</strong>: (amf) This might not take the whole two days to build, but how about a nice page that shows who the most followed local Yelpers are, so you can get in on the adulation, too?
+</li><li><strong>Suggestions for you</strong>: (amf) Can we get a little collaborative filtering up in this joint? I want to know what restaurants I'm missing out on among my peers.
+</li><li><strong>Siri-style queries on Android</strong> (gstarnbe): Use Android's voice recognition API to convert speech to text. Then use something like Python-NLTK to convert this text into a search query.
+</li><li><strong>user check-ins to determine biz hours</strong>. See if we can model biz open hours using check-in data. We've got a lot of external check-in data we can use here, too (eric).  Also would be cool to see check-ins plotted over time of day to show when the place is hoppin'!(ryank)
+</li><li><strong>single business activity visualization</strong>.  A pretty way to stream/display check-ins, uploaded photos, quick tips, etc for a single business.  Could pull in tweets for a single hash tag, too.  CMs have been wanting something like this forever to project on a massive wall at events. (eric)
+</li><li><strong>Where visitors are from map</strong>.  Have you ever been to a place and they have a map where you can pin where you are from?  Since we have people's hometowns, we can use checkins and reviews to create a map for each business of where people have visited from.  Would be a cool widget for business homepages. (ryank)
+</li><li><strong>Yelp in Space</strong>: Build a Yelp weather balloon with an HD camera and a Yelp logo from our building. <a class="ext-link" href="http://www.youtube.com/watch?v=ZCAnLxRvNNc&amp;feature=related"><span class="icon">​</span>http://www.youtube.com/watch?v=ZCAnLxRvNNc&amp;feature=related</a> (yoni)
+</li><li><strong>Freeway search</strong>: (jfennell) Figure out the direction the user is headed and search ahead of them for the things they are looking for.  Alternately, get routing information and just search along the route.
+</li><li><strong>Code metrics</strong>:  (billings) The commit rate to master has remained remarkably constant since mid-2009:  <a class="ext-link" href="http://people.yelpcorp.com/~billings/commit_rate.png"><span class="icon">​</span>http://people.yelpcorp.com/~billings/commit_rate.png</a>. Are engineers committing larger chunks of code less often?   At what rate is our codebase growing?  What about tests?
+</li><li><strong>Yelp Data to Stock Price</strong>: (smg) Figure out if there is any correlation between changes in the percentage of activities for a particular business (searches, check ins, reviews written) and the change in its quarterly stock price
+</li><li><strong>Pulse-style review listing page for mobile</strong>: Treat each business like an RSS feed and show images and reviews/review headlines in the boxes like on <a class="ext-link" href="http://t1.gstatic.com/images?q=tbn:ANd9GcSjyAHeznD1PrhbwAr9CaW8OE4xIwzhNmD4Jla8L0XxfdFtLpNG"><span class="icon">​</span>here</a> (rkaminsk).
+</li><li><strong>Tell Sales Who to Call Next</strong>: Using data such as location, reviews, category, etc. figure out what dimension best predict ad sales to a business, then make a recommendation engine that tells a salesperson the best business to call next that will lead to a sale (vivek,chrisk,rkaminsk).
+</li><li><strong>Did the experiment affect the search results?</strong>: (billings) Problem: Many search queries return the same results irrespective of what experiment cohort they are in; when analyzing an experiment, we'd love to be able to drill down into only the affected searches.  Solution: have an SOA service that the search servlet posts search queries to, and have this service re-run the search against the various experiment cohorts and log results.  This presumes that we have enough search capacity (I think that we do).  Could do sampling otherwise.
+</li><li><strong>The Coffee Cloud</strong>: (cliff) Visualization/ map mashup of mobile search and location data with time of day.  It's 7am where are searches for coffee happening? Perhaps you can 'scrub' through hours of the day to find the peak of coffee searches. Hope to map a bunch of other user queries.
+</li><li><strong>Secret Menus</strong>: (jeffmicklos) Hey guys, it would be awesome if we could surface restaurants secret menus! I mean, really, is there any better way to impress your friends by going to Blue Bottle and ordering a Gibraltar? Or Grits and Pulled Pork at Little Skillet. DO YOU EVEN KNOW WHAT A "PURIST" IS AT AMERICAN GRILLED CHEESE!? Guys, we have so much awesome review data that we can extract such great things from. Clearly though, I am not smart enough to do this so one of you geniuses will have to.  Let's use our power for good. I will buy you coffee.
+</li><li><strong>remember the (catchy acronym)</strong>: (jaredg) Do you ever lose track of {tickets, code reviews, batches/apperrors that need follow up} in all the mail you get? My idea is to scrape incoming email from our various internal systems (process and pass through the SMTP sessions as they come out of Trac, Reviewboard, Nagios) and summarize them into a personalized dashboard of what needs your attention. It may not be sexy, but I think it could be useful.
+</li><li><strong>Just tell me what I should make a list of, already! </strong> (amf) Making lists is kind of a pain, not because it's that hard to put them together, but because I never think of making a list, and then if I do, I'm not sure what would make a good one. Can we suggest to a fashionista that she create a list of her favorite boutiques (and just give her a starter list of her top 5)? Or to a caskforce member his favorite watering holes? Or to a golf nut his favorite courses?
+</li><li><strong>Dynamic service sets</strong>: (billings) Let service instances dynamically register in a zookeeper directory, write some python code to intelligently load balance / retry over said service sets.  See <a class="ext-link" href="http://www.umiacs.umd.edu/~jimmylin/publications/Leibert_etal_SoCC2011.pdf"><span class="icon">​</span>http://www.umiacs.umd.edu/~jimmylin/publications/Leibert_etal_SoCC2011.pdf</a> /  <a class="ext-link" href="http://sna-projects.com/norbert/"><span class="icon">​</span>http://sna-projects.com/norbert/</a>.  Aim is to be able to hard restart a service without clients much noticing.
+</li><li><strong>RegexMS App</strong>: (kmosher) Say you had this contact. Let's call him "Nagios", and he/she/it sends you all sorts of random shit and some of it is REALLY important and some of it is less important. Wouldn't it be nice if you could set filters on the contents of his/her/its messages to control the types of notification you get? Let's write a Mobile that supports lots of filter options for SMS. iOS or Android or both. (Or neither, I should really check to see if this already exists)
+</li><li><strong>Coffee Snob</strong>: (ivanlei) Given a list of the actually good coffee shops in a city (as made by incredibly pretentious coffee snobs) and a huge ass list of keywords, figure out the difference between real 5 star coffee shops (blue bottle) vs. fake ones (with white chocolate raspberry mochas) in any city.
+</li><li><strong>Coffee Snob v2</strong>: (ivanlei) Do the above using only a list of actually good and actually not good coffee shops, algorithmically determining that huge ass list of keywords.
+</li><li><strong>Where in the world is Yelper San Diego</strong>: (ivanlei) Visualize as much of the unencrypted data flowing from the Yelp iPhone app as possible to make a super creepy stalker view of how much more the app knows vs. how much you think it knows.  Success is mapping someone's entire weekend - where they were and for how long - without ever using check-in data.
+</li><li><strong>Fog of war</strong> (madhu, eric, garrick) Check-in visualizations overlaid on google maps.  Checking in at a business will plant a marker that reveals nearby businesses in a small radius around it, with the rest of the map shrouded in fog of war.  Possible game aspect to this.
+</li><li><strong>Concierge v2</strong>: (mpathak) Help people find everything that is great about a new city. Provide users a list of things they could do in a day in a city they've never visited before. Think restaurants, places of interest, shops, bars, pubs...
+</li><li><strong>Active XSS/CSRF scanner based on ranger logs (gstarnbe)</strong>: Write a scanner that analyzes the ranger logs and determines which URLs are accessed and which types of parameters each URL expects. Then automatically test our server for XSS and CSRF vulnerabilities by rewriting the queries and examining the responses. Some of this functionality is already covered by existing scanners such as ratproxy. By writing our own scanner we would be able to better adapt to the characteristics of our site.
+</li><li><strong>i18n dashboard (wing)</strong>: Every day we're growing our communities in just about every cool city in Europe (London, Paris, Berlin, Rome, Madrid, Amsterdam, etc.). We need a better reminder of how awesome that is - show local time, pull in recent content (especially photos), and some cool stats to remind us of what's going on out there.
+</li><li><strong>Friends' rating (ytan)</strong>: Usually, we trust friends' reviews more than others. For each user, can we provide ratings based on reviews from the network of his/her friends (directly connected friends, friends of friends ...) and reviewers followed by the user? Additionally, we can also try to correlate this type of rating with the current rating over all reviews. If two are far way off, that might be an indicator of something to take a close look.
+</li><li><strong>User Highlights (aditya):</strong> "Review Highlights" for individual users.. This lets you see the words and phrases used by a reviewer that distinguish him from everybody else. We can see what literary references and catch phrases people commonly use and sometimes what specific dishes and cuisines they are obsessed with.
+</li><li><strong>Yelpers Like Me (jhurley)</strong>: Build a crude user-to-user similarity engine that allows you to filter reviews by users who are "like you" - who have rated the same places you have rated in a similar way. 
+</li><li><strong>FireMon</strong>: (jbrown, you?) A new monitoring system using the firefly data API. You know you want to get in on a project this Useful. Lots of potential for pretty client-side development, and lots of ways to do cool things in the backend.
+</li><li><strong>Yelp reviews view from space (robb)</strong>: Create a visualization of Yelp reviews overlaid on a 3D globe. Each Yelp review lighting up the location of the place reviewed. Have a slider so that we can see the evolution of the reviews over time, we should end up with a visualization that is close to what Earth looks like at night viewed from space.
+</li><li><strong>Yelpcraft</strong>: Create a game where you battle your friends based on Yelp Check-Ins. (Yoni)
+</li><li><strong>Makerbot Monocle</strong>: (kmosher) Point a Kinect at the <a class="missing wiki" href="/wiki/MakerBot" rel="nofollow">MakerBot?</a> and show an augmented reality view of what the model will look like before/as it's getting printed.
+</li><li><strong>Scavenger Hunt</strong>: (bhewitt) Mobile phone users register for a scavenger hunt that occurs at a given time. At that time, a push notification is sent out with the first of a series of predetermined instructions (e.g. "Go to pub X and take a photo with the barkeep", "Collect a piece of special-edition Yelp schwag from store Y"). The user must go to that business and check in to receive the next instruction. The fact that they have to pick up a physical object as well would help curtail cheating. The final location could be a Yelp-sponsored booth/afterparty/meetup where you would show off the things you collected and have an awards ceremony.
+</li><li><strong>Roadtrip</strong>:  (jsnyder) plan a road trip, and find places to get gas, eat, or stay, N miles off your route.
+</li></ul><h2 id="Teams">Teams</h2>
+<ul><li><strong>Remote Testify</strong> (sumeet, juliank, spatel, ...) - Testing can be slow during development which means it isn't done enough. We'd like to make something that keeps a sandbox and testify instance running for you that you can request to run tests and have the results reported quickly back to your editor. Regular restarts of the sandbox and other things like that to make sure things stay clean as well as editor plugins for the four big ones. We have people for Vim, Sublime Text and Eclipse+Pydev. Looking for Emacs and Textmate users too.
+</li><li><strong>Disco MRJob</strong> (mattj, bchess, jretz) - Getting Disco running as a runner for MRJob.  Hadoop is bloated and uses too much ram.  And we give more money to Amazon to be able to use it.  mattj also has a custom <a class="missing wiki" href="/wiki/MapReduce" rel="nofollow">MapReduce?</a> implementation he's been working on.  Maybe tinkering with zeromq
+</li><li><strong>Thinking Big</strong> (vivek, bheil, ?) - We're going to try to cook up some big bold ideas that could make us money and create designs for the best ones (e.g. selling leads to service businesses and insuring the transaction, biz owner mobile app that gives us an end-to-end reservation platform, and many more!).
+</li><li><strong>Yelp IRC bot</strong> (dmitriy, eevee, ayust, +) - swiss-army IRC bot, hubot-style. get yelp performance/aliveness statistics, deploy code, keep track of stages, search trac, whatever else ((short story: <a class="ext-link" href="http://pb.yelpcorp.com/23069"><span class="icon">​</span>http://pb.yelpcorp.com/23069</a>))
+</li><li><strong>Sounds Like Ecstasy</strong> (forrest, skimbrel, aneeshg, ???, profit) - Use <a class="ext-link" href="http://chuck.cs.princeton.edu/"><span class="icon">​</span>ChucK</a> to generate music and/or visuals based on a live yelp data stream.  Data/pattern analysis for creating something musically significant out of this information.  Potential for awesome: very high.
+</li><li><strong>Project Omicron</strong> (plucas, aoneal, atinits, ?) - A dashboard for site performance on a per-servlet level to help us track performance gains/losses over time. And other stuff too!
+</li><li><strong>Attack the Gas Station</strong>: (gstarnbe, pberens, ivanlei) Active XSS/CSRF scanner based on ranger logs. Write a scanner that analyzes the ranger logs and determines which URLs are accessed and which types of parameters each URL expects. Then automatically test our server for XSS and CSRF vulnerabilities by rewriting the queries and examining the responses. Some of this functionality is already covered by existing scanners such as ratproxy. By writing our own scanner we would be able to better adapt to the characteristics of our site.
+</li><li><strong>Box</strong>: (alexd, eskil) It's black.
+</li><li><strong>Yelper Helper</strong>: (amir, steng) Copy and pasted straight from last hackathon's page :) - Allow users to setup location reminders for businesses (either individually or for all bookmarks) - The user should also be able to set up a filter for location reminders ("remind me whenever I'm next to a bar that has a deal at night")
+</li></ul><h2 id="PreviousHackathons">Previous Hackathons</h2>
+<p>
+See the directory of all hackathons for ideas and previous projects: <a class="wiki" href="/wiki/HackAThon">HackAThon</a>
+</p>
+</div>
+        
+        
+      </div>
+      
+    <div id="attachments">
+    </div>
+
+          <div class="buttons">
+              <form method="get" action="/wiki/Hackathon6" id="modifypage">
+                <div>
+                  <input type="hidden" name="action" value="edit" />
+                      <input type="submit" value="Edit this page" />
+                </div>
+              </form>
+                <form method="get" action="/attachment/wiki/Hackathon6/" id="attachfile">
+  <div>
+    <input type="hidden" name="action" value="new" />
+    <input type="submit" name="attachfilebutton" value="Attach file" />
+  </div>
+</form>
+            <form method="get" action="/wiki/Hackathon6" id="rename">
+              <div>
+                <input type="hidden" name="action" value="rename" />
+                <input type="submit" value="Rename page" />
+              </div>
+            </form>
+              <form method="get" action="/wiki/Hackathon6">
+                <div id="delete">
+                  <input type="hidden" name="action" value="delete" />
+                  <input type="hidden" name="version" value="78" />
+                    <input type="submit" name="delete_version" value="Delete this version" />
+                  <input type="submit" value="Delete page" />
+                </div>
+              </form>
+          </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/wiki/Hackathon6?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/Hackathon6">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/Hackathon6">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/Hackathon6">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/Hackathon6">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/Hackathon6">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/Hackathon6?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=Hackathon6" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="/about"><strong>Trac 0.12.3</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">look at me! I'm in the footer</p>
+    </div>
+  </body>
+</html>

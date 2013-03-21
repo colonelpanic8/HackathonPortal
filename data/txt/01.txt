@@ -1,0 +1,134 @@
+== Hackathon 1 (01/28/2010 - 01/29/2010) ==
+ * Neil - hack on getting Git going or get browser based location API working on yelp
+ * alan - ideas: yelp lite, @aliases for users and businesses, talk questions and answers, 'last to review',
+ * abakun - google earth visualization for reviews (already partially working, started a proof of concept a month ago or so)
+ * juliank - Yelp Locale Plugin, change settings depending on business category, suggest person take photos for businesses with few. (locale is an app for Android that lets you change system settings depending on location and other information.)
+ * pretz - html5/jquery client to the (private) yelp API that runs on popular mobile browsers (probably largely port the webOS app to work in a normal browser)
+ * dave - Local Maps; let users switch to the SF Muni Map instead of the Google Map in SF.
+ * ben - possibly resurrecting monocle for street view, or maybe some qr code magic if still havent finished it before then, or maybe putting the live muni layer onto the maps in the iphone app.
+ * mattj - porting us to wsgi and/or tornado. The end goal is to have a dev serving from nginx (and if tornado, maybe even a COMET-ized version of talk with live updating or something similar)
+ * minh & Kyle - "[wiki:predatorMode Where would predator eat?]" Heatmap overlay for reviews. See which blocks rock, and which ones suck at a glance.
+ * abakun - kegerator monitor, integration with nagios and maybe IRC announce
+ * rhettg - Yelp Answers (structured talk, "Best burrito in SF"), something with events (business page integration, community wiki)
+ * benb - Will help anyone who needs UI work & can do css/html, and I think Yelp Lite sounds very interesting.
+ * bryan - Book hotels from Yelp hotel business pages (use kayak API to get price and Yelp gets a cut if user purchases)
+ * eric - iPhone-optimized UI for Yelp Mobile.  More ambitious: iPhone/webkit-optimized UI of yelp.com (perhaps just biz page to start). Could also lend a hand to Yelp Lite on design/PM/HTML/CSS side. And generally, happy join any team needing some design and front-end help.
+ * stop - 1) create your own scrapebook on yelp (collection of pictures, reviews, talk threads etc...), 2) wikify about this biz, 3) paging through category search results on a biz page, 4) embed pictures in reviews, 5)
+ * wing
+   * getting better quality photos on our site - download from flickr, possibly writing geotags back to flickr
+   * set a web crawler loose on biz urls, figure out if there are some good heuristics for hours, addresses, menus
+   * let users rank similar restaurants
+ * russ - fractal yelp burst infinite zoom?  data cube??  or some kind of visualization
+ * dave? - Find faces in user photos. It would be awesome if we could give reviews with a real face a boost in review sorting and choosing featured Yelpers. It looks like there's a good off-the shelf solution we could start with; see [http://code.google.com/p/pyfaces/ PyFaces] and/or [http://blog.jozilla.net/2008/06/27/fun-with-python-opencv-and-face-detection/ this article].
+ * pwais - Personalized Yelp Biz Feed?  Stream biz reviews, announcements, special offers, etc. to one page/feed.  Perhaps also stream biz fwitter updates into this feed.  Do intelligent filtering and insert recommendations (e.g. relevant businesses from lists of friends) based upon user activity/location/frequented muni lines.  Along the lines of FB News Feed or Google Reader for any biz event on Yelp.
+ * hannah - any HTML/CSS work, maybe UI design. bigo's homepage redesign is nice, as well as the conversion of music venue into first-class objects.
+ * mtai - Data Visualization - Heat map defined by `Geoquad -> #` with a user defined scale.  Ideally, on geoquad click, the visualization will drill down and draw all relevant markers covered by the current geoquad... as well as any relevant details/links.
+ * derwiki, duncan, shivaram - Pending changeset work:  creating quality metrics, alternatives to Turk
+ * bigo:
+   * Review/Check-In Visualization:
+     * Either flat map or Google Earth
+     * pop up a little talk bubble every time a review is written or someone checks in.
+   * Simple Home Page: (would love to work together on this, as I was thinking of pretty much the same idea - hannah)
+     * basic home page with configurable options - defaults to just a search box
+     * ad-related implications, might be hard to get product signoff
+   * Privacy Settings:
+     * Private Events (with proper invitations / invite lists)
+     * Allow selective hiding of on profile of "I'm in!" events, check-ins
+   * Neighborhood Expensiveness API:
+     * API call that charts expensiveness of neighborhoods based on their related biz attr
+     * maybe a visualization that uses this API
+   * Review Sorting: Reviewer Expertise
+     * we have charts that show, eg/ how many sushi restaurants a user has reviewed - let's take it a step further
+     * incorporate user's "expertise" in a certain category into the sorting rank of their review
+   * Combine search results with biz details:
+     * shrink results list to one-line-per-result, removing review snippet, reserve a large section of page
+     * AJAX-in biz details so you don't have to go forward, read, go back to peruse a list of results
+     * not-insurmountable ad-related issues
+   * Add annotations to lists
+     * lets you explain why an item is in a list, or just generally add extra SEO-able text around lists
+   * Allow "<" characters in everything
+   * Login With Facebook: allow linking to FB account for login
+   * Turn Music Venues into first-class objects:
+     * Allow posting of concert schedules (which are effectively just Yelp Events)
+     * Could start surfacing local music events on homepage or events page
+     * could eventually promote Artists into first-class objects as well, allowing subscriptions - "i want to know when so-and-so comes to town"
+   * Dev Tools: Yelp in a Box
+     * get the yelp stack running on a linux VM image, so devs can run it locally without a network connection
+   * Dev Stuff: Finish migration to loc/yelp directory
+     * project has gone stale
+   * Dev Stuff: reorganize site-specific files into subdirs
+     * eg: loc/sites/biz/(cmds|htdocs|templates)
+   * Dev Stuff: hackbot enhancements
+     * not sure, but i like the architecture i've got going and would be into extending hackbot to do crazy stuff
+
+* edmund:
+
+ * hackbot extensions:
+   * <edmund> #1234  <PicardBot> "Description of the bug"  https://track.yelpcorp.com/ticket/9948
+   * <PicardBot> yelp is now a trend on Twitter
+ * deadcode analysis of the site?
+ * I want to do Android stuff. I have some monocle ideas:
+   * mark in monocle, heartbeat guide to destination,
+   * reminder to check-in once there, reminder to addbiz/review 1hr after leaving destination
+ * ideas for review display:
+   * maybe the friend graph is too sparse for this, but using degree to user as an additional review sorting stat
+   * are we collecting click statistics? Use to quantify how well the review sorting algorithm is doing?
+ * freeform address entry, and parsing of addresses
+ * likes bigo's home page redesign idea, would like to work with him on that
+
+
+== Teams from Hackathon 1 ==
+ * !TeamMuni
+   * dave
+   * jfennell
+   * pwais
+   * hari
+   * jlatt
+
+ * [ChangesetsHackathon Changsets]
+   * duncan
+   * derwiki
+   * shivaram
+
+ * YelpLite -- a minimal, stripped down yelp
+   * benb
+   * pretz
+   * alan
+   * others welcome
+
+ * YelpLight - a light up Yelp burst that glows based on current reviews
+   * johnb
+   * abakun
+   * julien
+
+ * GeoAwesome : Geo photo uploader/importer - streamline taking photos on your slr and assigning them to the right biz
+   * wing
+   * jon
+   * vivek
+ * Where would predator eat? Heat maps for finding the best and worst parts of town
+   * minh
+   * Kyle
+   * Jesse Ventura
+   * jlatt
+   * Arnold Schwarzenegger
+   * Carl Weathers
+ * Review Highlights Browser
+   * jack
+   * eric
+   * rohan
+
+ * EnhancedWriteareview - adding photos and friends to writeareview
+   * juliank 
+   * stop
+
+ * [wiki:YelpGL] - OpenGL (WebGL) visualization of check-ins and reviews
+   * gabe
+   * edmund
+
+ * ['YelpEventsHacking'] - Some misc enhancements to Yelp Events
+    * rhettg
+    * bigo
+
+ * Lists inline in reviews
+   * dave
+   * hannah

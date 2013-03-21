@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+ 	<title>
+      HackathonThree – Yelp Bug Tracker
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="search" href="/search" /><link rel="help" href="/wiki/TracGuide" /><link rel="alternate" href="/wiki/HackathonThree?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="tracwysiwyg.base" href="/" /><link rel="start" href="/wiki" /><link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/chrome/fivestarvote/css/fivestarvote.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="/chrome/tracwysiwyg/wysiwyg.css" type="text/css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/common/css/trac.css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/tracwysiwyg/editor.css" /><link rel="shortcut icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link rel="icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link type="application/opensearchdescription+xml" rel="search" href="/search/opensearch" title="Search Yelp Bug Tracker" /><script type="text/javascript">
+      var _tracwysiwyg={"escapeNewlines":false};
+    </script><script type="text/javascript" src="/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/chrome/common/js/babel.js"></script><script type="text/javascript" src="/chrome/common/js/messages/en_US.js"></script><script type="text/javascript" src="/chrome/common/js/trac.js"></script><script type="text/javascript" src="/chrome/common/js/search.js"></script><script type="text/javascript" src="/chrome/fivestarvote/js/fivestarvote.js"></script><script type="text/javascript" src="/chrome/common/js/folding.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg-load.js"></script><script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script><link rel="alternate" type="application/x-wiki" title="Edit this page" href="/wiki/HackathonThree?action=edit" /><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+ 	<link rel="stylesheet" href="/htdocs/site_css.css" />
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://trac.yelpcorp.com"><img src="https://trac.yelpcorp.com/htdocs/yelpsmall.png" alt="I am a kitty" /></a>
+      </div>
+      <form id="search" action="/advsearch" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first">logged in as jkotker</li><li><a href="/logout">Logout</a></li><li><a href="/wiki/TracGuide">Help/Guide</a></li><li><a href="http://deploy-prod.yelpcorp.com:3540/">Deploy Dashboard</a></li><li><a href="/rpc">API</a></li><li class="last"><a href="/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/wiki">Wiki</a></li><li><a href="/report">View Tickets</a></li><li><a href="/newticket">New Ticket</a></li><li><a href="/roadmap">Roadmap</a></li><li><a href="https://trac.yelpcorp.com/query">Ticket Query</a></li><li><a href="/tags">Tags</a></li><li><a href="/admin" title="Administration">Admin</a></li><li><a href="https://trac.yelpcorp.com/report/7">My Tickets</a></li><li><a href="/watchlist">Watchlist</a></li><li class="last"><a href="/advsearch">Advanced Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="/wiki">wiki:</a><a class="pathentry" href="/wiki/HackathonThree" title="View HackathonThree">HackathonThree</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/HackathonThree">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/HackathonThree">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/HackathonThree">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/HackathonThree">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/HackathonThree">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/HackathonThree?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=HackathonThree" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="/wiki/HackathonThree?action=diff&amp;version=2" title="Version 2 by eskil">Last modified</a> <a class="timeline" href="/timeline?from=2011-03-02T10%3A53%3A36-08%3A00&amp;precision=second" title="2011-03-02T10:53:36-08:00 in Timeline">2 years</a> ago</span>
+            <span class="trac-print">Last modified on 03/02/11 10:53:36</span>
+          </div>
+          <div id="wikipage"><p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#Ideas">Ideas</a></li><li><a href="#Teams">Teams</a></li><li><a href="#PreviousHackathonIdeasProjectsandTeams">Previous Hackathon Ideas, Projects and Teams</a></li></ol></div><p>
+</p>
+<h1 id="YelpHack-A-Thon">Yelp Hack-A-Thon</h1>
+<p>
+1)  When is it?
+</p>
+<blockquote>
+<p>
+11/18/2010-11/19/2010
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations and awards.
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+</p>
+</blockquote>
+<p>
+2) Who's invited to hack at the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Everyone in product, systems and developers (interns included).
+</p>
+</blockquote>
+<p>
+3) What can I work on?
+</p>
+<blockquote>
+<p>
+Whatever you want!
+</p>
+</blockquote>
+<blockquote>
+<p>
+Scratch your developer itches. If you need some suggestions:
+</p>
+</blockquote>
+<ul><li>Visualization or other views - we have a lot great data that can be mined
+</li><li>Product features that you'd love to see on the site
+</li><li>Widgets
+</li><li>Cool examples of our public API
+</li><li>Tools to make your or your fellow developer lives easier
+</li><li>Mehfil feed -- err, perhaps this one is already done
+</li></ul><p>
+4) If I build a cool product feature, will we launch it?
+</p>
+<blockquote>
+<p>
+Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+</p>
+</blockquote>
+<p>
+5) Can I start hacking before the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Sure can -- but do it on your own time.
+</p>
+</blockquote>
+<p>
+6) Can I hack by myself?
+</p>
+<blockquote>
+<p>
+We're a team here at Yelp, not a bunch of lone gunmen. Lets try for teams of 2-3. If you need help finding a partner, let me know. You can also use the wiki to post your ideas and solicit help.
+</p>
+</blockquote>
+<p>
+7) Awards?
+</p>
+<blockquote>
+<p>
+TBD
+</p>
+</blockquote>
+<h2 id="Ideas">Ideas</h2>
+<ul><li>(Ian) some sort of acknowledgement for users who contribute good, useful info to the queue
+<ul><li>kind of a followup to this thread <a class="ext-link" href="http://www.yelp.com/topic/boston-yelps-lack-of-appreciation-for-fixing-bad-information"><span class="icon">​</span>http://www.yelp.com/topic/boston-yelps-lack-of-appreciation-for-fixing-bad-information</a>
+</li><li>"I just think there has to be some way to tap into all of this volunteer effort to make Yelp not only a good review repository, but also an excellent database for locating businesses. People will run around and check in to places to become a "duke," so it stands to reason they would pitch in to correct duplicates, closed businesses, and bad addresses if they were given some sort of +1."
+</li><li>I think we already ARE an excellent database for locating businesses, of course, but it would be cool to be able to appreciate the esp helpful contributors and/or a notification system that said "the change you submitted has been accepted/rejected"
+</li></ul></li><li>Live Local Music (artem, dave, jlatt, jrheard, tamir, bryce) - Make finding great local music as awesome as finding a great local restaurant
+<ul><li>Infrastructure:
+<ul><li>Bands are treated like local businesses (you can review them, they have relevant categories, a home city, etc.)
+</li><li>Music events have metadata about which bands are playing
+</li><li>You should be able to review a music event; the reviews also apply to the musician(s) you heard play, and the venue
+</li></ul></li><li>Scrape jambase, last.fm, sonicliving, Yoshi's webpage, etc. for concert info
+</li><li>Integrate music events into search (if you search for live music, it should show you upcoming concerts near you, even if the bands' home city is elsewhere)
+</li><li>On a venue's biz details page (e.g. <a class="ext-link" href="http://www.yelp.com/biz/the-independent-san-francisco"><span class="icon">​</span>http://www.yelp.com/biz/the-independent-san-francisco</a>), display a list of upcoming shows and sell tickets through ticket vendors' affiliate programs. Hella monetizable. (jrheard)
+</li><li>Alerts when your favorite bands play near you
+</li><li>Music samples on a band's biz details page (like on <a class="missing wiki" href="/wiki/MySpace" rel="nofollow">MySpace?</a>).
+</li><li>Buy CDs or tracks on iTunes
+</li><li>Group ticket buying: a venue and a band can agree to hold a concert IF enough people buy tickets, and the more people who buy tickets, the less everyone has to pay.
+<ul><li>I don't think anyone does this yet, and there ought to be serious $$$ to be made here. :)
+</li></ul></li><li>iPhone app integration
+<ul><li>find concerts happening tonight near you
+</li><li>free tracks for checking in at a certain business
+</li><li>download tracks directly to iTunes
+</li><li>bands can create custom badges for fans who come to a lot of their concerts (mattj can give pointers)
+</li></ul></li></ul></li></ul><ul><li>Featuring new businesses! (bchess, kmitton, jretz, pwais)
+<ul><li>The idea is to make users aware of new businesses. This page <a class="ext-link" href="http://www.yelp.com/sm/san-francisco-ca-added"><span class="icon">​</span>http://www.yelp.com/sm/san-francisco-ca-added</a> is just for SEO and isn't really useful to end users.
+</li><li>Upon writing a review for some business that was entered into the DB within the last year, end-users are asked via checkbox if it is a new business (vs an existing one that we just now know about)
+<ul><li>(jrheard) for what it's worth, i built the business opening date system, which has been quietly collecting business opening dates on /writeareview/newbiz for about two months now. see the business_opening_date table, or the <a class="missing wiki" href="/wiki/BusinessOpeningDate" rel="nofollow">BusinessOpeningDate?</a> model. you already have this information. take it. :)
+</li></ul></li><li>Enough of these checkboxes and from trusted users will mean that the business is flagged as "new"
+</li><li>New businesses are automatically featured on search, business, and category pages by giving them a free temporary ad campaign.
+</li><li>After the trial ends, when traffic to their biz details page drops, it's a good excuse for sales to make a cold call.
+</li></ul></li></ul><ul><li><a class="missing wiki" href="/wiki/KegMate" rel="nofollow">KegMate?</a> backend - <a class="missing wiki" href="/wiki/KegMate" rel="nofollow">KegMate?</a> needs a backend! This would allow a unified user/beers/stats db from which we could pull cool graphs (maybe lines of code committed vs beer consumption?), info, automatically check people into levchins. We could also wire up Jeff Micklos's hot bookmarklet once there's a backend so that everyone could easily check the status of the beers from their browser. Talk to me (johnb) or someone else in the kegmate team if you're interested.
+</li></ul><ul><li>Yelpspotting: A <a class="ext-link" href="http://www.tastespotting.com/"><span class="icon">​</span>tastespotting</a> like interface to yelp photos which uses some metric of <a class="ext-link" href="http://www.flickr.com/explore/interesting/"><span class="icon">​</span>interestingness</a> to show (recent?) cool photos.  Ideally would allow filtering to neighborhoods or types of businesses.  Possible interestingness metrics: outside links, followed outside links, user votes, number of photos posted by photo poster, mention in talk thread, etc. (pretz)
+</li></ul><ul><li>Bringing Yelpers and Businesses closer: Each of these three (separate) ideas are great revenue opportunities (Bling?). The first two are pretty easy, and I'm looking for people who want to work on this, so if you see something you like, ping me (ryand).
+<ul><li>Track Your Competition (easy).
+<ul><li>Local businesses need competitive intelligence to stay ahead of their local competition, and will often be willing to pay for it. For a small fee, we could deliver them an email update on their competitor's review trends, offers and ads shown. Knowing that their competitors are advertising on Yelp may even encourage them to advertise on Yelp for themselves.
+<ul><li>UI: A page to add businesses (their competition) that they'd like to follow.
+</li><li>Infra: Batch to check for the latest offers &amp; ads for those businesses + compare reviews from week to week, to generate an email to be sent to the business owner.
+</li></ul></li></ul></li><li>Follow a Biz (a bit less easy).
+<ul><li>Yelpers, do you love a local biz? Why not follow it, and get weekly or monthly invites to events, or deals from that business. 
+</li><li>This is CRM 101 for local businesses. Business owners, give your loyal customers great deals and invite them back to your business. 
+<ul><li>UI: Create a follow-link on a businesses page, and a 'Businesses I'm following' section (to remove businesses).
+</li><li>UI: Biz.yelp, see who is following you and create offers targeted specifically for them.
+</li><li>Infra: Batch to grab the latest offers for businesses and generate an email to customers following those businesses.
+</li></ul></li></ul></li><li>Yelp Invites (pretty challenging)
+<ul><li>Yelpers, invite friends to dinner &amp; drinks on Yelp while... 
+</li><li>A) Increasing sign-ups virally by tapping into Yelper's social network and 
+</li><li>B) (for Bling!) Enable businesses to offer deals for groups of Yelpers. "Free appetizer for Yelpers of 10 or more!", anyone?
+<ul><li>Note: Some of this work has already been done in a previous hackathon.
+</li><li>UI: Probably the most complex - tweak the event UI to handle consumer created events where you can invite your non-yelp friends and choose between venues.
+</li><li>UI: Create a message board to enable communication before the event (we could later tie mobile in to do this during the event too).
+</li><li>UI: biz.yelp, create a page to customize offers for large groups to entice them to visit your business.
+</li><li>Infra: Batch event updates, follow up on events to increase customer engagement.
+</li></ul></li></ul></li></ul></li></ul><ul><li>List to Badge: We should take the user-generated content bar even higher with badges. An easy way to do this is to leverage existing Yelp List content, because most badges follow the check-into-these-specific-places-or-categories paradigm. I think we should restrict badge creation to Elites or even CMs; they could have an easy way of making a badge for their community from the List of the Week. I think going to production with this would help to differentiate us in the checkins space. (alexd, mattj)
+</li></ul><ul><li>Bookmark Tagging: Get rid of the two default bookmark "tags" and allow people to add tags any way they want to make lists of businesses. (benb)
+</li></ul><ul><li><a class="missing wiki" href="/wiki/yelp-puzzles" rel="nofollow">yelp-puzzles?</a> - Have a puzzle page similar to facebook puzzles (<a class="ext-link" href="http://www.facebook.com/careers/puzzles.php"><span class="icon">​</span>http://www.facebook.com/careers/puzzles.php</a>) for recruiting purposes... maybe make it a bit Zen. (duncan)
+<ul><li>If prettiness is needed, I can help... (hannah)
+</li></ul></li></ul><ul><li>Tamale Lady Finder - Some way to track food carts. Maybe this involves hardware, or maybe it is simply a way for food carts can update their location from the mobile apps. Additionally / alternately this could look for location updates from the business's twitter feed since many food carts already use that to update people of their location. SIdenote: Twitter integration on biz pages would be generally cool/useful also. (johnb's idea, though I think I'll be doing something else)
+</li></ul><ul><li>Better Badges - I (Jeff) have this grand idea about really awesome mobile badges, if you are interested, let us talk.
+</li></ul><ul><li>Giant, pretty visualizations for TVs around the office (benb)
+<ul><li>#internalapps visualizations: emails, biz changes queue, salesforce (sumeet)
+</li></ul></li></ul><ul><li>touch.yelp.com for iPhones, iPads, Androids, whatever (benb)
+<ul><li>Oo Oo Mister Kotter me too me too! (greg)
+</li><li>(jon) - I've got an idea for this as well of refactoring all existing site functionality to show up nicely in mobile webkit. Â Need a backender!
+</li></ul></li></ul><ul><li>Trip planner - find places to visit along a route on a map (benb)
+<ul><li>(derwiki) I think Jason built this for the first hackathon...
+</li></ul></li></ul><ul><li>Yelp Recommends - Netflix-style recommendations such as "Our best guess for you" and "Restaurants you'll love" based on people's past ratings. (adamb)
+<ul><li>Along these lines:  how about a 20-questions style interface like bizzy.com?  I (timr) have got a few ideas for similarity scoring that could be implemented quickly.
+</li><li>A much more basic version of this was done for the first hackathon by mattj and hannah (and someone else I don't remember :P)
+</li></ul></li></ul><ul><li>Check-in API (rhett, mattj)
+<ul><li>Expose some check-in data in our API and build some sample external-to-yelp-apps that could use it.
+</li></ul></li></ul><ul><li>EMR management layer (derwiki, ...)
+<ul><li>it's a PITA to worry about persistent sessions and stuff -- it would be neat to have a layer that takes care of all of this for us, and have low priority jobs just queue up.
+</li><li>$$$ saved -&gt; direct value to company -&gt; ... -&gt; profit? -&gt; BLING
+</li><li>not a product idea, so doesn't need product approval to productionize
+</li></ul></li></ul><ul><li>Yelpify YelpQA (people.yelpcorp.com:3030) (derwiki)
+<ul><li>IRC announcements, better search, restyling the page to suit our fancy...
+</li></ul></li></ul><p>
+     
+</p>
+<ul><li>What we've been calling "a node database", to keep track of information about the hardware we manage, with snapshotting of machine state, querying ("all machines that have more than 32gig of ram and have something listening on port 8000"), maintenance logs (what we use systems+changes for now) (abakun)
+</li></ul><ul><li>more git visualizations, for display on a HUD.  Of course there's code swarm (<a class="ext-link" href="http://vis.cs.ucdavis.edu/~ogawa/codeswarm/"><span class="icon">​</span>http://vis.cs.ucdavis.edu/~ogawa/codeswarm/</a>) which I think bigo ran against our repo at one time in the past, but I'm thinking something more live/real-time and maybe has some probes into individual people's clone's. More detail at <a class="wiki" href="/wiki/HackathonGitVisualizations">HackathonGitVisualizations</a> (abakun)
+</li></ul><ul><li>benb's idea: a new Shootie with a nice UI and comments that works with <a class="ext-link" href="https://github.com/rsms/scrup"><span class="icon">​</span>scrup</a> (sumeet &amp; Mark)
+</li></ul><ul><li>Review Board enhancements. I bet there's stuff we can do to make this tool better. We use it so much that it's worth a look. (sumeet)
+<ul><li>Markdown in comments
+</li></ul></li></ul><ul><li>edmund's lunch train IRC bot idea: register a train for &lt;place&gt; at &lt;time&gt; and <tt>!jump</tt> on. notify people when it's time to leave. (sumeet)
+</li></ul><ul><li>HackAThon web application that we can use next time instead of editing a wiki page. This sucks. I want people to know I think their ideas are good. I want commenting and non-anonymous voting. And categories. (sumeet)
+<ul><li>(derwiki) have you thought of translating to YelpQA as a question/answer thread?
+</li></ul></li></ul><ul><li>pastebin is ugly. We could either make a new one related to Shootie or simply style the one we're using now. (sumeet)
+</li></ul><ul><li>Expose some pthreads primitives with timed-out acquires (in particular, the mutex and the condition variable) safely via a Python C module. Make Python concurrency primitives that won't be portable but also won't suck. Also, maybe make a safe way to stop threads --- I don't know anything about Python internals but I'm excited to play around with these and whatever ideas you may have. (shivaram)
+</li></ul><ul><li>An idea of jbrown's: use UDP multicast to transfer large files to many hosts simultaneously (this has the potential to speed up search index distribution by a factor of 5). (shivaram)
+</li></ul><ul><li>Yelp company theme song and music video. (avinson, alex o. and patrick d.)
+</li></ul><ul><li>Check In Suggestions -- offer the user a list of things to do in day/night based on other users' previous checkin trails (alan)
+</li></ul><ul><li>Voting Time Waster -- we show you two things, you vote for your favorite, refresh! Works for photos, reviews...you name it! (alan)
+</li></ul><ul><li>Service Provider RFP (Request For Proposal) -- E.G. if you're searching for a mover you can create a note that is sent to all movers in your city that have asked to be contacted when users are looking for the service they offer. We could charge the service providers on a per lead basis but keep the user's identity anonymous until they choose to disclose it to the business owner. Win for both consumers and business owners. (Neil, Eskil, Bryan, Chao) <strong>Done in hackathong III</strong>
+</li></ul><ul><li>(wing) Gary Danko has 2288 reviews. What are the 2248 that don't get shown on the biz details page telling us? I haven't thought about it much yet but it could be an interesting brainstorm:
+<ul><li>filter reviews by user attributes like gender and age and location and date, ones that include photos (and more controversial ones, like name country of origin, or inferred ones based on profile/review text like "I'm a vegetarian"), maybe using something like this: <a class="ext-link" href="http://www.simile-widgets.org/exhibit/examples/cereals/cereal-characters.html"><span class="icon">​</span>http://www.simile-widgets.org/exhibit/examples/cereals/cereal-characters.html</a>
+</li><li>find mentions of other businesses: "better than X", "not as good as Y", "prefer Z"
+</li><li>common phrases around things people care about like ambiance, service, etc.
+</li></ul></li></ul><ul><li>(wing) best of yelp (like best of craigslist)
+<ul><li><a class="ext-link" href="http://www.yelp.com/biz_photos/lj_PZ56a3GI4snjxN1qOmQ?select=09D2eSzjHo9MEnrKi50f1g"><span class="icon">​</span>http://www.yelp.com/biz_photos/lj_PZ56a3GI4snjxN1qOmQ?select=09D2eSzjHo9MEnrKi50f1g</a>
+</li></ul></li></ul><ul><li>(nikhil c/o alan)
+<ul><li>"Holla at me"
+</li><li>Basically we let Yelp users enter what local service their looking for, as well as some structured criteria about the specifics of their need (minimum business rating, specific service etc.). Then the user clicks a button that says "Holla at me."
+</li><li>We make these requests (or "leads") available to business owners who meet the criteria specified by the user and who have signed up for "Holla at me"
+</li><li>When a new request comes in, a random business owner who meets all of the user's criteria is called by an Automated Yelp system. It reads them the details of the request (via text to speech software) and lets them press 1 to contact the person and 2 to not contact the person.
+</li><li>When business owners sign up for "Holla at me" they agree to pay $7 per user that they choose to contact. When they press "1", the phone system calls the user who submitted the request, and if the business owner is successfully put in touch with the user, the business owner's credit card is charged $7.
+</li><li>When the phone call ends, the user is called back by the automated phone system, and it asks him if he would like to hear from someone else. "1" if yes, "2" if no. If yes, the process repeats itself and the next business to contact that user gets charged $7. 
+</li><li>I've heard great things about Twilio's API for handling automated phone systems like this. I think this would be awesome for users, local businesses and Yelp, Inc.
+</li><li>If annnnnnnnyone is remotely interested, I'd love to chat with them more about it. There are a bunch of ways this could be configured ranging from the super simple to the super complex.
+</li></ul></li></ul><ul><li>Tron (rhettg)
+<ul><li>Build a web front-end on top of the tron web services interface (show status of running jobs, cools graphs etc. Basically continuing mtytel's work)
+</li><li>Possibly better support for running services
+</li></ul></li></ul><ul><li>Mirror Mirror on the Wall
+<ul><li>Smart mirror in the bathroom that rates your appearance for the day
+</li></ul></li></ul><h2 id="Teams">Teams</h2>
+<ul><li>MRPig - Querying system for JSON data built on top of MRJob. (juliank, bheil, smg, (possibly shivaram))
+<ul><li>Similar to <a class="ext-link" href="http://pig.apache.org"><span class="icon">​</span>http://pig.apache.org</a> but working over the nested structured data that we have.
+</li><li>Think of commands of <tt>FILTER IN WHERE foo.bar = 'baz'</tt> followed by <tt>HISTOGRAM quux</tt> which would output the counts for each value of quux where the filter matched.
+</li></ul></li><li><strong>138</strong>
+<ul><li>a top secret team with top secret members
+</li></ul></li></ul><ul><li>Check In Journeys (achao and alan)
+<ul><li>Use previous checkin journeys from other users to generate an itinerary on the fly 
+</li></ul></li></ul><ul><li>Tamale Lady Finder - Some way to track food carts. Maybe this involves hardware, or maybe it is simply a way for food carts can update their location from the mobile apps. Additionally / alternately this could look for location updates from the business's twitter feed since many food carts already use that to update people of their location. SIdenote: Twitter integration on biz pages would be generally cool/useful also. (johnb's idea, though I think I'll be doing something else)
+<ul><li>jfennell and benjamin are working on this. If someone from mobile and/or frontend wants to help us with a UI, that would be awesome.
+</li></ul></li></ul><ul><li>Weekly Yelp Redux (derwiki, benb, duncan, tianyu)
+<ul><li>Create a personalized weekly for each recipient, with features like:
+<ul><li>Your next review awaits
+</li><li>Timeline: X of your friends checked in at Fly Bar last week, this restaurant near you just got a new 5 star review
+</li><li>Popular spots in your area (based on check-ins)
+</li></ul></li></ul></li></ul><ul><li><a class="missing wiki" href="/wiki/OpenLocal" rel="nofollow">OpenLocal?</a> API (mtai, jduncan, ryand [part-time])
+<ul><li>Expose ways for business owners to update business info WITHOUT going through biz owner site
+</li><li>Expose Yelp's basic business listing data through Javascript dropins
+</li></ul></li></ul><ul><li>UPIP (jbrown, shivaram)
+<ul><li>Do stuff
+</li><li>With C
+</li><li>And Python
+</li></ul></li></ul><h2 id="PreviousHackathonIdeasProjectsandTeams">Previous Hackathon Ideas, Projects and Teams</h2>
+<ul><li><a class="wiki" href="/wiki/HackathonTheBeginning">HackathonTheBeginning</a> - Our first hackathon in Yelp history.
+</li><li><a class="wiki" href="/wiki/HackathonTheReturn">HackathonTheReturn</a> - The second hackathon in Yelp history.
+</li></ul></div>
+        
+        
+      </div>
+      
+    <div id="attachments">
+    </div>
+
+          <div class="buttons">
+              <form method="get" action="/wiki/HackathonThree" id="modifypage">
+                <div>
+                  <input type="hidden" name="action" value="edit" />
+                      <input type="submit" value="Edit this page" />
+                </div>
+              </form>
+                <form method="get" action="/attachment/wiki/HackathonThree/" id="attachfile">
+  <div>
+    <input type="hidden" name="action" value="new" />
+    <input type="submit" name="attachfilebutton" value="Attach file" />
+  </div>
+</form>
+            <form method="get" action="/wiki/HackathonThree" id="rename">
+              <div>
+                <input type="hidden" name="action" value="rename" />
+                <input type="submit" value="Rename page" />
+              </div>
+            </form>
+              <form method="get" action="/wiki/HackathonThree">
+                <div id="delete">
+                  <input type="hidden" name="action" value="delete" />
+                  <input type="hidden" name="version" value="2" />
+                    <input type="submit" name="delete_version" value="Delete this version" />
+                  <input type="submit" value="Delete page" />
+                </div>
+              </form>
+          </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/wiki/HackathonThree?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/HackathonThree">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/HackathonThree">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/HackathonThree">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/HackathonThree">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/HackathonThree">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/HackathonThree?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=HackathonThree" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="/about"><strong>Trac 0.12.3</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">look at me! I'm in the footer</p>
+    </div>
+  </body>
+</html>

@@ -42,3 +42,5 @@ ENV
 
 # Temp files
 *.swp
+# Rope
+.ropeproject

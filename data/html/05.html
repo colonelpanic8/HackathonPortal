@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+ 	<title>
+      HackathonFive – Yelp Bug Tracker
+    </title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="search" href="/search" /><link rel="help" href="/wiki/TracGuide" /><link rel="alternate" href="/wiki/HackathonFive?format=txt" type="text/x-trac-wiki" title="Plain Text" /><link rel="tracwysiwyg.base" href="/" /><link rel="start" href="/wiki" /><link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/chrome/fivestarvote/css/fivestarvote.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="/chrome/tracwysiwyg/wysiwyg.css" type="text/css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/common/css/trac.css" /><link rel="tracwysiwyg.stylesheet" href="/chrome/tracwysiwyg/editor.css" /><link rel="shortcut icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link rel="icon" href="/chrome/common/trac.ico" type="image/x-icon" /><link type="application/opensearchdescription+xml" rel="search" href="/search/opensearch" title="Search Yelp Bug Tracker" /><script type="text/javascript">
+      var _tracwysiwyg={"escapeNewlines":false};
+    </script><script type="text/javascript" src="/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/chrome/common/js/babel.js"></script><script type="text/javascript" src="/chrome/common/js/messages/en_US.js"></script><script type="text/javascript" src="/chrome/common/js/trac.js"></script><script type="text/javascript" src="/chrome/common/js/search.js"></script><script type="text/javascript" src="/chrome/fivestarvote/js/fivestarvote.js"></script><script type="text/javascript" src="/chrome/common/js/folding.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg.js"></script><script type="text/javascript" src="/chrome/tracwysiwyg/wysiwyg-load.js"></script><script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script><link rel="alternate" type="application/x-wiki" title="Edit this page" href="/wiki/HackathonFive?action=edit" /><script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+ 	<link rel="stylesheet" href="/htdocs/site_css.css" />
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="https://trac.yelpcorp.com"><img src="https://trac.yelpcorp.com/htdocs/yelpsmall.png" alt="I am a kitty" /></a>
+      </div>
+      <form id="search" action="/advsearch" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first">logged in as jkotker</li><li><a href="/logout">Logout</a></li><li><a href="/wiki/TracGuide">Help/Guide</a></li><li><a href="http://deploy-prod.yelpcorp.com:3540/">Deploy Dashboard</a></li><li><a href="/rpc">API</a></li><li class="last"><a href="/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/wiki">Wiki</a></li><li><a href="/report">View Tickets</a></li><li><a href="/newticket">New Ticket</a></li><li><a href="/roadmap">Roadmap</a></li><li><a href="https://trac.yelpcorp.com/query">Ticket Query</a></li><li><a href="/tags">Tags</a></li><li><a href="/admin" title="Administration">Admin</a></li><li><a href="https://trac.yelpcorp.com/report/7">My Tickets</a></li><li><a href="/watchlist">Watchlist</a></li><li class="last"><a href="/advsearch">Advanced Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="/wiki">wiki:</a><a class="pathentry" href="/wiki/HackathonFive" title="View HackathonFive">HackathonFive</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/HackathonFive">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/HackathonFive">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/HackathonFive">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/HackathonFive">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/HackathonFive">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/HackathonFive?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=HackathonFive" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          
+          <div class="trac-modifiedby">
+            <span><a href="/wiki/HackathonFive?action=diff&amp;version=103" title="Version 103 by jfennell">Last modified</a> <a class="timeline" href="/timeline?from=2011-10-16T23%3A32%3A43-07%3A00&amp;precision=second" title="2011-10-16T23:32:43-07:00 in Timeline">17 months</a> ago</span>
+            <span class="trac-print">Last modified on 10/16/11 23:32:43</span>
+          </div>
+          <div id="wikipage"><p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ol><li><a href="#Ideas">Ideas</a></li><li><a href="#Teams">Teams</a></li><li><a href="#PreviousHackathonIdeasProjectsandTeams">Previous Hackathon Ideas, Projects and Teams</a></li></ol></div><p>
+</p>
+<p>
+<strong>Next hackathon! </strong>: <a class="wiki" href="/wiki/Hackathon6">Hackathon6</a>
+</p>
+<h1 id="YelpHack-A-Thon">Yelp Hack-A-Thon</h1>
+<p>
+1)  When is it?
+</p>
+<blockquote>
+<p>
+7/28/2011-7/29/2011
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll start on Thursday and finish around 3:00pm Friday. At 3:30pm, we'll do presentations and awards.
+</p>
+</blockquote>
+<blockquote>
+<p>
+We'll provide plenty of meals, snacks and caffeine during the hack-a-thon.
+</p>
+</blockquote>
+<p>
+2) Who's invited to hack at the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Everyone in product, systems and developers (interns included).
+</p>
+</blockquote>
+<p>
+3) What can I work on?
+</p>
+<blockquote>
+<p>
+Whatever you want!
+</p>
+</blockquote>
+<blockquote>
+<p>
+Scratch your developer itches. If you need some suggestions:
+</p>
+</blockquote>
+<ul><li>Visualization or other views - we have a lot great data that can be mined
+</li><li>Product features that you'd love to see on the site
+</li><li>Widgets
+</li><li>Cool examples of our public API
+</li><li>Tools to make your or your fellow developer lives easier
+</li><li>Mehfil feed -- err, perhaps this one is already done
+</li></ul><p>
+4) If I build a cool product feature, will we launch it?
+</p>
+<blockquote>
+<p>
+Product features still have to go through the product group to get released on public site. Don't let that discourage you from building your ideas -- you never know what might interest the team.
+</p>
+</blockquote>
+<p>
+5) Can I start hacking before the hack-a-thon?
+</p>
+<blockquote>
+<p>
+Sure can -- but do it on your own time.
+</p>
+</blockquote>
+<p>
+6) Can I hack by myself?
+</p>
+<blockquote>
+<p>
+We're a team here at Yelp, not a bunch of lone gunmen. Lets try for teams of 2-3. If you need help finding a partner, let me know. You can also use the wiki to post your ideas and solicit help.
+</p>
+</blockquote>
+<p>
+7) Awards?
+</p>
+<ul><li>Useful
+</li><li>Funny
+</li><li>Cool
+</li><li>Hardcore
+</li></ul><h2 id="Ideas">Ideas</h2>
+<ul><li>statypus (dmitriy, ...)
+<ul><li>statistical analysis for traffic, access, and error patterns throughout the site to figure out anomalous conditions and notify developers
+</li></ul></li><li>bbds (dmitriy, ...)
+<ul><li>buildbot dat shit - CLI tool that pulls down buildbot waterfalls, figures out delays and estimated times per run, and uses bb-run to schedule a build on the bb cluster that will finish it first, with minimum intervention (e.g. you just type "bbds")
+</li><li>there's an API for buildbot which should make this really easy
+<ul><li>Idea: maybe have bbds avoid buildbots with recent builds of deploy? That way we avoid stepping on pushmasters
+</li></ul></li></ul></li><li>stagexbot
+<ul><li>irc bot to keep track of who's on stagex and who's in line to be on stagex next.
+</li></ul></li></ul><ul><li><a href="https://trac.yelpcorp.com/wiki/EskilPage/HackathonIdeas">eskil has a bunch of ideas</a>
+</li></ul><ul><li>lmytfy.com (let me Yelp that for you) - eric
+<ul><li>rip off of <a class="ext-link" href="http://lmgtfy.com/"><span class="icon">​</span>http://lmgtfy.com/</a> - simple page to generate shareable short URLs to Yelp search results
+</li></ul></li></ul><ul><li>isdarwineatingtrash.com - eric
+<ul><li>Experiment with NFC!  chip goes on darwin's collar, then on in each trash can.  when darwin sticks his head in the trash, isdarwineatingtrash.com says "yes".  could hook up to various alarms, IRC, etc.   Bonus: speaker that plays Jeremy saying "Off!" when Darwin trips the sensor.
+</li></ul></li></ul><ul><li>user check-ins to determine biz hours - eric
+<ul><li>see if we can model biz open hours using check-in data.  We've got a lot of external check-in data we can use here, too
+</li></ul></li></ul><ul><li>better badges - jeff
+<ul><li>our mobile badges are pretty ugly. Actually, they are like, really ugly. Let's make them better and interactive.
+</li></ul></li></ul><ul><li><tt>/dev/pi</tt> - jbrown/evan
+<ul><li>like <tt>/dev/zero</tt>, but irrationally better
+</li></ul></li></ul><ul><li>McYelp - bchess
+<ul><li>Browsing photos of food on Yelp, click something tasty and have it delivered it to your house.  I have no idea how we'd actually do this on a large scale.
+</li></ul></li></ul><ul><li>ForEachForked - bchess
+<ul><li>Small project, write a version of ForEach that will fork the work load across multiple processors
+</li></ul></li></ul><ul><li>EC2-powered buildbot - bchess
+<ul><li>Mostly because jbrown said it was a dumb idea
+</li></ul></li></ul><ul><li>Gyro support for Monocle - kmosher
+<ul><li>Monocle depends on knowing your orientation. Newer phones have gyros in them. Gyro information can improve your orientation estimate. This should be done. iOS is easy and boring cause there's an API in iOS 4 that does this for you. There's work to be done on Android though. My ideal solution would be to improve the orientation code in the Android source with a native code <a class="ext-link" href="http://en.wikipedia.org/wiki/Kalman_Filter"><span class="icon">​</span>Kalman Filter</a>. Matrices! Hardware! Multiple programming languages! 3D visualization! An end result you can hold and play with.
+</li></ul></li></ul><ul><li>Freaky Python object graph visualizer - sjohnson/SteveJob
+<ul><li>gc module + graphviz + interactive graph browser. Result: snapshot your program's memory graph and browse it in a swanky GUI to get a bird's-eye look at your memory usage and design patterns. Appropriate for all Python skill levels from noob to wizard. Graph algorithm aficionados welcome!
+</li></ul></li></ul><ul><li>General Purpose Logistic Regression on Map Reduce - xyu, wqardaji
+<ul><li>With L1 regularization and stochastic learning method. It will be useful when someone wanna do prediction on super large scale dataset (say millions of training instances) in the future.
+</li></ul></li></ul><ul><li>Port InstantiatedIndex to Lucene 4 trunk - smg
+<ul><li>InstantiatedIndex is marked as deprecated and most probably will not make it to Lucene 4. Lucy's tests are completely dependent on InstantiatedIndex. Lucene 4 has a MemoryCodec which allows the index to be kept in memory. We should modify the InstantiatedIndex or try to get behavior identical to InstantiatedIndex using the MemoryCode
+</li></ul></li></ul><ul><li>Link to nearby businesses that are mentioned in a review
+<ul><li>Many reviews contains mentions of near by businesses eg. <a class="ext-link" href="http://www.yelp.com/biz/bi-rite-creamery-san-francisco#hrid:KrUTIVBHE0tatuax4aQuzQ"><span class="icon">​</span>http://www.yelp.com/biz/bi-rite-creamery-san-francisco#hrid:KrUTIVBHE0tatuax4aQuzQ</a> this review of birite also mentions tartine and delfina. We should add hyperlinks to the yelp pages for these businesses so that web and smartphone users could follow these links instead of searching for these places
+</li></ul></li></ul><ul><li>Beer menus for bars - toby
+<ul><li>Like how restaurants can link their current menu to their biz page, I want to be able to see a bar's beer list from their biz page. Ideally this would be updatable by users and biz owners and each bear would link to information about that beers (like Beer Advocate scores &amp; reviews). Mobile integration so I could look up a beer I've heard of but haven't tried yet right after I check in would be really sweet.
+</li></ul></li></ul><ul><li>Pushmaster subscriptions - sberghel
+<ul><li>Say you want to know when a push is done, or when a new push starts, or something. Right now you have to spam-refresh the page. It would be cool if we could get e-mailed (texted? IMed? Notified by carrier pigeon?) instead.
+</li><li>I prefer electric shocks. -sjohnson
+</li></ul></li></ul><ul><li>Make grapperr break less - sberghel
+<ul><li>When grapperr works it's awesome. But sometimes grapperr does <a class="ext-link" href="http://yelp-shootie.appspot.com/sberghel/agx5ZWxwLXNob290aWVyDAsSBFNob3QYweccDA"><span class="icon">​</span>silly</a> <a class="ext-link" href="http://yelp-shootie.appspot.com/sberghel/agx5ZWxwLXNob290aWVyDAsSBFNob3QY1bgcDA"><span class="icon">​</span>things</a>. It would be awesome if it did those things less (or even not at all).
+</li></ul></li></ul><ul><li>Web Interface for Tron - rhettg
+<ul><li>Tron has a http api, perfect for building a status board on at the very least, a graphical management tool would also be possible.
+</li></ul></li></ul><ul><li>Fancy Ranger Tailer - rhettg
+<ul><li>Build a service that you can send queries to and get a portion of live ranger data for ad-hoc (or not) analysis. Example Query: "Show me render time for 10% of all hits to biz details  from google bot". Thinking of building it in go.
+</li></ul></li></ul><ul><li>Statusboard
+<ul><li>Statusboard needs some love.
+</li></ul></li></ul><ul><li>The Singing Apperror -- sberghel
+<ul><li>Play one beat of a song every time apperror throws another error.
+</li></ul></li></ul><ul><li>Pandora-like Business Finder -- madhu
+<ul><li>Type in the name of a business and we show you other businesses like that one. For users with accounts we utilize the users' historical data (reviews, check-ins, etc) and perform a collaborative filter against the public and their friend's historical data (weighted accordingly).
+</li><li>Main focus is around discovery and a fun, browse-centered ui experience.
+</li><li>Soft controls like (thumbs up/down) for recommendation help tune the engine.
+</li></ul></li></ul><ul><li>Location reminders for businesses -- amir and laurent
+<ul><li>Allow the users to setup a location reminder for businesses (either individually or for all bookmarks)
+</li><li>The user should also be able to set up a filter for location reminders ("remind me whenever I'm next to a bar that has a deal at night")
+</li></ul></li></ul><ul><li>Check-ins visualization -- amir and laurent
+<ul><li>Displaying a map widget on the site that shows the user's friends' latest check-ins (and reviews) in their city
+</li><li>Same thing but for my check-ins, reviews, quick tips, sluggish tips, etc.
+</li></ul></li></ul><ul><li>New Deal custom filter e-mail Monitor -- victork
+<ul><li>Sign up on Admin to get e-mails for say "all new standing deals created in San Francisco, in the restaurants category".
+</li><li>We already have "Deal Created" reports. This would essentially apply additional custom subscribtion-based filtering on top of it.
+</li><li>Could one day be made into a real feature and move off Admin to the main site.
+</li></ul></li></ul><ul><li>Solicit more <a class="missing wiki" href="/wiki/AppMarket" rel="nofollow">AppMarket?</a> reviews for Android -- victork
+<ul><li>I just saw an app do it in a fairly friendly and nice manner. We could do it once in a blue moon with a deal-like banner thingie. Maybe to start, we could key off the time they had the Yelp app installed, or their elite status or something.
+</li></ul></li></ul><ul><li>Prettify Admin -- victork
+<ul><li>Who <strong>is</strong> that dude, anywho? And why does he always tease me with coffee?
+</li><li>We could do lots of small yet neat polish things, like cycle through a small library of awesome Yelp art we have - probably severely watermarked - for backgrounds.
+</li></ul></li></ul><ul><li>Code introspector to convert "import *" to proper import lists -- victork
+<ul><li>Take a python file. Remove "import *". Run through pyflakes for undeclared stuff. Fix it. Rinse, repeat. Automate.
+</li><li>I have no idea how hard this would actually be! Would probably need a dictionary of what lives where in the codebase of some sort.
+</li></ul></li></ul><ul><li>Monday slide auto-maker -- victork
+<ul><li>Hook up to <a class="missing wiki" href="/wiki/CodeSnitch" rel="nofollow">CodeSnitch?</a>. Take the list of all push requests your team shipped last week. Scramble frequently repeated words a-la nishbot or love-machine.
+</li><li>Bonus: Throw in a random picture of a kitten from some image pool.
+</li></ul></li></ul><ul><li>Make Testify more appealing to folks who already use <tt>unittest</tt>/<tt>nose</tt> -- dave
+<ul><li>make Testify able to do test discovery on <tt>unittest</tt> test classes as well as its own
+</li><li>add the ability for a test to declare itself "skipped" (like in unittest on Python 3)
+</li><li>get rid of the space in <tt>path.to.module TestClass.test_name</tt> on the command line (use <tt>path.to.module.TestClass.test_name</tt> instead), so we can specify multiple paths/test classes
+</li></ul></li></ul><ul><li>More Open Source love -- dave
+<ul><li><a class="ext-link" href="https://github.com/davidmarin/doloop"><span class="icon">​</span>doloop</a> could use unit tests and some strife/performance testing
+</li><li><a class="ext-link" href="https://github.com/davidmarin/s3mysqldump"><span class="icon">​</span>s3mysqldump</a> could use more complete unit tests
+</li><li><tt>s3_tmpwatch</tt> in <tt>mrjob</tt> might as well be a separate project (see <a class="ext-link" href="https://github.com/Yelp/mrjob/issues/170"><span class="icon">​</span>https://github.com/Yelp/mrjob/issues/170</a>)
+</li></ul></li></ul><ul><li>Review Lowlights + Review Haha-lights --aditya, raghav, rohith
+<ul><li>Review Highlights highlighting the worst things about every business instead
+</li><li>Also interested in trying to use Funny votes on reviews, to build a humor/sarcasm detector
+</li></ul></li></ul><ul><li>Tap Tap Check-Ins --raghav
+<ul><li>Making the visualization process more interactive, the idea is to make a a lil game similar to Tap Tap <a class="missing wiki" href="/wiki/Revenge/Guitar" rel="nofollow">Revenge/Guitar?</a> Hero, where the user has to match the live check-in (or anything else) stream. (Could be a multilayer game too!)
+</li><li>The interaction could be through sensors, like either pressure (FSR) or light sensors. (A lot of ways to provide feedback to the user about his hits or misses)
+</li></ul></li></ul><ul><li>Tag friends in a review -- sinensky
+<ul><li>Add @{friend_name} in your review if for example you went out to eat with one of your yelp friends
+</li><li>Site users get multiple perspectives of the same experience
+</li></ul></li></ul><ul><li><a class="missing wiki" href="/wiki/YelpStageBot" rel="nofollow">YelpStageBot?</a>  -- Yifan
+<ul><li>Sample x% of prod traffic and apply that to stagea. This will make stagea environment more real and increase the chance to find bug on stagea when the bug will only appear with large traffic.
+</li></ul></li></ul><ul><li>MemcachedOS -- shivaram
+<ul><li>Right now, we use "memcached appliances", dedicated machines that run nothing except Linux and Memcached
+</li><li>Memcached is straight C --- what if we ported it to run inside the kernel of an embedded OS running in real memory mode? (evan and jbrown say it might be possible)
+</li><li>Eliminate overhead from the TLB and userspace-kernelspace boundaries, do exactly one thing and do it well
+</li></ul></li></ul><ul><li><a class="missing wiki" href="/wiki/FlakeyTests" rel="nofollow">FlakeyTests?</a> -- sinensky
+<ul><li>Not sure how buildbots work and therefore how hard this would be, but automatically rerun 0% tests in a different sandbox to check for flakiness since most people end up doing this manually anyway
+</li><li>Then if a test is detected as flakey automatically email engineers and/or ticket it
+</li></ul></li></ul><h2 id="Teams">Teams</h2>
+<ul><li>(INTERN HOUSE - xyu, fhats, sjohnson, toby, bhargav, striglia) - TagYourFood
+<ul><li>You know how facebook use tags to link pics with users, when u click on a tag, you ll go to a user s profile. We can do similar stuff by allowing users tag the food(or whatever item in the picture). If people click on the tag, it will issue a search query, which will increase our search traffic and generate more opportunities for ads.
+</li></ul></li></ul><ul><li>eric/greg, garrick - isdarwineatingtrash.com
+<ul><li>Experiment with NFC!  chip goes on darwin's collar, then on in each trash can.  when darwin sticks his head in the trash, isdarwineatingtrash.com says "yes".  could hook up to various alarms, IRC, etc.   Bonus: speaker that plays Jeremy saying "Off!" when Darwin trips the sensor.
+</li></ul></li></ul><ul><li>Team Oneday (kmitton, ccurry, dave): Review Filtering Dashboard
+<ul><li>based on an idea by dave
+</li><li>kmitton and ccurry are only here on Thursday; dave is only here on Friday. Tag team!
+</li><li>We want to make a simple dashboard that pops up one filtered and one unfiltered review from the same business, side by side, without out telling you which one is which. After giving you a moment to decide for yourself, it marks the filtered one as FILTERED!!!
+</li><li>Should include the user badge (photo, # of reviews, # of friends) date, and UFC, just like on the biz details page
+</li><li>Should only look at reviews more than, let's say, 28 days old (sometimes it takes the spam system a little time to figure things out).
+</li><li>We might want to exclude old reviews as well (let's say, older than a year).
+</li></ul></li></ul><ul><li><a class="wiki" href="/wiki/TeamRocket">Team Rocket</a> (duncan, yoann, bhewitt, krall, mallen) - Internal Apps Dashboard
+<ul><li>Internal apps has a bunch of interesting metrics that look at the site from the content side instead of the apperror/systems side. Show these off on a nice dashboard for all to see on 9! Bonus: integrate it with a prox reader that makes the dashboard sentient, displaying metrics relevant to the person looking at it.
+</li></ul></li></ul><ul><li>review-based badges (jrheard, ashaw) (more partners welcome)
+<ul><li>basically just a ripoff of <a class="ext-link" href="http://www.truelocal.com.au/cms/badges"><span class="icon">​</span>http://www.truelocal.com.au/cms/badges</a> - review-based badges. how cool would that be. we could do this way better than they could.
+<ul><li>Could maybe leverage the guru system? - bryce
+</li></ul></li></ul></li></ul><ul><li>Team Let's Troll Linus (jbrown, evan)
+<ul><li>/dev/pi and other kernel idiocy
+</li><li>evan wants to do some real JS frontend stuff too
+</li></ul></li></ul><ul><li>Stuff in Bottles (axled, eskil)
+<ol><li>Empty bottle, yarr.
+</li><li>Put stuff in bottle.
+</li><li>Profit.
+</li></ol></li></ul><ul><li>Team Lazy Monday (ahammond, kylem, victork)
+<ul><li>Monday slide auto-maker
+<ul><li>Hook up to git log or pushmaster or <a class="missing wiki" href="/wiki/CodeSnitch" rel="nofollow">CodeSnitch?</a>. Take the list of all push requests your team shipped last week. Scramble frequently repeated words a-la nishbot or love-machine.
+</li><li>Bonus: Throw in a random picture of a kitten from some image pool.
+</li><li>Spam slide can just say "Signals" and "sjohnson worked on mrjob"
+</li></ul></li></ul></li></ul><ul><li>Team WTF-am-i-still-awake? (djtiesto, redbull, victork)
+<ul><li>New Deal custom filter e-mail Monitor
+<ul><li>Sign up on Admin to get e-mails for say "all new standing deals created in San Francisco, in the restaurants category".
+</li><li>We already have "Deal Created" reports. This would essentially apply additional custom subscribtion-based filtering on top of it.
+</li><li>Could one day be made into a real feature and move off Admin to the main site.
+</li></ul></li></ul></li></ul><ul><li>Team Kegmate2 (johnb, gabe, alexd, madhu (in spirit), mueller, some jeff, jamesd)
+<ul><li><a class="missing wiki" href="/wiki/KegTime" rel="nofollow">KegTime?</a>, a video link between kegmates
+</li><li>IR thermometer integration FTW
+</li><li>Hopefully some backend stuff...
+</li></ul></li></ul><ul><li>Team Sensor Fusion (kmosher, smoy, ...)
+<ul><li>Gyro support added to Monocle
+<ul><li>Build rotation visualizer to show how much better rotation is when gyros are added.
+</li><li>Add new iOS 4 API calls to Monocle on iOS devices
+</li><li>Build a Kalman Filter for Android phones cause there is no API for this yet
+</li><li>Might need to write a rudimentary matrix library for this
+</li><li>Play "You Spin Me Right Round (Like a Record)" in celebration.
+</li></ul></li></ul></li></ul><ul><li>Team Builder Building Robotolopolis (dmitriy, davidh)
+<ul><li>bbds
+</li><li>maybe even grapperr2 :o
+</li></ul></li></ul><ul><li>Yelp Wingman (wukan, jasper, shoenig, ...)
+<ul><li>Helping peeps hook up via food interests and find cheaping dating options
+</li><li>Mobile app
+</li></ul></li></ul><ul><li>Team Undecidable (stop)
+<ul><li>write a debugging tool that determines if a servlet will finish rendering a page.
+</li></ul></li></ul><ul><li>Business Comparison -- (steng, msamuels)
+<ul><li>Think laptop shopping where you compare computer models but for businesses
+</li><li>We'd show a number of comparative properties across several selected businesses, including review highlights, choice photos, various attributes based on number of votes
+</li></ul></li></ul><ul><li>What's for lunch on 10 -- (ashaw, steng, jmueller)
+<ul><li>Make a menu/cookbook using ingredients from the kitchen on 10
+</li></ul></li></ul><ul><li>BFF favorites (amiruci, laurent, steng)
+<ul><li>New nearby search on mobile: get all the nearby places that your friends have reviewed 4/5 starts, are regulars at...
+</li><li>Show this information on the business page as well
+</li><li>(probably won't do this: surfacing friends' favorite places in search results: some indication in search results on mobile that your friends reviewed this place, or are regulars at it, or bookmarked it.
+</li></ul></li></ul><ul><li>Team Ads Monkey (yifan, bryce, bchess)
+<ul><li>Play ads queries from prod on dev &amp; stage so we have realistic impressions and clicks traffic each day on dev for testing
+</li></ul></li></ul><ul><li>Team Unicorn Love Carebear (tianyu, jtwang, ayust, bhargav)
+<ul><li>Build internal love machine
+</li></ul></li></ul><ul><li>Team Recreation
+<ul><li>Add the ability to subscribe to a daily or weekly email from admin dashboard
+</li></ul></li></ul><ul><li> Team Yelpstant (wukan, sinensky)
+<ul><li>How about Yelp's search will be as instant as instant noodle in 10th floor
+</li></ul></li></ul><h2 id="PreviousHackathonIdeasProjectsandTeams">Previous Hackathon Ideas, Projects and Teams</h2>
+<ul><li><a class="wiki" href="/wiki/HackathonTheBeginning">HackathonTheBeginning</a> - Our first hackathon in Yelp history.
+</li><li><a class="wiki" href="/wiki/HackathonTheReturn">HackathonTheReturn</a> - The second hackathon in Yelp history.
+</li><li><a class="wiki" href="/wiki/HackathonThree">HackathonThree</a> - Figure out the pattern?
+</li><li><a class="wiki" href="/wiki/HackAThonFour">HackAThonFour</a>- The fourth hackathon in Yelp history.
+</li></ul></div>
+        
+        
+      </div>
+      
+    <div id="attachments">
+    </div>
+
+          <div class="buttons">
+              <form method="get" action="/wiki/HackathonFive" id="modifypage">
+                <div>
+                  <input type="hidden" name="action" value="edit" />
+                      <input type="submit" value="Edit this page" />
+                </div>
+              </form>
+                <form method="get" action="/attachment/wiki/HackathonFive/" id="attachfile">
+  <div>
+    <input type="hidden" name="action" value="new" />
+    <input type="submit" name="attachfilebutton" value="Attach file" />
+  </div>
+</form>
+            <form method="get" action="/wiki/HackathonFive" id="rename">
+              <div>
+                <input type="hidden" name="action" value="rename" />
+                <input type="submit" value="Rename page" />
+              </div>
+            </form>
+              <form method="get" action="/wiki/HackathonFive">
+                <div id="delete">
+                  <input type="hidden" name="action" value="delete" />
+                  <input type="hidden" name="version" value="103" />
+                    <input type="submit" name="delete_version" value="Delete this version" />
+                  <input type="submit" value="Delete page" />
+                </div>
+              </form>
+          </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/wiki/HackathonFive?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+              <li class="first"><span class="active" id="fivestarvotes" title="Current Vote: 0 users voted for a total of 0"><object><ul class="star-rating"><li class="current-rating" style="width: 0%">Currently 0/5 stars.</li><li><a class="item one-star" href="/fivestarvote/1/wiki/HackathonFive">1</a></li><li><a class="item two-star" href="/fivestarvote/2/wiki/HackathonFive">2</a></li><li><a class="item three-star" href="/fivestarvote/3/wiki/HackathonFive">3</a></li><li><a class="item four-star" href="/fivestarvote/4/wiki/HackathonFive">4</a></li><li><a class="item five-star" href="/fivestarvote/5/wiki/HackathonFive">5</a></li></ul></object></span></li><li><a href="/wiki/WikiStart">Start Page</a></li><li><a href="/wiki/TitleIndex">Index</a></li><li><a href="/wiki/HackathonFive?action=history">History</a></li><li class="last"><a href="/watchlist?action=watch&amp;realm=wiki&amp;resid=HackathonFive" title="Add wiki to watchlist">Watch</a></li>
+          </ul>
+        <hr />
+      </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="/about"><strong>Trac 0.12.3</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">look at me! I'm in the footer</p>
+    </div>
+  </body>
+</html>
