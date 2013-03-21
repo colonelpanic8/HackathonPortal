@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())
 
 
-class Person(db.model):
+class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
@@ -20,11 +20,11 @@ class Person(db.model):
         self.yelp_id = yelp_id
 
 
-class Hackathon(db.model):
+class Hackathon(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-class Project(db.model):
+class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True)
@@ -39,7 +39,7 @@ class Project(db.model):
         self.link = link
 
 
-class ProjectToPerson(db.model):
+class ProjectToPerson(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey(Project.id))
