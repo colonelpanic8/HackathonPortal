@@ -50,12 +50,18 @@ def add_photo_to_project():
     	photo_model.id,
     	int(request.form['project_id'])
     )
-    return redirect("/project/{project_id}".format(project_id=project.id))
+    return redirect(project.url)
 
 
 @app.route(models.Project.add_person_url, methods=["POST"])
 def add_member_to_project():
-    pass
+    project = models.Project
+    logic.add_handles_to_project(
+        [request.form['person']],
+        request.form['project_id']
+    )
+    return redirect(project.url)
+
 
 @app.route(models.Person.get_handles_starting_with)
 def get_handles_starting_with():
@@ -63,6 +69,7 @@ def get_handles_starting_with():
     	request.args.get('handle_string', '')
     )
     return simplejson.dumps([person.yelp_handle for person in matching_persons])
+
 
 if __name__ == "__main__":
     app.run()

@@ -50,6 +50,15 @@ def add_project(name, description, member_handles, hackathon_num):
     )
     project_model.persons = project_members
 
+
+def add_handles_to_project(yelp_handles, project):
+    persons = models.Person.query.filter(
+    	models.Person.yelp_handle.in_(yelp_handles)
+    ).all()
+    project.persons.extend(persons)
+    return persons
+
+
 def load_hackathon(hackathon_num):
     try:
         return models.Hackathon.query.filter(
@@ -59,6 +68,7 @@ def load_hackathon(hackathon_num):
         return models.Hackathon.new(
             number=int(hackathon_num)
         )
+
 
 def add_persons(persons):
     existing_persons = models.Person.query.filter(
