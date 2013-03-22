@@ -14,18 +14,23 @@
     </div>
 
     <label>Description</label>
-    <p>{{ project.description }}</p>
+    <p>
+    {% if project.description %}
+        {{ project.description }}
+    {% else %}
+        No description, click edit description to say more about this project!
+    {% endif %}
+    </p>
     <span class="edit" value="update-description">[edit description]</span>
     <form class="hide" id="update-description" action="{{ project.update_url('description') }}" method="post">
-        <textarea name="description" class="input-xxlarge" rows="8">
-	  {{ project.description }}
-	</textarea>
+        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
     
 
     <label>Members</label>
+    {% if len(project.persons) > 0 %}
     {% for person in project.persons %}
     <form class="member-element" action="{{ project.remove_person_url }}" method="post">
         <a href="{{ person.url }}"> {{ person.__str__() }}</a><input class="hide remove-member" type="Submit" value="X"/>
@@ -33,6 +38,9 @@
         <input type="hidden" name="project_id" value="{{ project.id }}">
     </form>
     {% endfor %}
+    {% else %}
+        No members added. Click edit members to add members of this project!
+    {% endif %}
     <span class="edit" value="update-members">[edit member]</span>
     <form class="hide" id="update-members" action="{{ project.add_person_url }}" method="post">
         <input id="member-input" type="text" name="person" class="input-xxlarge" />
@@ -41,7 +49,13 @@
     </form>
 
     <label>Repo Link</label>
-    <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
+    <p>
+    {% if project.link != None %}
+    <a href='{{ project.link }}'>{{ project.link }}</a>
+    {% else %}
+        No Link.
+    {% endif %}
+    </p>
     <span class="edit" value="update-link">[edit description]</span>
     <form class="hide" id="update-link" action="{{ project.update_url('link')}}" method="post">
         <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
