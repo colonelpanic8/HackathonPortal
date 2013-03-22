@@ -29,7 +29,7 @@ def project_page(project_id):
     )
 
 @app.route("/project/<project_id>/edit")
-def project_page(project_id):
+def edit_project(project_id):
     return render_template(
     	"edit_project.html",
     	project=models.Project.query.filter(
