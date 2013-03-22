@@ -30,6 +30,8 @@ class Photo(db.Model):
 
     base_url = os.path.join('/', 'static', 'photo')
 
+    thumbnail_size = (314, 314)
+
     # TODO: make all of these columns write once.
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
@@ -50,6 +52,18 @@ class Photo(db.Model):
     @property
     def url(self):
         return os.path.join(self.base_url, self.filename)
+
+    @property
+    def thumbnail_filename(self):
+        return "thumb-%s" % self.filename
+
+    @property
+    def thumbnail_filepath(self):
+        return os.path.join(photo_directory, self.thumbnail_filename)
+
+    @property
+    def thumbnail_url(self):
+        return os.path.join(self.base_url, self.thumbnail_filename)
 
 
 class Person(db.Model):
@@ -167,3 +181,11 @@ class Project(db.Model):
     @classproperty
     def add_person_url(cls):
         return os.path.join(cls.add_url, 'person')
+
+    @classproperty
+    def remove_url(cls):
+        return os.path.join(cls.base_url, 'remove')
+
+    @classproperty
+    def remove_person_url(cls):
+        return os.path.join(cls.remove_url, 'person')

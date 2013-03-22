@@ -5,6 +5,13 @@
     </div>
 
     <form name="input" action="{{ Project.add_url }}" method="post">
+        <label>Hackathon Number</label>
+        <p><select class="input-small" name="hackathon_number">
+        {% for number in hackathon_numbers %}
+            <option>{{ number }}</option>
+        {% endfor %}
+        </select></p>
+
         <label>Name</label>
         <p><input name="name" type="text" class="input-xxlarge"/></p>
 

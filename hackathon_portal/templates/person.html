@@ -12,7 +12,7 @@
     {% for project in person.projects %}
     <li class="project-box"
     {% if len(project.photos) > 0 %}
-    style="background-image: url('{{ project.photos[0].url }}')"
+    style="background-image: url('{{ project.photos[0].thumbnail_url }}')"
     {% endif %}
     >
     <a href="{{ project.url }}">
@@ -20,7 +20,13 @@
         <div class="more-info">
             <p class="project-desc">{{ project.description }}</p>
             <div class="hacker-names">
-                {{ project.members_string }}
+	      {% for i in range(len(project.persons)) %}
+	      {% if not i == range(len(project.persons))[-1] %}
+	      {{ project.persons[i].yelp_handle }},
+	      {% else %}
+	      {{ project.persons[i].yelp_handle }}
+	      {% endif %}
+	      {% endfor %}
             </div>
         </div>
     </a>
