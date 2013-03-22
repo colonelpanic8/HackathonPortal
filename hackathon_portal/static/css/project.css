@@ -8,4 +8,6 @@ label{
 	color: #0088cc;
 	font-size: 12px;
 	cursor: pointer;
+	clear: both;
+	display: block;
 }

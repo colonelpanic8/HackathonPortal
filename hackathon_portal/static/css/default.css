@@ -125,3 +125,22 @@ em{
     padding: 2px 5px;
     font-size: 11px;
 }
+
+.remove-member {
+	font-weight: bold;
+	font-size: 10px;
+	color: #fff;
+	border: none;
+	padding: 0 5px;
+	padding-top: -2px;
+	border-radius: 20px;
+	background-color: #ccc;
+	line-height: 1.6;
+	margin-left: 5px;
+}
+
+.member-element {
+	float:left;
+	margin: 0 5px 0 0;
+}
+

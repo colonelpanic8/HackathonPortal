@@ -26,12 +26,14 @@
     
 
     <label>Members</label>
-    <p>
     {% for person in project.persons %}
-    <a href="{{ person.url }}"> {{ person.__str__() }}</a>
+    <form class="member-element" action="{{ project.remove_person_url }}" method="post">
+        <a href="{{ person.url }}"> {{ person.__str__() }}</a><input class="hide remove-member" type="Submit" value="X"/>
+        <input type="hidden" name="person" value="{{ person.yelp_handle }}" />
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+    </form>
     {% endfor %}
-    </p>
-    <span class="edit" value="update-members">[add member]</span>
+    <span class="edit" value="update-members">[edit member]</span>
     <form class="hide" id="update-members" action="{{ project.add_person_url }}" method="post">
         <input id="member-input" type="text" name="person" class="input-xxlarge" />
         <input type="hidden" name="project_id" value="{{ project.id }}">
