@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 #header h1{
     color: #f0f1f2;
     font-family: 'Roboto Condensed', san-serif;
-    font-size: 46px;
+    font-size: 50px;
     position: absolute;
     bottom: -6px;
     right: -5px;
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 span{
-    font-weight: normal;
+    font-weight: 200;
 }
 
 #content{
