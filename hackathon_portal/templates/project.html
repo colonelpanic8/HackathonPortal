@@ -7,7 +7,10 @@
 {% block content %}
     <div id="content-header">
         <h2>{{ project.name }}</h2>
-        <em><a href="/{{ project.hackathon_id }}">Hackathon {{ project.hackathon_id }}</a></em>
+        <em><a href="/{{ project.hackathon.number }}">
+	    Hackathon {{ project.hackathon.number }}
+	</a>
+	</em>
     </div>
 
     <label>Description</label>
