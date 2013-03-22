@@ -4,10 +4,10 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-    <div content-header>
+    <div id="content-header">
+        <span>30 projects</span>
         <h2>Hackathon {{ hackathon_id }}</h2>
-	<p>3/16/2013</p>
-        <p>30 projects</p>
+	<p><em>3/16/2013</em></p>
     </div>
     <ul>
         {% for project in project_list %}
