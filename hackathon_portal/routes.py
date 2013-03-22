@@ -30,14 +30,15 @@ def project_page(project_id):
         ).one()
     )
 
-@app.route("/project/<project_id>/edit")
-def edit_project(project_id):
-    return render_template(
-    	"edit_project.html",
-    	project=models.Project.query.filter(
-            models.Project.id == project_id
-        ).one()
+
+@app.route("/update_project/<attribute_name>", methods=["POST"])
+def update_project_attribute(attribute_name):
+    project = logic.update_project_attribute(
+        int(request.form['project_id']),
+	attribute_name,
+        request.form[attribute_name]
     )
+    return redirect("/project/{project_id}".format(project_id=project.id))
 
 
 def _upload_photo(file):
@@ -60,7 +61,6 @@ def upload_photo_for_project():
     	int(request.form['project_id'])
     )
     return redirect("/project/{project_id}".format(project_id=project.id))
-
 
 if __name__ == "__main__":
     app.run()

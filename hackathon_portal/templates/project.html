@@ -13,20 +13,27 @@
     <label>Description</label>
     <p>{{ project.description }}</p>
     <span class="edit">[edit description]</span>
-    <form name="input" action="/upload_photo_project_description/" method="post">
-         <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+    <form name="input" action="/update_project/description" method="post">
+        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+        <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
     
 
     <label>Members</label>
     <p>{{ project.members_string }}</p>
+    <form name="input" action="/update_project/members" method="post">
+        <input type="text" name="members" class="input-xxlarge" value='{{ project.members_string }}' />
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+        <input type="submit" value="Update">
+    </form>
 
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
     <span class="edit">[edit description]</span>
-    <form name="input" action="/update_project_link/" method="post">
-        <input type="text" class="input-xxlarge" value='{{ project.link }}' />
+    <form name="input" action="/update_project/link" method="post">
+        <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
 
