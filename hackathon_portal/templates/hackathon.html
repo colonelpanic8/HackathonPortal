@@ -4,17 +4,17 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-<div content-header>
+<div id="content-header">
+  <span>{{ hackathon.project_count }} projects</span>
   <h2>Hackathon {{ hackathon.number }}</h2>
-  <p>3/16/2013</p>
-  <p>30 projects</p>
+  <em>3/16/2013</em>
 </div>
 <ul class="clearfix" id="project-boxes">
   {% for project in hackathon.projects %}
   <li class="project-box" style="background-image: {{ project['cover_img'] }}">
     <h3>{{ project.name }}</h3>
     <p>{{ project.description }}</p>
-    {{ (', ').join(project.persons) }}
+    {{ project.members_string }}
   </li>
   {% endfor %}
 </ul>

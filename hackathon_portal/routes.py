@@ -15,7 +15,7 @@ def hackathon(hackathon_number):
     	"hackathon.html",
     	hackathon=models.Hackathon.query.filter(
             models.Hackathon.number == int(hackathon_number)
-    	).one()
+    	).one(),
     )
 
 

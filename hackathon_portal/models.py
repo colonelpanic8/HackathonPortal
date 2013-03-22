@@ -33,6 +33,10 @@ class Hackathon(db.Model):
     number = db.Column(db.Integer)
     projects = db.relationship('Project', backref='hackathon')
 
+    @property
+    def project_count(self):
+        return len(self.projects)
+
 
 class Award(db.Model):
 
@@ -65,3 +69,7 @@ class Project(db.Model):
     link = db.Column(db.String(250))
 
     persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
+    
+    @property
+    def members_string(self):
+        return (', ').join(person.__str__() for person in self.persons)
