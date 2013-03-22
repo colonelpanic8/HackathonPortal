@@ -21,7 +21,6 @@ def hackathon(hackathon_number):
 
 @app.route("/project/<project_id>")
 def project_page(project_id):
-    
     return render_template(
     	"project.html",
     	project=models.Project.query.filter(
@@ -29,6 +28,14 @@ def project_page(project_id):
         ).one()
     )
 
+@app.route("/project/<project_id>/edit")
+def project_page(project_id):
+    return render_template(
+    	"edit_project.html",
+    	project=models.Project.query.filter(
+            models.Project.id == project_id
+        ).one()
+    )
 
 if __name__ == "__main__":
     app.run()
