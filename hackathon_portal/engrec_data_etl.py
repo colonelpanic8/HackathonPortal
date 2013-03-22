@@ -7,7 +7,7 @@ HACKATHON_ID = 'HackathonID'
 PROJECT_MEMBERS = "ProjectMembers"
 PROJECT_DESC = "ProjectDescription"
 PROJECT_NAME = "ProjectName"
-HACKATHON_STR = 'H@ckathon '
+HACKATHON_STR = 'H@ckath0n '
 
 
 class EngRecDataTransformer(etl.Transformer):

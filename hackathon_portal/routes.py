@@ -16,18 +16,26 @@ def _upload_photo(file):
 @app.route("/hackathon/view/<hackathon_number>")
 def hackathon(hackathon_number):
     return render_template(
-    	"hackathon.html",
-    	hackathon=models.Hackathon.query.filter(
+        "hackathon.html",
+        hackathon=models.Hackathon.query.filter(
             models.Hackathon.number == int(hackathon_number)
-    	).one(),
+        ).one(),
     )
 
+@app.route(models.Person.view_url('<yelp_handle>'))
+def person_page(yelp_handle):
+    return render_template(
+        "person.html",
+        person=models.Person.query.filter(
+            models.Person.yelp_handle == yelp_handle
+        ).one(),
+    )
 
 @app.route(models.Project.view_url('<project_id>'))
 def project_page(project_id):
     return render_template(
-    	"project.html",
-    	project=models.Project.query.filter(
+        "project.html",
+        project=models.Project.query.filter(
             models.Project.id == project_id
         ).one()
     )
@@ -37,7 +45,7 @@ def project_page(project_id):
 def update_project_attribute(attribute_name):
     project = logic.update_project_attribute(
         int(request.form['project_id']),
-	attribute_name,
+    attribute_name,
         request.form[attribute_name]
     )
     return redirect(project.url)
@@ -47,8 +55,8 @@ def update_project_attribute(attribute_name):
 def add_photo_to_project():
     photo_model = _upload_photo(request.files['photo'])
     project = logic.associate_photo_with_project(
-    	photo_model.id,
-    	int(request.form['project_id'])
+        photo_model.id,
+        int(request.form['project_id'])
     )
     return redirect("/project/{project_id}".format(project_id=project.id))
 
@@ -60,7 +68,7 @@ def add_member_to_project():
 @app.route(models.Person.get_handles_starting_with)
 def get_handles_starting_with():
     matching_persons = logic.get_persons_with_handles_starting_with(
-    	request.args.get('handle_string', '')
+        request.args.get('handle_string', '')
     )
     return simplejson.dumps([person.yelp_handle for person in matching_persons])
 

@@ -69,6 +69,13 @@ class Person(db.Model):
     def get_handles_starting_with_url(cls):
         return "/person/get_handles_matching"
 
+    @property
+    def url(self):
+        return self.view_url(self.yelp_handle)
+
+    @classmethod
+    def view_url(cls, identifier):
+        return os.path.join(cls.base_path, 'view', identifier)
 
 class Hackathon(db.Model):
 
