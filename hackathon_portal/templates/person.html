@@ -5,8 +5,8 @@
 {% endblock %}
 {% block content %}
 <div id="content-header">
-    <span>{{ person.project_count }} projects</span>
-    <h2> {{ person.name }} ({{ person.yelp_handle}}) </h2>
+    <span>{{ len(person.projects) }} projects</span>
+    <h2> {{ person.name }} ({{ person.yelp_handle }}) </h2>
 </div>
 <ul class="clearfix" id="project-boxes">
     {% for project in person.projects %}

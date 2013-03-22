@@ -26,6 +26,46 @@ db.Model.load = classmethod(lambda cls, id: cls.query.filter(cls.id == id).one()
 db.Model.new = classmethod(new)
 
 
+ProjectToPerson = db.Table(
+    'project_to_person',
+    db.Model.metadata,
+    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
+    db.Column('person_id', db.Integer, db.ForeignKey("person.id"))
+)
+
+
+ProjectToPhoto = db.Table(
+    'project_to_photo',
+    db.Model.metadata,
+    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
+    db.Column('photo_id', db.Integer, db.ForeignKey("photo.id"))
+)
+
+
+HackathonToPhoto = db.Table(
+    'hackathon_to_photo',
+    db.Model.metadata,
+    db.Column('hackathon_id', db.Integer, db.ForeignKey("hackathon.id")),
+    db.Column('photo_id', db.Integer, db.ForeignKey("photo.id"))
+)
+
+
+ProjectToAward = db.Table(
+    'project_to_award',
+    db.Model.metadata,
+    db.Column('award_id', db.Integer, db.ForeignKey('award.id')),
+    db.Column('project_id', db.Integer, db.ForeignKey('project.id'))
+)
+
+
+AwardToPhoto = db.Table(
+    'award_to_photo',
+    db.Model.metadata,
+    db.Column('award_id', db.Integer, db.ForeignKey("award.id")),
+    db.Column('photo_id', db.Integer, db.ForeignKey("photo.id"))
+)
+
+
 class Photo(db.Model):
 
     base_url = os.path.join('/', 'static', 'photo')
@@ -93,6 +133,14 @@ class Person(db.Model):
         return os.path.join(cls.base_url, 'view', identifier)
 
 
+class Award(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True)
+
+    photos = db.relationship('Photo', secondary=AwardToPhoto)
+
+
 class Hackathon(db.Model):
 
     base_url = os.path.join('/', 'hackathon')
@@ -100,6 +148,8 @@ class Hackathon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.Integer)
     projects = db.relationship('Project', backref='hackathon')
+
+    photos = db.relationship('Photo', secondary=HackathonToPhoto, backref='hackathons')
 
     @property
     def project_count(self):
@@ -112,36 +162,6 @@ class Hackathon(db.Model):
     @classmethod
     def view_url(cls, identifier):
         return os.path.join(cls.base_url, 'view', identifier)
-
-
-class Award(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), unique=True)
-
-
-ProjectToPerson = db.Table(
-    'project_to_person',
-    db.Model.metadata,
-    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
-    db.Column('person_id', db.Integer, db.ForeignKey("person.id"))
-)
-
-
-ProjectToPhoto = db.Table(
-    'project_to_photo',
-    db.Model.metadata,
-    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
-    db.Column('photo_id', db.Integer, db.ForeignKey("photo.id"))
-)
-
-
-ProjectToAward = db.Table(
-    'project_to_award',
-    db.Model.metadata,
-    db.Column('award_id', db.Integer, db.ForeignKey('award.id')),
-    db.Column('project_id', db.Integer, db.ForeignKey('project.id'))
-)
 
 
 class Project(db.Model):

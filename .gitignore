@@ -39,6 +39,7 @@ ENV
 
 # Ignore database files.
 *.db
+data
 
 # Temp files
 *.swp

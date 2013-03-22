@@ -53,7 +53,7 @@ def fill_projects_with_default_photos():
                 extension
             )
 
-        logic.associate_photo_with_project(photo, project)
+        logic.associate_photo_with_model(photo, project)
 
 
 if __name__ == '__main__':
