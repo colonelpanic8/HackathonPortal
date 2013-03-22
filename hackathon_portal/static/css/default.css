@@ -1,82 +1,120 @@
 body {
-	background-color: #f0f1f2;
+    background-color: #f0f1f2;
 }
 
 #wrapper {
-	width: 990px;
-	margin: 0 auto;
+    width: 990px;
+    margin: 0 auto;
 }
 
 #header {
-	height: 70px;
-	background-color: #c41200;
-	margin: 10px 0;
-	position: relative;
+    height: 70px;
+    background-color: #c41200;
+    margin: 10px 0;
+    position: relative;
+    border: 1px solid #c41200;
+    border-radius: 0 13px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Roboto Condensed', san-serif;
+    font-family: 'Roboto Condensed', san-serif;
 }
 
 #header h1{
-	color: #fff;
-	font-family: 'Roboto Condensed', san-serif;
-	font-size: 46px;
-	position: absolute;
-	bottom: -2px;
-	right: -3px;
-	margin: 0;
-	text-transform: uppercase;
+    color: #fff;
+    font-family: 'Roboto Condensed', san-serif;
+    font-size: 46px;
+    position: absolute;
+    bottom: -2px;
+    right: -4px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 #header h1 span{
-	font-weight: normal;
+    font-weight: normal;
 }
 
 #content{
-	background: #fff;
-	border: 1px solid #d9d9d9;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
-	border-radius: 3px;
-	padding: 15px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
+    border-radius: 3px;
+    padding: 15px;
 }
 
 #content-header{
-	border-bottom: 1px solid #d9d9d9;
-	margin-bottom: 15px;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 15px;
 }
 
 #content-header h2{
-	margin: 0;
+    margin: 0;
 }
 
 em{
-	color: #999999;
+    color: #999999;
 }
 
 #content-header span{
-	margin: 0;
-	float: right;
-	font-size: 20px;
-	color: #999999;
+    margin: 0;
+    float: right;
+    font-size: 20px;
+    color: #999999;
 }
 
 #project-boxes{
-	list-style: none;
-	margin: 0;
+    list-style: none;
+    margin: 0;
 }
 
 .project-box{
-	height: 300px;
-	width: 314px;
-	background-color: yellow;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	float: left;
-	margin: 0 8px 8px 0;
+    height: 300px;
+    width: 314px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    margin: 0 8px 8px 0;
+    position: relative;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: 100% auto;
+}
+
+.project-box h3 {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0 4px;
 }
 
 .project-box:nth-of-type(3n){
-	margin-right: 0;
+    margin-right: 0;
+}
+
+.project-box .more-info {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+}	
+
+.project-box .project-desc {
+    width: 303px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.project-box .hacker-names {
+    padding: 2px 5px;
+    font-size: 11px;
 }

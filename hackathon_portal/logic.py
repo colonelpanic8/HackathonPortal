@@ -76,3 +76,10 @@ def add_persons(persons):
 
 def get_all_persons():
 	return models.Person.query.all()
+
+def update_project_attribute(project_id, attribute_name, attribute_value):
+    project = models.Project.load(project_id)
+    setattr(project, attribute_name, attribute_value)
+    models.db.session.commit()
+    return project
+

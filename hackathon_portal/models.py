@@ -26,7 +26,7 @@ db.Model.new = classmethod(new)
 
 class Photo(db.Model):
 
-    base_path = os.path.join('/static', 'photo')
+    base_path = os.path.join('/', 'static', 'photo')
 
     # TODO: make all of these columns write once.
     id = db.Column(db.Integer, primary_key=True)
@@ -36,7 +36,7 @@ class Photo(db.Model):
     @property
     def filename(self):
         return "{name}-{id}.{extension}".format(
-            id=self.id,
+            id=str(self.id),
             name=self.name,
             extension=self.format
         )
@@ -65,6 +65,8 @@ class Person(db.Model):
 
 class Hackathon(db.Model):
 
+    base_path = os.path.join('/')
+
     id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.Integer)
     projects = db.relationship('Project', backref='hackathon')
@@ -72,6 +74,10 @@ class Hackathon(db.Model):
     @property
     def project_count(self):
         return len(self.projects)
+
+    @property
+    def url(self):
+        return os.path.join(self.base_path, str(self.number))
 
 
 class Award(db.Model):
@@ -105,6 +111,8 @@ ProjectToAward = db.Table(
 
 class Project(db.Model):
 
+    base_path = os.path.join('/', 'project')
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
@@ -118,3 +126,7 @@ class Project(db.Model):
     @property
     def members_string(self):
         return (', ').join(person.__str__() for person in self.persons)
+
+    @property
+    def url(self):
+        return os.path.join(self.base_path, str(self.id))

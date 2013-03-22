@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Hackathon {{ hackathon_id }}{% endblock %}
+{% block title %}Hackathon {{ hackathon.id }}{% endblock %}
 {% block head %}
     {{ super() }}
 {% endblock %}
@@ -11,11 +11,21 @@
 </div>
 <ul class="clearfix" id="project-boxes">
   {% for project in hackathon.projects %}
-  <li class="project-box" style="background-image: {{ project['cover_img'] }}">
-    <h3>{{ project.name }}</h3>
-    <p>{{ project.description }}</p>
-    {{ project.members_string }}
-  </li>
+    <li class="project-box"
+	{% if len(project.photos) > 0 %}
+      style="background-image: url('{{ project.photos[0].url }}')"
+      {% endif %}
+      >
+      <a href="{{ project.url }}">
+	<h3>{{ project.name }}</h3>
+      <div class="more-info">
+	<p class="project-desc">{{ project.description }}</p>
+	<div class="hacker-names">
+	  {{ project.members_string }}
+	</div>
+      </div>
+      </a>
+    </li>
   {% endfor %}
 </ul>
 {% endblock %}

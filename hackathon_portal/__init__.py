@@ -9,6 +9,7 @@ photo_directory = os.path.join(application_directory, 'static', 'photo')
 
 app = Flask(__name__)
 app.jinja_env.globals['get_static_url'] = lambda filename: url_for('static', filename=filename)
+app.jinja_env.globals['len'] = len
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL',
     'sqlite:///{app_dir}/database.db'.format(

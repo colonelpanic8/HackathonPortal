@@ -5,27 +5,53 @@
 {% endblock %}
 
 {% block content %}
-    <div id="content-header">
+   <div id="content-header">
         <h2>{{ project.name }}</h2>
-        <em><a href="/{{ project.hackathon_id }}">Hackathon {{ project.hackathon_id }}</a></em>
+        <em><a href="/{{ project.hackathon.number }}">
+	    Hackathon {{ project.hackathon.number }}
+	</a>
+	</em>
     </div>
+
     <label>Description</label>
     <p>{{ project.description }}</p>
+    <span class="edit" value="update-description">[edit description]</span>
+    <form class="hide" id="update-description" action="/update_project/description" method="post">
+        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+        <input type="submit" value="Update">
+    </form>
+    
 
     <label>Members</label>
     <p>{{ project.members_string }}</p>
+    <form class="hide" id="update-members" action="/update_project_members" method="post">
+        <input type="text" name="members" class="input-xxlarge" value='{{ project.members_string }}' />
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+        <input type="submit" value="Update">
+    </form>
 
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
+    <span class="edit" value="update-link">[edit description]</span>
+    <form class="hide" id="update-link" action="/update_project/link" method="post">
+        <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+        <input type="submit" value="Update">
+    </form>
 
     <label>Photos</label>
     <p>
-        {% for photo in project.photos %}
-             <img src="{{ photo.url }}" />
-        {% endfor %}
+        {% if len(project.photos) == 0 %}
+             <p>No photos found.</p>
+        {% else %}
+            {% for photo in project.photos %}
+                 <img src="{{ photo.url }}" />
+            {% endfor %}
+        {% endif %}
     </p>
-    <span class="drop-down-labal">Upload Photo</span>
-    <form name="input" action="/upload_photo_for_project/" method="post" enctype="multipart/form-data">
+    <span class="edit" value="update-photo">[upload photo]</span>
+    <form class="hide" id="update-photo" action="/upload_photo_for_project/" method="post" enctype="multipart/form-data">
         <input type="file" name="photo">
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Submit">
