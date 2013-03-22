@@ -5,6 +5,7 @@ from . import app
 
 db = SQLAlchemy(app)
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())
+db.Model.load = classmethod(lambda cls, id: cls.query.filter(cls.id == id).one())
 
 
 def model_init(self, **kwargs):
@@ -12,6 +13,22 @@ def model_init(self, **kwargs):
     for key, value in kwargs.iteritems():
         setattr(self, key, value)
 db.Model.__init__ = model_init
+
+
+class Photo(db.Model):
+
+    # TODO: make all of these columns write once.
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    format = db.Column(db.String(10))
+
+    @property
+    def filename(self):
+        return "%{name}-%{id}.%{extension}".format(
+            id=self.id,
+            name=self.name,
+            extension=self.extension
+        )
 
 
 class Person(db.Model):
@@ -51,9 +68,16 @@ ProjectToPerson = db.Table(
     db.Column('person_id', db.Integer, db.ForeignKey("person.id"))
 )
 
+ProjectToPhoto = db.Table(
+    'project_to_photo',
+    db.Model.metadata,
+    db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
+    db.Column('photo_id', db.Integer, db.ForeignKey("photo.id"))
+)
 
-AwardToProject = db.Table(
-    'award_to_project',
+
+ProjectToAward = db.Table(
+    'project_to_award',
     db.Model.metadata,
     db.Column('award_id', db.Integer, db.ForeignKey('award.id')),
     db.Column('project_id', db.Integer, db.ForeignKey('project.id'))
@@ -63,13 +87,15 @@ AwardToProject = db.Table(
 class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), unique=True)
+    name = db.Column(db.String(250))
     hackathon_id = db.Column(db.Integer, db.ForeignKey(Hackathon.id))
     description = db.Column(db.String(5000))
     link = db.Column(db.String(250))
 
     persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
-    
+    photos = db.relationship('Photo', secondary=ProjectToPhoto, backref='projects')
+    awards = db.relationship('Award', secondary=ProjectToAward, backref='projects')
+
     @property
     def members_string(self):
         return (', ').join(person.__str__() for person in self.persons)
