@@ -49,23 +49,28 @@ def associate_photo_with_project_from_ids(photo_id, project_id):
     associate_photo_with_project(photo, project)
 
 
-def add_project(name, description, member_handles, hackathon_num):
-    hackathon_id = load_hackathon(hackathon_num).id
-    member_details = [
-        {
-            'name': None,
-            'yelp_handle': handle
-        }
-        for handle in member_handles
-    ]
-    project_members = add_persons(member_details)
-    project_model = models.Project.new(
-        name=name,
-        description=description,
-        hackathon_id=hackathon_id,
-    )
-    project_model.persons = project_members
+def add_project(**kwargs):
+    hackathon_id = load_hackathon(kwargs['hackathon_num']).id
+    project_members = []
+    if 'member_handles' in kwargs:
+        member_details = [
+            {
+                'name': None,
+                'yelp_handle': handle
+            }
+            for handle in kwargs['member_handles']
+        ]
 
+        project_members = add_persons(member_details)
+    project_model = models.Project.new(
+        name=kwargs['name'],
+        description=kwargs['description'],
+        hackathon_id=hackathon_id,
+        link=kwargs['link']
+    )
+    if project_members:
+        project_model.persons = project_members
+    return project_model
 
 def add_handles_to_project(yelp_handles, project):
     persons = models.Person.query.filter(
@@ -124,3 +129,6 @@ def update_project_attribute(project_id, attribute_name, attribute_value):
 def download_image_from_url(url):
     with closing(urllib2.urlopen(url)) as conn:
         return conn.read()
+
+def get_hackathon_numbers():
+    return [hackathon.number for hackathon in models.Hackathon.query.all()]
