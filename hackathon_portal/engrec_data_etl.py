@@ -76,10 +76,10 @@ class EngRecDataLoader(etl.Loader):
     def load(self, projects):
         for project in projects:
             logic.add_project(
-                project[PROJECT_NAME],
-                project[PROJECT_DESC],
-                project[PROJECT_MEMBERS],
-                project[HACKATHON_ID]
+                name=project[PROJECT_NAME],
+                description=project[PROJECT_DESC],
+                member_handles=project[PROJECT_MEMBERS],
+                hackathon_num=project[HACKATHON_ID]
             )
 
 
