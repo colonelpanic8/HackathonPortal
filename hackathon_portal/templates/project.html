@@ -7,7 +7,7 @@
 {% block content %}
     <div id="content-header">
         <h2>{{ project.name }}</h2>
-        <em><a href="/{{ project.hackathon.number }}">
+        <em><a href="{{ project.hackathon.url }}">
 	    Hackathon {{ project.hackathon.number }}
 	</a>
 	</em>
@@ -16,8 +16,10 @@
     <label>Description</label>
     <p>{{ project.description }}</p>
     <span class="edit">[edit description]</span>
-    <form id="update-description" action="/update_project/description" method="post">
-        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+    <form id="update-description" action="{{ project.update_url('description') }}" method="post">
+        <textarea name="description" class="input-xxlarge" rows="8">
+	  {{ project.description }}
+	</textarea>
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
@@ -34,7 +36,7 @@
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
     <span class="edit">[edit description]</span>
-    <form id="update-link" action="/update_project/link" method="post">
+    <form id="update-link" action="{{ project.update_url('link')}}" method="post">
         <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
@@ -51,7 +53,7 @@
         {% endif %}
     </p>
     <span class="edit">[upload photo]</span>
-    <form name="input" action="/upload_photo_for_project/" method="post" enctype="multipart/form-data">
+    <form name="input" action="{{ project.add_photo_url }}" method="post" enctype="multipart/form-data">
         <input type="file" name="photo">
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Submit">

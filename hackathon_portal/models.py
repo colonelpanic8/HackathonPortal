@@ -1,4 +1,6 @@
 import os
+
+import simplejson
 from flask.ext.sqlalchemy import SQLAlchemy
 
 from . import app
@@ -65,7 +67,7 @@ class Person(db.Model):
 
 class Hackathon(db.Model):
 
-    base_path = os.path.join('/')
+    base_path = os.path.join('/', 'hackathon')
 
     id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.Integer)
@@ -77,7 +79,7 @@ class Hackathon(db.Model):
 
     @property
     def url(self):
-        return os.path.join(self.base_path, str(self.number))
+        return os.path.join(self.base_path, 'view', str(self.number))
 
 
 class Award(db.Model):
@@ -92,6 +94,7 @@ ProjectToPerson = db.Table(
     db.Column('project_id', db.Integer, db.ForeignKey("project.id")),
     db.Column('person_id', db.Integer, db.ForeignKey("person.id"))
 )
+
 
 ProjectToPhoto = db.Table(
     'project_to_photo',
@@ -129,4 +132,15 @@ class Project(db.Model):
 
     @property
     def url(self):
-        return os.path.join(self.base_path, str(self.id))
+        return os.path.join(self.base_path, 'view', str(self.id))
+
+    @property
+    def add_photo_url(self):
+        return os.path.join(self.base_path, 'add', 'photo')
+
+    @property
+    def add_member_url(self):
+        return os.path.join(self.base_path, 'add', 'member')
+
+    def update_url(self, attribute_name):
+        return os.path.join(self.base_path, 'update', attribute_name)
