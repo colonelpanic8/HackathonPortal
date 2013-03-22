@@ -5,15 +5,13 @@
 {% endblock %}
 {% block content %}
 <div id="content-header">
-    <span>{{ person.project_count }} projects</span>
-    <h2> {{ person.name }} ({{ person.yelp_handle}}) </h2>
+    <span>{{ len(person.projects) }} projects</span>
+    <h2> {{ person.name }} ({{ person.yelp_handle }}) </h2>
 </div>
 <ul class="clearfix" id="project-boxes">
     {% for project in person.projects %}
     <li class="project-box"
-    {% if len(project.photos) > 0 %}
-    style="background-image: url('{{ project.photos[0].thumbnail_url }}')"
-    {% endif %}
+    style="background-image: url('{{ project.get_photo().thumbnail_url }}')"
     >
     <a href="{{ project.url }}">
         <h3>{{ project.name }}</h3>

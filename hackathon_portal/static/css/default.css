@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Condensed', san-serif;
     font-size: 50px;
     position: absolute;
-    bottom: -6px;
+    bottom: -7px;
     right: -5px;
     margin: 0;
     text-transform: uppercase;
@@ -43,11 +43,20 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
     border-radius: 3px;
     padding: 15px;
+    position: relative;
 }
 
 #content-header{
     border-bottom: 1px solid #d9d9d9;
     margin-bottom: 15px;
+    position: relative;
+}
+
+#content .award {
+   position: absolute;
+   right: -10px;
+   top: -14px;
+   z-index: 100;
 }
 
 #content-header h2{
@@ -119,11 +128,18 @@ em{
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 5px;
+    font-style: italic;
 }
 
 .project-box .hacker-names {
     padding: 2px 5px;
-    font-size: 11px;
+}
+
+.project-box .award {
+   position: absolute;
+   right: -10px;
+   top: -10px;
+   width: 50px;
 }
 
 .remove-member {

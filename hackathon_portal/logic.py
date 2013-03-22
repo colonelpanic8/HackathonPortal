@@ -37,20 +37,19 @@ def save_photo_thumbnail(photo_model):
     photo.save(photo_model.thumbnail_filepath)
 
 
-def associate_photo_with_project(photo, project):
-    project.photos.append(photo)
+def associate_photo_with_model(photo, model):
+    model.photos.append(photo)
     models.db.session.commit()
-    return project
+    return model
 
 
 def associate_photo_with_project_from_ids(photo_id, project_id):
     project = models.Project.load(project_id)
     photo = models.Photo.load(photo_id)
-    associate_photo_with_project(photo, project)
-
+    return associate_photo_with_project(photo, project)
 
 def add_project(**kwargs):
-    hackathon_id = load_hackathon(kwargs['hackathon_num']).id
+    hackathon_id = load_hackathon(kwargs.get('hackathon_num')).id
     project_members = []
     if 'member_handles' in kwargs:
         member_details = [
@@ -63,10 +62,10 @@ def add_project(**kwargs):
 
         project_members = add_persons(member_details)
     project_model = models.Project.new(
-        name=kwargs['name'],
-        description=kwargs['description'],
+        name=kwargs.get('name'),
+        description=kwargs.get('description'),
         hackathon_id=hackathon_id,
-        link=kwargs['link']
+        link=kwargs.get('link')
     )
     if project_members:
         project_model.persons = project_members
@@ -98,9 +97,7 @@ def load_hackathon(hackathon_num):
             models.Hackathon.number == int(hackathon_num)
         ).one()
     except:
-        return models.Hackathon.new(
-            number=int(hackathon_num)
-        )
+        return models.Hackathon.new(number=int(hackathon_num))
 
 
 def add_persons(persons):
@@ -144,3 +141,7 @@ def download_image_from_url(url):
 
 def get_hackathon_numbers():
     return [hackathon.number for hackathon in models.Hackathon.query.all()]
+
+
+def sort_projects_with_awards(projects):
+    return sorted(projects, key=lambda project: bool(project.awards), reversed=True)
