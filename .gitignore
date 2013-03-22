@@ -44,3 +44,6 @@ ENV
 *.swp
 # Rope
 .ropeproject
+
+#ignore photos
+hackathon_portal/static/photo/
