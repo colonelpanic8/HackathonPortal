@@ -1,10 +1,30 @@
 {% extends "base.html" %}
-{% block title %{{ project_name }}{% endblock %}
+
 {% block head %}
     {{ super() }}
 {% endblock %}
+
 {% block header %}
-     <h2>{{ project_name }}</h2>
+     <h2>{{ project['name'] }}</h2>
 {% endblock %}
+
 {% block content %}
+    <div id="content-header">
+        <h2>{{ project.name }}</h2>
+        <em><a href="/{{ project.hackathon_id }}">Hackathon {{ project.hackathon_id }}</a></em>
+    </div>
+    <label>Description</label>
+    <p>{{ project.description }}</p>>
+    <label>Members</label>
+    <p>{{ project.members_string }}</p>
+    <label>Repo Link</label>
+    <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
+    <label>Photos</label>
+    <p></p>
+    <label>Upload Photo</label>
+    <form name="input" action="/upload_image_for_project/" method="post">
+        <input type="file" name="photo>
+        <input type="hidden" name="project_id" value={{ project.id }}>
+        <input type="submit" value="Submit">
+    </form>
 {% endblock %}
