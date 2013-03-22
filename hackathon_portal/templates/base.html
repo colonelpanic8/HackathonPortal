@@ -9,6 +9,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script "text/javascript" src={{ get_static_url("bootstrap/js/bootstrap.js")}}></script>
     <script "text/javascript" src={{ get_static_url("js/project_box.js")}}></script>
+    <script "text/javascript" src={{ get_static_url("js/default.js")}}></script>
     <script "text/javascript" src={{ get_static_url("js/project_update.js")}}></script>
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
@@ -22,11 +23,14 @@
         <a href="/1"><div id="header">{% block header %} <h1><span>Yelp</span>Hackathon</h1> {% endblock %}</div></a>
         <div id="content">
             {% block content %}{% endblock %}
-        </div>
-        <div id="footer">
-            {% block footer %}
-                 Hackathon 10 Project - Hackathon Portal by chao, imalison, jchuah, jkotker, pcheng, ssridhar
-            {% endblock %}
+	    <ul id="nav">
+	        <li><strong>See another Hackathon</strong>
+		<ul class="child">	
+                {% for hackathon_number in logic.get_hackathon_numbers() %}
+	            <li><a href="{{ models.Hackathon.view_url(hackathon_number.__str__()) }}">Hackathon {{ hackathon_number }}</a></li>
+                {% endfor %}
+                </ul></li>
+	    </ul>
         </div>
     </div>
 </body>

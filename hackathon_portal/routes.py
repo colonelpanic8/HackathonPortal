@@ -6,6 +6,8 @@ from . import app
 from . import logic
 from . import models
 
+app.jinja_env.globals['logic'] = logic
+app.jinja_env.globals['models'] = models
 
 app.jinja_env.globals['logic'] = logic
 app.jinja_env.globals['models'] = models

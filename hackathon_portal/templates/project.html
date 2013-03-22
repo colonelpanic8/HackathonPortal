@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+	{% for award in project.awards %}
+		<img class="award" src={{ award.photos[0].url }}>
+	{% endfor %}
    <div id="content-header">
         <h2>{{ project.name }}</h2>
         <em><a href="{{ project.hackathon.url }}">
@@ -63,7 +66,11 @@
     </p>
     <span class="edit" value="update-link">[edit link]</span>
     <form class="hide" id="update-link" action="{{ project.update_url('link')}}" method="post">
-        <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        {% if project.link != None %}
+            <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        {% else %}
+            <input type="text" name="link" class="input-xxlarge" value='' />
+        {% endif %}
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
