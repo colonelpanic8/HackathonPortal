@@ -7,22 +7,18 @@
 {% block content %}
     <div id="content-header">
         <h2>{{ project.name }}</h2>
-        <em><a href="project/{{ project.id }}">< Back to project page</a></em>
+        <em><a href="/project/{{ project.id }}">< Back to project page</a></em>
     </div>
 
     <form name="input" action="/update_project/" method="post">
         <label>Description</label>
-        <textarea name="description">{{ project.description }}</textarea>
+        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
 
         <label>Repo Link</label>
-        <p><input type="text">'{{ project.link }}'>{{ project.link }}</input></p>
+        <p><input type="text" class="input-xxlarge" value='{{ project.link }}' /></p>
 
-        <span class="drop-down-labal">Upload Photo</span>
-        <label>Photos</label>
-            <input type="file" name="photo>
-            <input type="hidden" name="project_id" value={{ project.id }}>
-            <input type="submit" value="Submit">
-        </form>
+        <input type="submit" value="Update">
+    </form>
 
 {% endblock %}
 

@@ -9,22 +9,38 @@
         <h2>{{ project.name }}</h2>
         <em><a href="/{{ project.hackathon_id }}">Hackathon {{ project.hackathon_id }}</a></em>
     </div>
+
     <label>Description</label>
     <p>{{ project.description }}</p>
+    <span class="edit">[edit description]</span>
+    <form name="input" action="/upload_photo_project_description/" method="post">
+         <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+        <input type="submit" value="Update">
+    </form>
+    
 
     <label>Members</label>
     <p>{{ project.members_string }}</p>
 
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
+    <span class="edit">[edit description]</span>
+    <form name="input" action="/update_project_link/" method="post">
+        <input type="text" class="input-xxlarge" value='{{ project.link }}' />
+        <input type="submit" value="Update">
+    </form>
 
     <label>Photos</label>
     <p>
-        {% for photo in project.photos %}
-             <img src="{{ photo.url }}" />
-        {% endfor %}
+        {% if len(project.photos) == 0 %}
+             <p>No photos found.</p>
+        {% else %}
+            {% for photo in project.photos %}
+                 <img src="{{ photo.url }}" />
+            {% endfor %}
+        {% endif %}
     </p>
-    <span class="drop-down-labal">Upload Photo</span>
+    <span class="edit">[upload photo]</span>
     <form name="input" action="/upload_photo_for_project/" method="post" enctype="multipart/form-data">
         <input type="file" name="photo">
         <input type="hidden" name="project_id" value="{{ project.id }}">
