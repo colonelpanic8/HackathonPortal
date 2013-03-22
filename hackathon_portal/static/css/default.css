@@ -109,6 +109,7 @@ em{
     bottom: 0;
     left: 0;
     display: none;
+    overflow: hidden;
 }	
 
 .project-box .project-desc {
