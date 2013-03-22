@@ -63,7 +63,11 @@
     </p>
     <span class="edit" value="update-link">[edit link]</span>
     <form class="hide" id="update-link" action="{{ project.update_url('link')}}" method="post">
-        <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        {% if project.link != None %}
+            <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
+        {% else %}
+            <input type="text" name="link" class="input-xxlarge" value='' />
+        {% endif %}
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
