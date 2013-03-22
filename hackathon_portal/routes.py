@@ -71,7 +71,7 @@ def add_member_to_project():
     return redirect(project.url)
 
 
-@app.route(models.Person.get_handles_starting_with)
+@app.route(models.Person.get_handles_starting_with_url)
 def get_handles_starting_with():
     matching_persons = logic.get_persons_with_handles_starting_with(
         request.args.get('handle_string', '')
