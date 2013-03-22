@@ -5,33 +5,14 @@ $(document).ready(function() {
   	}); 
 
 	$(function() {
-		var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    	];
-		$( "#member-input" ).autocomplete({
-			source: availableTags
+		var availableTags;
+		$.get('/person/get_handles_matching', function(data) {
+			availableTags = JSON.parse(data);
+			$( "#member-input" ).autocomplete({
+				source: availableTags
+			});
 		});
 	});
+
 });
 

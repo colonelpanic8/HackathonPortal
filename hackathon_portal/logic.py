@@ -3,7 +3,7 @@ from . import models
 
 def get_persons_with_handles_starting_with(string):
     return models.Person.query.filter(
-        models.Person.startswith(string)
+        models.Person.yelp_handle.startswith(string)
     ).all()
 
 
