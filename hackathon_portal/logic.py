@@ -18,7 +18,7 @@ def add_photo(name, data, format):
     models.db.session.commit()
     with open(photo_model.filepath, 'wb') as photo_file:
         photo_file.write(data)
-    save_image_thumbnail(photo_model)
+    save_photo_thumbnail(photo_model)
     return photo_model
 
 
@@ -27,14 +27,14 @@ def save_photo(file, name, format):
     models.db.session.add(photo_model)
     models.db.session.commit()
     file.save(photo_model.filepath)
-    save_image_thumbnail(photo_model)
+    save_photo_thumbnail(photo_model)
     return photo_model
 
 
-def save_image_thumbnail(photo_model):
-    image = Image.open(photo_model.filepath)
-    image.thumbnail(photo_model.thumbnail_size, Image.ANTIALIAS)
-    image.save(photo_model.thumbnail_filepath)
+def save_photo_thumbnail(photo_model):
+    photo = Image.open(photo_model.filepath)
+    photo.thumbnail(photo_model.thumbnail_size, Image.ANTIALIAS)
+    photo.save(photo_model.thumbnail_filepath)
 
 
 def associate_photo_with_project(photo, project):
