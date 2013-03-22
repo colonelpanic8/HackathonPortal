@@ -20,6 +20,12 @@ class Person(db.Model):
     name = db.Column(db.String(250))
     yelp_handle = db.Column(db.String(250), unique=True)
 
+    def __str__(self):
+        return "%{name} %{yelp_handle}".format(
+            name=self.name or '',
+            yelp_handle='<%s>' % self.yelp_handle if self.yelp_handle else ''
+        )
+
 
 class Hackathon(db.Model):
 
