@@ -12,10 +12,17 @@
 <ul class="clearfix" id="project-boxes">
   {% for project in hackathon.projects %}
   <li class="project-box" style="background-image: {{ project['cover_img'] }}">
-    <h3>{{ project.name }}</h3>
-    <p>{{ project.description }}</p>
-    {{ project.members_string }}
+	<h3>{{ project.name }}</h3>
+	<div class="more-info">
+	    <p class="project-desc">{{ project.description }}</p>
+	    <div class="hacker-names">
+		    {{ project.members_string }}
+	    </div>
+	</div>
   </li>
   {% endfor %}
 </ul>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script "text/javascript" src={{ get_static_url("bootstrap/js/bootstrap.js")}}></script>
+<script "text/javascript" src={{ get_static_url("js/project_box.js")}}></script>
 {% endblock %}
