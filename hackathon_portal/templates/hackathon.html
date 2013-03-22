@@ -11,21 +11,21 @@
 </div>
 <ul class="clearfix" id="project-boxes">
   {% for project in hackathon.projects %}
-  <a href="{{ project.url }}">
     <li class="project-box"
 	{% if len(project.photos) > 0 %}
       style="background-image: url('{{ project.photos[0].url }}')"
       {% endif %}
       >
-      <h3>{{ project.name }}</h3>
+      <a href="{{ project.url }}">
+	<h3>{{ project.name }}</h3>
       <div class="more-info">
 	<p class="project-desc">{{ project.description }}</p>
 	<div class="hacker-names">
 	  {{ project.members_string }}
 	</div>
       </div>
+      </a>
     </li>
-  </a>
   {% endfor %}
 </ul>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
