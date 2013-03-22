@@ -43,7 +43,6 @@ def add_project():
     if request.method == 'GET':
         return render_template('upload_project.html', Project=models.Project)
     else:
-
         return redirect(models.Project.new(**util.remap_keys(request.form, {})).url)
 
 
@@ -85,6 +84,16 @@ def add_photo_to_project():
 def add_member_to_project():
     project = models.Project.load(int(request.form['project_id']))
     logic.add_handles_to_project(
+        [request.form['person']],
+        project
+    )
+    return redirect(project.url)
+
+
+@app.route(models.Project.remove_person_url, methods=["POST"])
+def remove_member_from_project():
+    project = models.Project.load(int(request.form['project_id']))
+    logic.remove_handles_from_project(
         [request.form['person']],
         project
     )

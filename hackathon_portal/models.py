@@ -167,3 +167,11 @@ class Project(db.Model):
     @classproperty
     def add_person_url(cls):
         return os.path.join(cls.add_url, 'person')
+
+    @classproperty
+    def remove_url(cls):
+        return os.path.join(cls.base_url, 'remove')
+
+    @classproperty
+    def remove_person_url(cls):
+        return os.path.join(cls.remove_url, 'person')

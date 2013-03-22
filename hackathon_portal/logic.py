@@ -67,6 +67,17 @@ def add_handles_to_project(yelp_handles, project):
     return persons
 
 
+def remove_handles_from_project(yelp_handles, project):
+    persons = models.Person.query.filter(
+        models.Person.yelp_handle.in_(yelp_handles)
+    ).all()
+    for person in persons:
+        if person in project.persons:
+            project.persons.remove(person)
+    models.db.session.commit()
+    return persons
+
+
 def load_hackathon(hackathon_num):
     try:
         return models.Hackathon.query.filter(
