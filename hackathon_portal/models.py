@@ -1,4 +1,5 @@
 import os
+import random
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.util import classproperty
@@ -177,6 +178,12 @@ class Project(db.Model):
     persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
     photos = db.relationship('Photo', secondary=ProjectToPhoto, backref='projects')
     awards = db.relationship('Award', secondary=ProjectToAward, backref='projects')
+
+    def get_photo(self):
+        if self.photos:
+            return self.photos[random.randint(0, len(self.photos)-1)]
+        elif self.hackathon.photos:
+            return self.hackathon.photos[random.randint(0, len(self.hackathon.photos)-1)]
 
     @property
     def url(self):

@@ -21,13 +21,16 @@ class HackathonPhotoLoader(object):
             for filename in filenames:
                 with open(os.path.join(directory_path, filename), 'r') as file:
                     _, extension = filename.rsplit('.', 1)
-                    photo_model = logic.save_photo(
-                        file,
+                    photo_model = logic.add_photo(
                         'Hackathon%d' % self.hackathon.number,
+                        file.read(),
                         extension
                     )
-                    logic.associate_photo_with_project(photo_model, self.hackathon)
+                    logic.associate_photo_with_model(photo_model, self.hackathon)
+
+
 
 if __name__ == '__main__':
     for i in range(7, 10):
-        HackathonPhotoLoader(i).add_photo_files()
+        hn = i if i is not 8 else 9
+        HackathonPhotoLoader(hn).add_photo_files()
