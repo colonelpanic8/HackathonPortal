@@ -66,7 +66,7 @@ def add_member_to_project():
     project = models.Project.load(int(request.form['project_id']))
     logic.add_handles_to_project(
         [request.form['person']],
-        request.form['project_id']
+        project
     )
     return redirect(project.url)
 
