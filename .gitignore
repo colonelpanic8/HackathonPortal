@@ -47,3 +47,6 @@ ENV
 
 #ignore photos
 hackathon_portal/static/photo/
+
+# API key, don't commit.
+hackathon_portal/config.py

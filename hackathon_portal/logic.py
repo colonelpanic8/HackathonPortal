@@ -1,3 +1,6 @@
+import urllib2
+from contextlib import closing
+
 from . import models
 
 
@@ -13,7 +16,7 @@ def add_photo(name, data, format):
     models.db.session.commit()
     with open(photo_model.filepath, 'wb') as photo_file:
         photo_file.write(data)
-        return photo_model
+    return photo_model
 
 
 def save_photo(file, name, format):
@@ -25,12 +28,16 @@ def save_photo(file, name, format):
     return photo_model
 
 
-def associate_photo_with_project(photo_id, project_id):
-    project = models.Project.load(project_id)
-    photo = models.Photo.load(photo_id)
+def associate_photo_with_project(photo, project):
     project.photos.append(photo)
     models.db.session.commit()
     return project
+
+
+def associate_photo_with_project_from_ids(photo_id, project_id):
+    project = models.Project.load(project_id)
+    photo = models.Photo.load(photo_id)
+    associate_photo_with_project(photo, project)
 
 
 def add_project(name, description, member_handles, hackathon_num):
@@ -53,7 +60,7 @@ def add_project(name, description, member_handles, hackathon_num):
 
 def add_handles_to_project(yelp_handles, project):
     persons = models.Person.query.filter(
-    	models.Person.yelp_handle.in_(yelp_handles)
+        models.Person.yelp_handle.in_(yelp_handles)
     ).all()
     project.persons.extend(persons)
     models.db.session.commit()
@@ -103,3 +110,8 @@ def update_project_attribute(project_id, attribute_name, attribute_value):
     setattr(project, attribute_name, attribute_value)
     models.db.session.commit()
     return project
+
+
+def download_image_from_url(url):
+    with closing(urllib2.urlopen(url)) as conn:
+        return conn.read()

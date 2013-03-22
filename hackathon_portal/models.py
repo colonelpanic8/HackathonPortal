@@ -28,7 +28,7 @@ db.Model.new = classmethod(new)
 
 class Photo(db.Model):
 
-    base_path = os.path.join('/', 'static', 'photo')
+    base_url = os.path.join('/', 'static', 'photo')
 
     # TODO: make all of these columns write once.
     id = db.Column(db.Integer, primary_key=True)
@@ -49,12 +49,12 @@ class Photo(db.Model):
 
     @property
     def url(self):
-        return os.path.join(self.base_path, self.filename)
+        return os.path.join(self.base_url, self.filename)
 
 
 class Person(db.Model):
 
-    base_path = os.path.join('/', 'person')
+    base_url = os.path.join('/', 'person')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
@@ -68,7 +68,7 @@ class Person(db.Model):
 
     @classproperty
     def get_handles_starting_with_url(cls):
-        return os.path.join(cls.base_path, 'get_handles_matching')
+        return os.path.join(cls.base_url, 'get_handles_matching')
 
     @property
     def url(self):
@@ -76,11 +76,12 @@ class Person(db.Model):
 
     @classmethod
     def view_url(cls, identifier):
-        return os.path.join(cls.base_path, 'view', identifier)
+        return os.path.join(cls.base_url, 'view', identifier)
+
 
 class Hackathon(db.Model):
 
-    base_path = os.path.join('/', 'hackathon')
+    base_url = os.path.join('/', 'hackathon')
 
     id = db.Column(db.Integer, primary_key=True)
     number = db.Column(db.Integer)
@@ -96,7 +97,7 @@ class Hackathon(db.Model):
 
     @classmethod
     def view_url(cls, identifier):
-        return os.path.join(cls.base_path, 'view', identifier)
+        return os.path.join(cls.base_url, 'view', identifier)
 
 
 class Award(db.Model):
@@ -131,7 +132,7 @@ ProjectToAward = db.Table(
 
 class Project(db.Model):
 
-    base_path = os.path.join('/', 'project')
+    base_url = os.path.join('/', 'project')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
@@ -144,25 +145,25 @@ class Project(db.Model):
     awards = db.relationship('Award', secondary=ProjectToAward, backref='projects')
 
     @property
-    def members_string(self):
-        return (', ').join(person.__str__() for person in self.persons)
-
-    @property
     def url(self):
         return self.view_url(str(self.id))
 
     @classmethod
     def update_url(self, attribute_name):
-        return os.path.join(self.base_path, 'update', attribute_name)
+        return os.path.join(self.base_url, 'update', attribute_name)
 
     @classmethod
     def view_url(cls, identifier):
-        return os.path.join(cls.base_path, 'view', identifier)
+        return os.path.join(cls.base_url, 'view', identifier)
+
+    @classproperty
+    def add_url(cls):
+        return os.path.join(cls.base_url, 'add')
 
     @classproperty
     def add_photo_url(cls):
-        return os.path.join(cls.base_path, 'add', 'photo')
+        return os.path.join(cls.add_url, 'photo')
 
     @classproperty
     def add_person_url(cls):
-        return os.path.join(cls.base_path, 'add', 'person')
+        return os.path.join(cls.add_url, 'person')
