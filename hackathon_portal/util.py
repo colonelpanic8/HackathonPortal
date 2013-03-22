@@ -56,10 +56,10 @@ class NameParser(object):
 
         for yelp_engineer in self.yelp_engineers:
             full_name = yelp_engineer.name.lower() if yelp_engineer.name else ''
-            email = yelp_engineer.yelp_handle.lower()
-            handle = email[:email.find('@')]
-            first_name = ''
-            last_name = ''
+            handle = yelp_engineer.yelp_handle.lower()
+            email = "".join([handle, "@yelp.com"])
+            first_name = ""
+            last_name = ""
             if full_name:
                 first_name, last_name = full_name.rsplit(" ", 1)
 
