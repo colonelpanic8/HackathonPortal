@@ -1,6 +1,8 @@
+import os
 from flask.ext.sqlalchemy import SQLAlchemy
 
 from . import app
+from . import photo_directory
 
 
 db = SQLAlchemy(app)
@@ -30,6 +32,9 @@ class Photo(db.Model):
             extension=self.extension
         )
 
+    def filepath(self):
+        return os.path.join(photo_directory, self.filename)
+
 
 class Person(db.Model):
 
@@ -38,7 +43,7 @@ class Person(db.Model):
     yelp_handle = db.Column(db.String(250), unique=True)
 
     def __str__(self):
-        return "%{name} %{yelp_handle}".format(
+        return "{name} {yelp_handle}".format(
             name=self.name or '',
             yelp_handle='<%s>' % self.yelp_handle if self.yelp_handle else ''
         )

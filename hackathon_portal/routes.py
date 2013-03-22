@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect
 from werkzeug import secure_filename
 
 from . import app
@@ -39,6 +39,7 @@ def edit_project(project_id):
         ).one()
     )
 
+
 def _upload_photo(file, filename):
     filename = secure_filename(file.filename)
     name, extension = filename.rsplit('.', 1)
@@ -54,10 +55,11 @@ def upload_photo():
 @app.route("/upload_photo_for_project/", methods=["POST"])
 def upload_photo_for_project():
     photo_model = _upload_photo(request.files['file'])
-    logic.associate_photo_with_project(
+    project = logic.associate_photo_with_project(
     	photo_model,
     	int(request.args['project_id'])
     )
+    return redirect("/project/{project_id}".format(project_id=project.id))
 
 
 if __name__ == "__main__":
