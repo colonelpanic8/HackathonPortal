@@ -20,9 +20,11 @@ window.hackathonPortal.ProjectBox = function(container) {
 };
 
 window.hackathonPortal.ProjectBox.prototype.showMoreInfo = function() {
-	var currentHeight = this.moreInfo.height();
+	if (this.currentHeight === undefined) {
+		this.currentHeight = this.moreInfo.height();
+	}
 	this.moreInfo.height('0').show();
-	this.moreInfo.stop().animate({'height': currentHeight}, 500);
+	this.moreInfo.stop().animate({'height': this.currentHeight}, 500);
 };
 
 window.hackathonPortal.ProjectBox.prototype.hideMoreInfo = function() {
