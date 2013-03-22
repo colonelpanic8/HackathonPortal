@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Person {{ person.id }}{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div id="content-header">
+    <span>{{ person.project_count }} projects</span>
+    <h2> {{ person.name }} ({{ person.yelp_handle}}) </h2>
+</div>
+<ul class="clearfix" id="project-boxes">
+    {% for project in person.projects %}
+    <li class="project-box"
+    {% if len(project.photos) > 0 %}
+    style="background-image: url('{{ project.photos[0].url }}')"
+    {% endif %}
+    >
+    <a href="{{ project.url }}">
+        <h3>{{ project.name }}</h3>
+        <div class="more-info">
+            <p class="project-desc">{{ project.description }}</p>
+            <div class="hacker-names">
+                {{ project.members_string }}
+            </div>
+        </div>
+    </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
