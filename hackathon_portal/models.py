@@ -11,6 +11,7 @@ def new(cls, **kwargs):
     model = cls(**kwargs)
     db.session.add(model)
     db.session.commit()
+    return model
 
 def model_init(self, **kwargs):
     super(db.Model, self).__init__()
@@ -20,7 +21,7 @@ def model_init(self, **kwargs):
 db.Model.__init__ = model_init
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())
 db.Model.load = classmethod(lambda cls, id: cls.query.filter(cls.id == id).one())
-db.Model.new = new
+db.Model.new = classmethod(new)
 
 
 class Photo(db.Model):
