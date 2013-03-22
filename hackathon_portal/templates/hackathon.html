@@ -9,7 +9,7 @@
   <h2>Hackathon {{ hackathon.number }}</h2>
 </div>
 <ul class="clearfix" id="project-boxes">
-  {% for project in hackathon.projects %}
+  {% for project in logic.sort_projects_by_awards(hackathon.projects) %}
     <li class="project-box"
       style="background-image: url('{{ project.get_photo().thumbnail_url }}')"
       >

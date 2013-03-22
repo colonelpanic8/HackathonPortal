@@ -83,6 +83,13 @@ def make_awards():
         models.db.session.commit()
 
 
+def set_awards_from_project_id_to_award_names(project_id_to_award_names):
+    for project_id, award_names in project_id_to_award_names.iteritems():
+        project = models.Project.load(int(project_id))
+        awards = models.Award.query.filter(models.Award.name.in_(award_names)).all()
+        assert len(awards) == len(award_names)
+        project.awards.extend(awards)
+    models.db.session.commit()
 
 
 if __name__ == '__main__':

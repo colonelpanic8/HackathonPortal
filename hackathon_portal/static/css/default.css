@@ -54,9 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #content .award {
    position: absolute;
-   right: -10px;
-   top: -14px;
+   right: -5px;
+   top: -5px;
    z-index: 100;
+   width: 50px;
 }
 
 #content-header h2{
@@ -139,7 +140,7 @@ em{
    position: absolute;
    right: -10px;
    top: -10px;
-   width: 50px;
+   width: 32px;
 }
 
 .remove-member {

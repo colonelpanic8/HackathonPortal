@@ -143,5 +143,5 @@ def get_hackathon_numbers():
     return [hackathon.number for hackathon in models.Hackathon.query.all()]
 
 
-def sort_projects_with_awards(projects):
-    return sorted(projects, key=lambda project: bool(project.awards), reversed=True)
+def sort_projects_by_awards(projects):
+    return sorted(projects, key=lambda project: bool(project.awards), reverse=True)
