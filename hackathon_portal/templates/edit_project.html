@@ -9,22 +9,20 @@
         <h2>{{ project.name }}</h2>
         <em><a href="project/{{ project.id }}">< Back to project page</a></em>
     </div>
-    <label>Description</label>
-    <p>{{ project.description }}</p>
 
-    <label>Members</label>
-    <p>{{ project.members_string }}</p>
+    <form name="input" action="/update_project/" method="post">
+        <label>Description</label>
+        <textarea name="description">{{ project.description }}</textarea>
 
-    <label>Repo Link</label>
-    <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
+        <label>Repo Link</label>
+        <p><input type="text">'{{ project.link }}'>{{ project.link }}</input></p>
 
-    <span class="drop-down-labal">Upload Photo</span>
-    <label>Photos</label>
-    <form name="input" action="/upload_image_for_project/" method="post">
-        <input type="file" name="photo>
-        <input type="hidden" name="project_id" value={{ project.id }}>
-        <input type="submit" value="Submit">
-    </form>
+        <span class="drop-down-labal">Upload Photo</span>
+        <label>Photos</label>
+            <input type="file" name="photo>
+            <input type="hidden" name="project_id" value={{ project.id }}>
+            <input type="submit" value="Submit">
+        </form>
 
 {% endblock %}
 

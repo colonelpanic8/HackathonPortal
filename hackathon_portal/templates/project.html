@@ -18,8 +18,13 @@
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
 
-    <span class="drop-down-labal">Upload Photo</span>
     <label>Photos</label>
+    <p>
+        {% for photo in project.photos %}
+             <img src="{{ photo.filepath }}" />
+        {% endfor %}
+    </p>
+    <span class="drop-down-labal">Upload Photo</span>
     <form name="input" action="/upload_image_for_project/" method="post">
         <input type="file" name="photo>
         <input type="hidden" name="project_id" value={{ project.id }}>
