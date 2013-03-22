@@ -12,7 +12,7 @@
     {% for project in person.projects %}
     <li class="project-box"
     {% if len(project.photos) > 0 %}
-    style="background-image: url('{{ project.photos[0].url }}')"
+    style="background-image: url('{{ project.photos[0].thumbnail_url }}')"
     {% endif %}
     >
     <a href="{{ project.url }}">

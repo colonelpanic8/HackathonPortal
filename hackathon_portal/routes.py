@@ -43,7 +43,6 @@ def add_project():
     if request.method == 'GET':
         return render_template('upload_project.html', Project=models.Project)
     else:
-
         return redirect(models.Project.new(**util.remap_keys(request.form, {})).url)
 
 
