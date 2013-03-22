@@ -1,7 +1,9 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
+from werkzeug import secure_filename
 
 from . import app
 from . import models
+from . import logic
 
 
 @app.route("/")
@@ -23,9 +25,30 @@ def hackathon(hackathon_number):
 def project_page(project_name):
     return render_template(
     	"project.html",
-    	project=models.Hackathon.query.filter(
+    	project=models.Project.query.filter(
             models.Project.name == project_name
         ).one()
+    )
+
+
+def _upload_photo(file, filename):
+    filename = secure_filename(file.filename)
+    name, extension = filename.rsplit('.', 1)
+    return logic.save_photo(file, name, extension)
+
+
+@app.route("/upload_image/", methods=["POST"])
+def upload_photo():
+    _upload_photo(request.files['file'])
+    return redirect(_upload_photo(request.files['file']))
+
+
+@app.route("/upload_image_for_project/", methods=["POST"])
+def upload_photo_for_project():
+    photo_model = _upload_photo(request.files['file'])
+    logic.associate_photo_with_project(
+    	photo_model,
+    	int(request.args['project_id'])
     )
 
 
