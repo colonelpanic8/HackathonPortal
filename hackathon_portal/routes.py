@@ -41,9 +41,17 @@ def person_page(yelp_handle):
 @app.route(models.Project.add_url, methods=['POST', 'GET'])
 def add_project():
     if request.method == 'GET':
-        return render_template('upload_project.html', Project=models.Project)
+        hackathon_numbers = logic.get_hackathon_numbers()
+        return render_template('upload_project.html', hackathon_numbers=hackathon_numbers, Project=models.Project)
     else:
-        return redirect(models.Project.new(**util.remap_keys(request.form, {})).url)
+        project = logic.add_project(
+            hackathon_num=request.form['hackathon_number'],
+            name=request.form['name'],
+            description=request.form['description'],
+            link=request.form['link']
+        )
+        models.db.session.commit()
+        return redirect(project.url)
 
 
 @app.route(models.Person.get_handles_starting_with_url)

@@ -42,13 +42,17 @@ def fill_projects_with_default_photos():
     for project in hackathon.projects:
         if project.photos:
             continue
-        image_url = image_fetcher.ImageFetcher(project.name).get_my_image()
-        _, extension = image_url.rsplit('.', 1)
-        photo = logic.add_photo(
-            project.name,
-            logic.download_image_from_url(image_url),
-            extension
-        )
+	for project in models.Hackathon.query.filter(models.Hackathon.number == 7).one().projects:
+            if project.photos:
+                continue
+            image_url = image_fetcher.ImageFetcher(project.name).get_my_image()
+            _, extension = image_url.rsplit('.', 1)
+            photo = logic.add_photo(
+                project.name,
+                logic.download_image_from_url(image_url),
+                extension
+            )
+
         logic.associate_photo_with_project(photo, project)
 
 
