@@ -15,6 +15,9 @@
       style="background-image: url('{{ project.get_photo().thumbnail_url }}')"
       >
       <a href="{{ project.url }}">
+         {% for award in project.awards %}
+            <img class="award" src={{ award.photos[0].url }}>
+         {% endfor %}
 	<h3>{{ project.name }}</h3>
 	<div class="more-info">
 	  <p class="project-desc">{{ project.description }}</p>

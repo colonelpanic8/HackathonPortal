@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+	{% for award in project.awards %}
+		<img class="award" src={{ award.photos[0].url }}>
+	{% endfor %}
    <div id="content-header">
         <h2>{{ project.name }}</h2>
         <em><a href="{{ project.hackathon.url }}">
