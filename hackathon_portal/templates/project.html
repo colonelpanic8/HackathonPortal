@@ -22,7 +22,7 @@
 
     <label>Members</label>
     <p>{{ project.members_string }}</p>
-    <form name="input" action="/update_project/members" method="post">
+    <form name="input" action="/update_project_members" method="post">
         <input type="text" name="members" class="input-xxlarge" value='{{ project.members_string }}' />
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
