@@ -51,7 +51,7 @@ def upload_photo():
     return redirect(_upload_photo(request.files['file']))
 
 
-@app.route("/upload_image_for_project/", methods=["POST"])
+@app.route("/upload_photo_for_project/", methods=["POST"])
 def upload_photo_for_project():
     photo_model = _upload_photo(request.files['file'])
     logic.associate_photo_with_project(
