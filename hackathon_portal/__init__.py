@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.jinja_env.globals['get_static_url'] = lambda filename: url_for('static', filename=filename)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL',
-    'sqlite:///{app_dir}/hackathon_portal.db'.format(
+    'sqlite:///{app_dir}/database.db'.format(
         app_dir=server_directory
     )
 )

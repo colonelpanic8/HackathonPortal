@@ -37,6 +37,8 @@ def description():
 def link():
     return "https://github.com/IvanMalison/HackathonPortal"
 
+add_generation_function('number')(lambda: random.randint(1,30))
+
 
 class BaseFactory(object):
 
@@ -48,7 +50,10 @@ class BaseFactory(object):
         for column in self._model.itercolumns():
             if column == 'id':
                 continue
-            setattr(model, column,  kwargs.get(column, generation_functions[column]()))
+            value = kwargs.get(column, None)
+            if value is None:
+                value = generation_functions[column]()
+            setattr(model, column, value)
         return model
 
     def create_upsert_and_return_id(self, **kwargs):
@@ -63,5 +68,17 @@ ProjectFactory = BaseFactory(models.Project)
 PersonFactory = BaseFactory(models.Person)
 
 
-if __name__ == '__main__':
-    ProjectFactory().create()
+def build_hackathon_fixture(hackathon_number):
+    hackathon_id = HackathonFactory.create_upsert_and_return_id(
+        hackathon_number=hackathon_number
+    )
+    projects = [
+    	ProjectFactory.create(hackathon_id=hackathon_id)
+        for _ in range(random.randint(4,20))
+    ]
+    for project in projects:
+        for i in range(random.randint(2,6)):
+            project.persons.append(PersonFactory.create())
+        models.db.session.add(project)
+    models.db.session.commit()
+    return hackathon_id

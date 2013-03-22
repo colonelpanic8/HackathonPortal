@@ -20,12 +20,12 @@ class Person(db.Model):
     name = db.Column(db.String(250))
     yelp_handle = db.Column(db.String(250), unique=True)
 
-    # awards = db.relationship('Award', backref='persons')
-
 
 class Hackathon(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer)
+    projects = db.relationship('Project', backref='hackathon')
 
 
 class Award(db.Model):
@@ -59,4 +59,3 @@ class Project(db.Model):
     link = db.Column(db.String(250))
 
     persons = db.relationship('Person', secondary=ProjectToPerson, backref='projects')
-    awards = db.relationship('Award', secondary=AwardToProject, backref='projects')
