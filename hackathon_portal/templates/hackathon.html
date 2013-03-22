@@ -19,19 +19,19 @@
       <a href="{{ project.url }}">
 	<h3>{{ project.name }}</h3>
 	<div class="more-info">
-		<p class="project-desc">{{ project.description }}</p>
-		<div class="hacker-names">
-			{% for i in range(len(project.persons)) %}
-				{% if not i == range(len(project.persons))[-1] %}
-					{{ project.persons[i].yelp_handle }},
-				{% else %}
-					{{ project.persons[i].yelp_handle }}
-				{% endif %}
-			{% endfor %}
-		</div>
+	  <p class="project-desc">{{ project.description }}</p>
+	  <div class="hacker-names">
+	    {% for i in range(len(project.persons)) %}
+	    {% if not i == range(len(project.persons))[-1] %}
+	    {{ project.persons[i].yelp_handle }},
+	    {% else %}
+	    {{ project.persons[i].yelp_handle }}
+	    {% endif %}
+	    {% endfor %}
+	  </div>
 	</div>
       </a>
     </li>
-  {% endfor %}
+    {% endfor %}
 </ul>
 {% endblock %}

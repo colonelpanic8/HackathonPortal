@@ -5,7 +5,6 @@ from werkzeug import secure_filename
 from . import app
 from . import logic
 from . import models
-from . import util
 
 
 @app.route(models.Project.view_url('<project_id>'))
