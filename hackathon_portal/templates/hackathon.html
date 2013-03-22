@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Hackathon {{ hackathon.id }}{% endblock %}
+{% block title %}Hackathon {{ hackathon.number }}{% endblock %}
 {% block head %}
     {{ super() }}
 {% endblock %}
@@ -12,9 +12,7 @@
 <ul class="clearfix" id="project-boxes">
   {% for project in hackathon.projects %}
     <li class="project-box"
-	{% if len(project.photos) > 0 %}
-      style="background-image: url('{{ project.photos[0].thumbnail_url }}')"
-      {% endif %}
+      style="background-image: url('{{ project.get_photo().thumbnail_url }}')"
       >
       <a href="{{ project.url }}">
 	<h3>{{ project.name }}</h3>

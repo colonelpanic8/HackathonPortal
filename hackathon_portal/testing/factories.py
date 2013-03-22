@@ -1,5 +1,6 @@
 import random
 
+from .. import logic
 from .. import models
 
 
@@ -66,6 +67,7 @@ class BaseFactory(object):
 HackathonFactory = BaseFactory(models.Hackathon)
 ProjectFactory = BaseFactory(models.Project)
 PersonFactory = BaseFactory(models.Person)
+AwardFactory = BaseFactory(models.Award)
 
 
 def build_hackathon_fixture(hackathon_number):
@@ -82,3 +84,22 @@ def build_hackathon_fixture(hackathon_number):
         models.db.session.add(project)
     models.db.session.commit()
     return hackathon_id
+
+
+def build_award_fixtures(hackathon_number):
+    hackathon =  models.Hackathon.query.filter(
+        models.Hackathon.number == int(hackathon_number)
+    ).one()
+    photo = logic.add_photo(
+        'award',
+        logic.download_image_from_url(
+            'http://www.visittyler.com/images/award_icon.gif',
+        ),
+        'gif'
+        )
+    for _ in range(3):
+        award = AwardFactory.create()
+        logic.associate_photo_with_model(photo, award)
+        project = hackathon.projects[random.randint(0, len(hackathon.projects)-1)]
+        project.awards.append(award)
+    models.db.session.commit()
