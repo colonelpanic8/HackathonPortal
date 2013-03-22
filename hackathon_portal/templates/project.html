@@ -16,7 +16,7 @@
     <label>Description</label>
     <p>{{ project.description }}</p>
     <span class="edit" value="update-description">[edit description]</span>
-    <form id="update-description" action="{{ project.update_url('description') }}" method="post">
+    <form class="hide" id="update-description" action="{{ project.update_url('description') }}" method="post">
         <textarea name="description" class="input-xxlarge" rows="8">
 	  {{ project.description }}
 	</textarea>
@@ -28,16 +28,16 @@
     <label>Members</label>
     <p>{{ project.members_string }}</p>
     <span class="edit" value="update-members">[add member]</span>
-    <form class="hide" id="update-members" action="/update_project_members" method="post">
+    <form class="hide" id="update-members" action="{{ project.add_person }}" method="post">
         <input id="member-input" type="text" name="member" class="input-xxlarge" />
         <input type="hidden" name="project_id" value="{{ project.id }}">
-        <input type="submit" value="Update">
+        <input type="submit" value="Add">
     </form>
 
     <label>Repo Link</label>
     <p><a href='{{ project.link }}'>{{ project.link }}</a></p>
     <span class="edit" value="update-link">[edit description]</span>
-    <form id="update-link" action="{{ project.update_url('link')}}" method="post">
+    <form class="hide" id="update-link" action="{{ project.update_url('link')}}" method="post">
         <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
@@ -54,7 +54,7 @@
         {% endif %}
     </p>
     <span class="edit" value="update-photo">[upload photo]</span>
-    <form id="update-photo" name="input" action="{{ project.add_photo_url }}" method="post" enctype="multipart/form-data">
+    <form class="hide" id="update-photo" name="input" action="{{ project.add_photo_url }}" method="post" enctype="multipart/form-data">
       <input type="file" name="photo">
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Submit">
