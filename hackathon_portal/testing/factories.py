@@ -70,7 +70,7 @@ PersonFactory = BaseFactory(models.Person)
 
 def build_hackathon_fixture(hackathon_number):
     hackathon_id = HackathonFactory.create_upsert_and_return_id(
-        hackathon_number=hackathon_number
+        number=hackathon_number
     )
     projects = [
     	ProjectFactory.create(hackathon_id=hackathon_id)
