@@ -21,18 +21,22 @@
     {% if project.description %}
         {{ project.description }}
     {% else %}
-        No description, click edit description to say more about this project!
+        No description available. Please click "edit description" below to provide a description for this project.
     {% endif %}
     </p>
     <span class="edit" value="update-description">[edit description]</span>
     <form class="hide" id="update-description" action="{{ project.update_url('description') }}" method="post">
-        <textarea name="description" class="input-xxlarge" rows="8">{{ project.description }}</textarea>
+        <textarea name="description" class="input-xxlarge" rows="8">
+            {% if project.description %}
+                {{ project.description }}
+            {% endif %}
+        </textarea>
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
     
-
     <label>Members</label>
+    <p>
     {% if len(project.persons) > 0 %}
     {% for person in project.persons %}
     <form class="member-element" action="{{ project.remove_person_url }}" method="post">
@@ -42,24 +46,25 @@
     </form>
     {% endfor %}
     {% else %}
-        No members added. Click edit members to add members of this project!
+        No members added. Please click "edit members" below to add the members of this project.
     {% endif %}
-    <span class="edit" value="update-members">[edit member]</span>
+    </p>
+    <span class="edit" value="update-members">[edit members]</span>
     <form class="hide" id="update-members" action="{{ project.add_person_url }}" method="post">
         <input id="member-input" type="text" name="person" class="input-xxlarge" />
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Add">
     </form>
 
-    <label>Repo Link</label>
+    <label>Repository Link</label>
     <p>
     {% if project.link != None %}
     <a href='{{ project.link }}'>{{ project.link }}</a>
     {% else %}
-        No Link.
+        No link available. Please click "edit link" below to add a link for this project.
     {% endif %}
     </p>
-    <span class="edit" value="update-link">[edit description]</span>
+    <span class="edit" value="update-link">[edit link]</span>
     <form class="hide" id="update-link" action="{{ project.update_url('link')}}" method="post">
         <input type="text" name="link" class="input-xxlarge" value='{{ project.link }}' />
         <input type="hidden" name="project_id" value="{{ project.id }}">
@@ -69,7 +74,7 @@
     <label>Photos</label>
     <p>
         {% if len(project.photos) == 0 %}
-             <p>No photos found.</p>
+             <p>No photos found. Please click "upload photo" below to upload a photo for this project.</p>
         {% else %}
             {% for photo in project.photos %}
                  <img src="{{ photo.url }}" />

@@ -46,11 +46,10 @@ def associate_photo_with_model(photo, model):
 def associate_photo_with_project_from_ids(photo_id, project_id):
     project = models.Project.load(project_id)
     photo = models.Photo.load(photo_id)
-    associate_photo_with_model(photo, project)
-
+    return associate_photo_with_project(photo, project)
 
 def add_project(**kwargs):
-    hackathon_id = load_hackathon(kwargs['hackathon_num']).id
+    hackathon_id = load_hackathon(kwargs.get('hackathon_num')).id
     project_members = []
     if 'member_handles' in kwargs:
         member_details = [
@@ -63,10 +62,10 @@ def add_project(**kwargs):
 
         project_members = add_persons(member_details)
     project_model = models.Project.new(
-        name=kwargs['name'],
-        description=kwargs['description'],
+        name=kwargs.get('name'),
+        description=kwargs.get('description'),
         hackathon_id=hackathon_id,
-        link=kwargs['link']
+        link=kwargs.get('link')
     )
     if project_members:
         project_model.persons = project_members
