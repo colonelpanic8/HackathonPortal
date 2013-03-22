@@ -144,3 +144,41 @@ em{
 	margin: 0 5px 0 0;
 }
 
+ul{
+	list-style: none;
+}
+
+#nav{
+	bottom: 0;
+	position: fixed;
+	background-color: #fff9e5;
+	right: 100px;
+	border-radius: 10px 10px 0 0;
+	padding: 10px 10px 0 10px;
+	cursor: pointer;
+	margin: 0;
+}
+
+#nav li ul {
+	display: none;
+	list-style: none;
+	margin-left: 0;
+}
+
+.child li{
+	margin: 0 -10px;
+	padding-left: 10px;
+	line-height: 2;
+}
+
+#nav a{
+	color: #323232;
+}
+
+#nav a:hover{
+	text-decoration: none;
+}
+
+.child li:hover{
+	background-color: #ffba00;
+}
