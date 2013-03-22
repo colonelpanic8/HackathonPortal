@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="content-header">
+        <h2>Upload Project</h2>
+    </div>
+
+    <form name="input" action="/upload_project" method="post">
+        <label>Name</label>
+        <p><input name="name" type="text" class="input-xxlarge"/></p>
+
+        <label>Description</label>
+        <textarea name="description" class="input-xxlarge" rows="8"></textarea>
+
+        <label>Members</label>
+        <p><input type="text" name=members class="input-xxlarge" }}' /></p>
+
+        <label>Repo Link</label>
+        <p><input type="text" class="input-xxlarge"/></p>
+
+
+
+        <input type="submit" value="Update">
+    </form>
+
+{% endblock %}
+
