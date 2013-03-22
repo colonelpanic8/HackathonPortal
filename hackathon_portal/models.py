@@ -10,6 +10,7 @@ from . import photo_directory
 
 db = SQLAlchemy(app)
 
+
 def new(cls, **kwargs):
     model = cls(**kwargs)
     db.session.add(model)
@@ -20,6 +21,7 @@ def model_init(self, **kwargs):
     super(db.Model, self).__init__()
     for key, value in kwargs.iteritems():
         setattr(self, key, value)
+
 
 db.Model.__init__ = model_init
 db.Model.itercolumns = classmethod(lambda cls: cls.__table__.columns._data.iterkeys())

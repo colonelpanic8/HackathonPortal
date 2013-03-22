@@ -1,5 +1,7 @@
 import argparse
-from hackathon_portal import models, phonebook_etl, engrec_data_etl
+import os
+
+from hackathon_portal import models, phonebook_etl, engrec_data_etl, server_directory, logic
 from hackathon_portal.testing import factories
 from sanitize_yelp_handles import SanitizeYelpHandler
 
@@ -38,7 +40,7 @@ def reset_tables_and_build_hackathon_fixtures():
 
 
 def fill_projects_with_default_photos():
-    from hackathon_portal import image_fetcher, logic
+    from hackathon_portal import image_fetcher
     hackathon = models.Hackathon.query.filter(models.Hackathon.number == 9).one()
     for project in hackathon.projects:
         if project.photos:
@@ -63,6 +65,24 @@ def run_bootstrap():
     #SanitizeYelpHandler()
     data_loader_etl = engrec_data_etl.EngRecDataETL('data/hackathondata.csv')
     data_loader_etl.execute()
+
+
+def make_awards():
+    for award_name in ['useful', 'funny', 'cool', 'unhack', 'hardcore']:
+        award = models.Award.new(name=award_name)
+        models.db.session.commit()
+        with open(
+            os.path.join(server_directory, 'data', 'awards', "%s.jpg" % award_name)
+        ) as file:
+            photo = logic.add_photo(
+                award_name,
+                file.read(),
+                'jpg'
+            )
+            logic.associate_photo_with_model(photo, award)
+        models.db.session.commit()
+
+
 
 
 if __name__ == '__main__':

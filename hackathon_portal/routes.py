@@ -7,6 +7,10 @@ from . import logic
 from . import models
 
 
+app.jinja_env.globals['logic'] = logic
+app.jinja_env.globals['models'] = models
+
+
 @app.route(models.Project.view_url('<project_id>'))
 def project_page(project_id):
     return render_template(
