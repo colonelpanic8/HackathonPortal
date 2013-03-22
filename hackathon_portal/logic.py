@@ -1,5 +1,7 @@
-import urllib2
 from contextlib import closing
+import urllib2
+
+from PIL import Image
 
 from . import models
 
@@ -16,16 +18,23 @@ def add_photo(name, data, format):
     models.db.session.commit()
     with open(photo_model.filepath, 'wb') as photo_file:
         photo_file.write(data)
+    save_image_thumbnail(photo_model)
     return photo_model
 
 
 def save_photo(file, name, format):
     photo_model = models.Photo(name=name, format=format)
     models.db.session.add(photo_model)
-    # TODO: can we move this to after the save?
     models.db.session.commit()
     file.save(photo_model.filepath)
+    save_image_thumbnail(photo_model)
     return photo_model
+
+
+def save_image_thumbnail(photo_model):
+    image = Image.open(photo_model.filepath)
+    image.thumbnail(photo_model.thumbnail_size, Image.ANTIALIAS)
+    image.save(photo_model.thumbnail_filepath)
 
 
 def associate_photo_with_project(photo, project):

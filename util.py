@@ -38,7 +38,8 @@ def reset_tables_and_build_hackathon_fixtures():
 
 def fill_projects_with_default_photos():
     from hackathon_portal import image_fetcher, logic
-    for project in models.Project.query.all():
+    hackathon = models.Hackathon.query.filter(models.Hackathon.number == 9).one()
+    for project in hackathon.projects:
         if project.photos:
             continue
 	for project in models.Hackathon.query.filter(models.Hackathon.number == 7).one().projects:

@@ -53,7 +53,6 @@ def add_project():
 	models.db.session.commit()
         return redirect(project.url)
 
-
 @app.route(models.Person.get_handles_starting_with_url)
 def get_handles_starting_with():
     matching_persons = logic.get_persons_with_handles_starting_with(
