@@ -25,8 +25,9 @@
 
     <label>Members</label>
     <p>{{ project.members_string }}</p>
+    <span class="edit" value="update-members">[add member]</span>
     <form class="hide" id="update-members" action="/update_project_members" method="post">
-        <input type="text" name="members" class="input-xxlarge" value='{{ project.members_string }}' />
+        <input id="member-input" type="text" name="member" class="input-xxlarge" />
         <input type="hidden" name="project_id" value="{{ project.id }}">
         <input type="submit" value="Update">
     </form>
