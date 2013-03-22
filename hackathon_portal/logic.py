@@ -56,6 +56,7 @@ def add_handles_to_project(yelp_handles, project):
     	models.Person.yelp_handle.in_(yelp_handles)
     ).all()
     project.persons.extend(persons)
+    models.db.session.commit()
     return persons
 
 
