@@ -3,7 +3,7 @@ from . import models
 
 def get_persons_with_handles_starting_with(string):
     return models.Person.query.filter(
-        models.Person.startswith(string)
+        models.Person.yelp_handle.startswith(string)
     ).all()
 
 
@@ -65,7 +65,7 @@ def add_persons(persons):
         models.Person.yelp_handle.in_(
             [person['yelp_handle'] for person in persons]
         )
-	).all()
+    ).all()
     existing_yelp_handles = [person.yelp_handle for person in existing_persons]
     missing_persons = [
         person for person in persons

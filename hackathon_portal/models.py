@@ -1,12 +1,12 @@
 import os
 
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext import sqlalchemy
 
 from . import app
 from . import photo_directory
 
 
-db = SQLAlchemy(app)
+db = sqlalchemy.SQLAlchemy(app)
 
 def new(cls, **kwargs):
     model = cls(**kwargs)
@@ -53,6 +53,8 @@ class Photo(db.Model):
 
 class Person(db.Model):
 
+    base_path = os.path.join('/', 'person')
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
     yelp_handle = db.Column(db.String(250), unique=True)
@@ -62,6 +64,10 @@ class Person(db.Model):
             name=self.name or '',
             yelp_handle='<%s>' % self.yelp_handle if self.yelp_handle else ''
         )
+
+    @sqlalchemy.util.classproperty
+    def get_handles_starting_with_url(cls):
+        return "/person/get_handles_matching"
 
 
 class Hackathon(db.Model):
@@ -131,15 +137,20 @@ class Project(db.Model):
 
     @property
     def url(self):
-        return os.path.join(self.base_path, 'view', str(self.id))
+        return self.view_url(str(self.id))
 
-    @property
-    def add_photo_url(self):
-        return os.path.join(self.base_path, 'add', 'photo')
-
-    @property
-    def add_member_url(self):
-        return os.path.join(self.base_path, 'add', 'member')
-
+    @classmethod
     def update_url(self, attribute_name):
         return os.path.join(self.base_path, 'update', attribute_name)
+
+    @classmethod
+    def view_url(cls, identifier):
+        return os.path.join(cls.base_path, 'view', identifier)
+
+    @sqlalchemy.util.classproperty
+    def add_photo_url(cls):
+        return os.path.join(cls.base_path, 'add', 'photo')
+
+    @sqlalchemy.util.classproperty
+    def add_person_url(cls):
+        return os.path.join(cls.base_path, 'add', 'person')

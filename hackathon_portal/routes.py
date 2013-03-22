@@ -13,11 +13,6 @@ def _upload_photo(file):
     return logic.save_photo(file, name, extension)
 
 
-@app.route("/")
-def homepages():
-    return render_template("home.html")
-
-
 @app.route("/hackathon/view/<hackathon_number>")
 def hackathon(hackathon_number):
     return render_template(
@@ -28,7 +23,7 @@ def hackathon(hackathon_number):
     )
 
 
-@app.route("/project/view/<project_id>")
+@app.route(models.Project.view_url('<project_id>'))
 def project_page(project_id):
     return render_template(
     	"project.html",
@@ -38,17 +33,17 @@ def project_page(project_id):
     )
 
 
-@app.route("/project/update/<attribute_name>", methods=["POST"])
+@app.route(models.Project.update_url("<attribute_name>"), methods=["POST"])
 def update_project_attribute(attribute_name):
     project = logic.update_project_attribute(
         int(request.form['project_id']),
 	attribute_name,
         request.form[attribute_name]
     )
-    return redirect("/project/{project_id}".format(project_id=project.id))
+    return redirect(project.url)
 
 
-@app.route("/project/add/photo", methods=["POST"])
+@app.route(models.Project.add_photo_url, methods=["POST"])
 def add_photo_to_project():
     photo_model = _upload_photo(request.files['photo'])
     project = logic.associate_photo_with_project(
@@ -58,11 +53,11 @@ def add_photo_to_project():
     return redirect("/project/{project_id}".format(project_id=project.id))
 
 
-@app.route("/project/add/member", methods=["POST"])
+@app.route(models.Project.add_person_url, methods=["POST"])
 def add_member_to_project():
     pass
 
-@app.route("/person/get_handles_matching")
+@app.route(models.Person.get_handles_starting_with)
 def get_handles_starting_with():
     matching_persons = logic.get_persons_with_handles_starting_with(
     	request.args.get('handle_string', '')
