@@ -2,21 +2,26 @@ import re
 import etl
 
 
-FIRST_NAME_HEADER = 'First'
-LAST_NAME_HEADER = 'Last'
-EMAIL_HEADER = 'Email'
+
 INF = 99999
+
+def levenshtein(seq1, seq2):
+	oneago = None
+	thisrow = range(1, len(seq2) + 1) + [0]
+	for x in xrange(len(seq1)):
+		twoago, oneago, thisrow = oneago, thisrow, [0] * len(seq2) + [x + 1]
+		for y in xrange(len(seq2)):
+			delcost = oneago[y] + 1
+			addcost = thisrow[y - 1] + 1
+			subcost = oneago[y - 1] + (seq1[x] != seq2[y])
+			thisrow[y] = min(delcost, addcost, subcost)
+	return thisrow[len(seq2) - 1]
+
 
 class NameParser(object):
 
-
-	def __init__(self, phonebook='../data/phonebook.csv'):
-		self.yelp_engineers = self._get_names_from_phonebook(phonebook)
-
-	def _get_names_from_phonebook(self, phonebook):
-		csv_extractor = etl.CSVExtractor()
-		phonebook_names = csv_extractor.extract(phonebook)
-		return phonebook_names
+	def __init__(self, yelp_engineers):
+		self.yelp_engineers = yelp_engineers
 
 	def parse_name(self, raw_name):
 		comma_separated_names = raw_name.split(",")
@@ -25,8 +30,7 @@ class NameParser(object):
 		else:
 			splitted_names = raw_name.split("\n") if "\n" in raw_name else raw_name.split(" ")
 			matched_names = set([self._match_name(name) for name in splitted_names])
-		matched_name_list.append(matched_names)
-		return matched_name_list
+		return matched_names
 
 	def _split_by_full_names(self, raw_names):
 		full_name_regex = "([A-Z][a-z] [A-Z][a-z] )+"
@@ -36,34 +40,27 @@ class NameParser(object):
 		potential_match = None
 		min_distance = INF
 		name = original_name.lower()
+
 		for yelp_engineer in self.yelp_engineers:
-			first_name = yelp_engineer[FIRST_NAME_HEADER].lower()
-			last_name = yelp_engineer[LAST_NAME_HEADER].lower()
-			email = yelp_engineer[EMAIL_HEADER].lower()
+			full_name = yelp_engineer.name.lower() if yelp_engineer.name else ''
+			email = yelp_engineer.yelp_handle.lower()
 			handle = email[:email.find('@')]
-			full_name = " ".join([first_name, last_name])
+			first_name = ''
+			last_name = ''
+			if full_name:
+				first_name, last_name = full_name.rsplit(" ", 1)
+
 			distance = min(
 				[
-					self.levenshtein(name, first_name),
-					self.levenshtein(name, last_name),
-					self.levenshtein(name, full_name),
-					self.levenshtein(name, email),
-					self.levenshtein(name, handle)
+					levenshtein(name, first_name),
+					levenshtein(name, last_name),
+					levenshtein(name, full_name),
+					levenshtein(name, email),
+					levenshtein(name, handle)
 				]
 			)
 			if distance < min_distance:
 				min_distance = distance
-				potential_match = yelp_engineer[EMAIL_HEADER]
+				potential_match = yelp_engineer.yelp_handle
 		return potential_match if min_distance <= threshold else original_name
 
-	def levenshtein(self, seq1, seq2):
-		oneago = None
-		thisrow = range(1, len(seq2) + 1) + [0]
-		for x in xrange(len(seq1)):
-			twoago, oneago, thisrow = oneago, thisrow, [0] * len(seq2) + [x + 1]
-			for y in xrange(len(seq2)):
-				delcost = oneago[y] + 1
-				addcost = thisrow[y - 1] + 1
-				subcost = oneago[y - 1] + (seq1[x] != seq2[y])
-				thisrow[y] = min(delcost, addcost, subcost)
-		return thisrow[len(seq2) - 1]
