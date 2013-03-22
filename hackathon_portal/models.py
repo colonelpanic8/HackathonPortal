@@ -19,6 +19,8 @@ db.Model.__init__ = model_init
 
 class Photo(db.Model):
 
+    base_path = os.path.join('/static', 'photo')
+
     # TODO: make all of these columns write once.
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
@@ -26,14 +28,19 @@ class Photo(db.Model):
 
     @property
     def filename(self):
-        return "%{name}-%{id}.%{extension}".format(
+        return "{name}-{id}.{extension}".format(
             id=self.id,
             name=self.name,
-            extension=self.extension
+            extension=self.format
         )
 
+    @property
     def filepath(self):
         return os.path.join(photo_directory, self.filename)
+
+    @property
+    def url(self):
+        return os.path.join(self.base_path, self.filename)
 
 
 class Person(db.Model):

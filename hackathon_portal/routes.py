@@ -40,7 +40,7 @@ def edit_project(project_id):
     )
 
 
-def _upload_photo(file, filename):
+def _upload_photo(file):
     filename = secure_filename(file.filename)
     name, extension = filename.rsplit('.', 1)
     return logic.save_photo(file, name, extension)
@@ -54,10 +54,10 @@ def upload_photo():
 
 @app.route("/upload_photo_for_project/", methods=["POST"])
 def upload_photo_for_project():
-    photo_model = _upload_photo(request.files['file'])
+    photo_model = _upload_photo(request.files['photo'])
     project = logic.associate_photo_with_project(
-    	photo_model,
-    	int(request.args['project_id'])
+    	photo_model.id,
+    	int(request.form['project_id'])
     )
     return redirect("/project/{project_id}".format(project_id=project.id))
 
