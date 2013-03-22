@@ -21,15 +21,23 @@ def hackathon(hackathon_number):
     )
 
 
-@app.route("/project/<project_name>")
-def project_page(project_name):
+@app.route("/project/<project_id>")
+def project_page(project_id):
     return render_template(
     	"project.html",
     	project=models.Project.query.filter(
-            models.Project.name == project_name
+            models.Project.id == project_id
         ).one()
     )
 
+@app.route("/project/<project_id>/edit")
+def edit_project(project_id):
+    return render_template(
+    	"edit_project.html",
+    	project=models.Project.query.filter(
+            models.Project.id == project_id
+        ).one()
+    )
 
 def _upload_photo(file, filename):
     filename = secure_filename(file.filename)
