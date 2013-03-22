@@ -55,7 +55,7 @@ def add_photo_to_project():
 
 @app.route(models.Project.add_person_url, methods=["POST"])
 def add_member_to_project():
-    project = models.Project
+    project = models.Project.load(int(request.form['project_id']))
     logic.add_handles_to_project(
         [request.form['person']],
         request.form['project_id']
