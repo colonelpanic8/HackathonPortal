@@ -7,6 +7,7 @@
 <div id="content-header">
   <span>{{ hackathon.project_count }} projects</span>
   <h2>Hackathon {{ hackathon.number }}</h2>
+  <a href="{{ models.Project.add_url }}">Add a Project</a>
 </div>
 <ul class="clearfix" id="project-boxes">
   {% for project in logic.sort_projects_by_awards(hackathon.projects) %}

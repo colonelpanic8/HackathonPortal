@@ -46,7 +46,7 @@ def associate_photo_with_model(photo, model):
 def associate_photo_with_project_from_ids(photo_id, project_id):
     project = models.Project.load(project_id)
     photo = models.Photo.load(photo_id)
-    return associate_photo_with_project(photo, project)
+    return associate_photo_with_model(photo, project)
 
 def add_project(**kwargs):
     hackathon_id = load_hackathon(kwargs.get('hackathon_num')).id

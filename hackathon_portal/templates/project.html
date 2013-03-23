@@ -81,7 +81,7 @@
              <p>No photos found. Please click "upload photo" below to upload a photo for this project.</p>
         {% else %}
             {% for photo in project.photos %}
-                 <img src="{{ photo.url }}" />
+                 <img src="{{ photo.url }}" width="300px"/>
             {% endfor %}
         {% endif %}
     </p>

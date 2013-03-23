@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <a href="/1"><div id="header">{% block header %} <h1><span>Yelp</span>Hackathon</h1> {% endblock %}</div></a>
+        <a href="{{ models.Hackathon.view_url('10') }}"><div id="header">{% block header %} <h1><span>Yelp</span>Hackathon</h1> {% endblock %}</div></a>
         <div id="content">
             {% block content %}{% endblock %}
 	    <ul id="nav">
